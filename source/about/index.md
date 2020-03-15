@@ -11,7 +11,6 @@ layout: "about"
 # Work
 
 
-# Contact
 * <b>Email</b>
 
 * <b>Github</b>

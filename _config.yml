@@ -5,11 +5,11 @@
 # Site
 title: Adrian's blog
 subtitle: Adrian Hu
-description: 
-keywords: ""
+description: I think that we can make it
+keywords: Adrian Hu
 author: Adrian Hu
 language: en-ca
-timezone:
+timezone: "America/Toronto"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
