@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://adrrrrrrrian.github.io/adrianblog.github.io/
+url: https://adrrrrrrrian.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -114,7 +114,7 @@ deploy:
   repository: https://github.com/adrrrrrrrian/adrrrrrrrian.github.io
   branch: master
   name: Adrian Hu
-  email: qihu1992@gmail.com
+  email: qihu1992@hotmail.com
 
 
 baidu_url_submit:
