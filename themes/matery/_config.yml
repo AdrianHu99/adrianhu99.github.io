@@ -196,12 +196,12 @@ postCalendar: false
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
   enable: false
-  owner: godweiyang
-  repo: godweiyang.github.io
+  owner: Adrian Hu
+  repo: adrrrrrrrian.github.io
   oauth:
     clientId: 
     clientSecret: 
-  admin: godweiyang
+  admin: Adrian Hu
 
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
