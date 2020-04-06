@@ -113,7 +113,7 @@ deploy:
 - type: git
   repository: https://github.com/adrrrrrrrian/adrrrrrrrian.github.io
   branch: master
-  name: Adrian Hu
+  name: adrrrrrrrian
   email: qihu1992@hotmail.com
 
 
