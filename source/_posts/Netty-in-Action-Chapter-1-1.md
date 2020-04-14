@@ -14,7 +14,8 @@ tags:
 password:
 ---
 
-# Netty - asynchronous and event-driven
+# Chapter 1 - Netty - asynchronous and event-driven
+
 ## Networking in Java
 
 Previously we have to use one thread per connection to do the read/write, this has problems:

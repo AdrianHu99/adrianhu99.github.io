@@ -14,7 +14,7 @@ tags:
 password:
 ---
 
-# EventLoop
+# Chapter 7 - EventLoop
 
 In 7.1, it introduces Executor's threading model in JDK, where there is a thread pool, and an available is selected from it to process a task, the thread will be returned back to the pool once the task is completed.
 ![Executor Logic](executor_logic.png)

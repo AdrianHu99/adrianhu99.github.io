@@ -15,7 +15,7 @@ password:
 ---
 
 
-# ByteBuf
+# Chapter 5 - ByteBuf
 
 ## 5.1 The ByteBuf API
 

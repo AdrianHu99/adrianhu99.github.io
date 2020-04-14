@@ -14,7 +14,7 @@ tags:
 password:
 ---
 
-# ChannelHandler and ChannelPipeline
+# Chapter 6 - ChannelHandler and ChannelPipeline
 
 ## 6.1 ChannelHandler family
 

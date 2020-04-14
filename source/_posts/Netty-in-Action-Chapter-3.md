@@ -15,7 +15,7 @@ password:
 ---
 
 
-# Netty components and design
+# Chapter 3 - Netty components and design
 
 Channel - Sockets
 EventLoop - Control flow, multithreading, concurrency

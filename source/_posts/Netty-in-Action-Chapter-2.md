@@ -14,7 +14,7 @@ tags:
 password:
 ---
 
-# First Netty Application - Echo Client and Server
+# Chapter 2 - First Netty Application - Echo Client and Server
 
 ## Echo Server
 1. At least one ChannelHandler - implementation of data processing
