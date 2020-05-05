@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 date: 2020-04-02 08:19:04
 summary: Reading notes for Chapter 3 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -16,7 +15,7 @@ password:
 
 
 # Chapter 3 - Netty components and design
-
+<!--more-->
 Channel - Sockets
 EventLoop - Control flow, multithreading, concurrency
 ChannelFuture - Asynchronous notification, a placeholder for the result of an operation that's to be executed in the future.

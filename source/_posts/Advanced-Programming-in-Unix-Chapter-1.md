@@ -1,6 +1,5 @@
 ---
 title: Advanced Programming in Unix - Chapter 1
-img: /medias/featureimages/advanced_programming_in_unix_cover.png
 summary: Reading notes for Chapter 1 of &laquo;Advanced Programming in Unix&raquo;
 categories: Tech
 tags:
@@ -18,7 +17,7 @@ password:
 
 ## UNIX Architecture
 an operating system can be defined as the software that controls the hardware resources of the computer and provides an environment under which programs can run. We call it the kernel.
-
+<!--more-->
 
 ![Unix Architecture](unix_architecture.png)
 

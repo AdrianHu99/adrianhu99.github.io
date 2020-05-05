@@ -9,13 +9,12 @@ summary: Reading notes for Chapter 2 of &laquo;Advanced Programming in Unix&raqu
 categories: Tech
 tags:
     - Operating System
-img: /medias/featureimages/advanced_programming_in_unix_cover.png
 password:
 ---
 
 # UNIX Standardization and Implementations
 
-
+<!--more-->
 
 
 

@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 date: 2020-03-28 12:33:43
 summary: Reading notes for Chapter 1 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -15,7 +14,7 @@ password:
 ---
 
 # Chapter 1 - Netty - asynchronous and event-driven
-
+<!--more-->
 ## Networking in Java
 
 Previously we have to use one thread per connection to do the read/write, this has problems:

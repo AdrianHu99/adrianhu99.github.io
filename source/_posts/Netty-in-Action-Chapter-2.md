@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 date: 2020-03-31 21:09:34
 summary: Reading notes for Chapter 2 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -15,7 +14,7 @@ password:
 ---
 
 # Chapter 2 - First Netty Application - Echo Client and Server
-
+<!--more-->
 ## Echo Server
 1. At least one ChannelHandler - implementation of data processing
 2. Bootstrapping - startup code that configures server.

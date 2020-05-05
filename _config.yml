@@ -4,11 +4,11 @@
 
 # Site
 title: Adrian's blog
-subtitle: Adrian Hu
+subtitle:
 description: I think that we can make it
-keywords: Adrian Hu
-author: adrrrrrrrian
-language: en-ca
+keywords:
+author: Adrian Hu
+language: en
 timezone: "America/Toronto"
 
 # URL
@@ -105,7 +105,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: matery
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -142,4 +142,3 @@ live2d:
     show: false
   react:
     opacity: 0.7
-

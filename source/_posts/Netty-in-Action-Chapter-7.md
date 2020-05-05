@@ -1,12 +1,11 @@
 ---
-title: Netty-in-Action-Chapter 7
+title: Netty in Action Chapter 7
 top: false
 cover: false
 toc: true
 mathjax: true
 date: 2020-04-09 09:04:33
 summary: Reading notes for Chapter 7 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -15,7 +14,7 @@ password:
 ---
 
 # Chapter 7 - EventLoop
-
+<!--more-->
 In 7.1, it introduces Executor's threading model in JDK, where there is a thread pool, and an available is selected from it to process a task, the thread will be returned back to the pool once the task is completed.
 ![Executor Logic](executor_logic.png)
 It has performance issues when the number of threads increases, and can be very complex in larger scope.

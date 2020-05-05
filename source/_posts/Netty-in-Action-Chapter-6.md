@@ -1,12 +1,11 @@
 ---
-title: Netty-in-Action-Chapter 6
+title: Netty in Action Chapter 6
 top: false
 cover: false
 toc: true
 mathjax: true
 date: 2020-04-07 11:43:45
 summary: Reading notes for Chapter 6 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -15,7 +14,7 @@ password:
 ---
 
 # Chapter 6 - ChannelHandler and ChannelPipeline
-
+<!--more-->
 ## 6.1 ChannelHandler family
 
 **Channel State Model**

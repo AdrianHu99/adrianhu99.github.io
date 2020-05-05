@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 date: 2020-04-21 06:40:45
 summary: Java Exception Handling Best Practices
-img: /medias/featureimages/java.png
 categories: Tech
 tags:
     - Java
@@ -14,7 +13,7 @@ password:
 ---
 
 #### Do **NOT** just catch Exception or Throwable, which will also catch RuntimeException
-
+<!--more-->
   
 ```
 // Bad

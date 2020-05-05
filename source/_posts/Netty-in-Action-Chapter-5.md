@@ -1,12 +1,11 @@
 ---
-title: Netty-in-Action-Chapter 5
+title: Netty in Action Chapter 5
 top: false
 cover: false
 toc: true
 mathjax: true
 date: 2020-04-03 14:41:57
 summary: Reading notes for Chapter 5 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -16,7 +15,7 @@ password:
 
 
 # Chapter 5 - ByteBuf
-
+<!--more-->
 ## 5.1 The ByteBuf API
 
 Advantages of *ByteBuf* API: 

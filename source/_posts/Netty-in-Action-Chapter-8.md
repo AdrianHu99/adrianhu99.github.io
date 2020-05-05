@@ -6,7 +6,6 @@ toc: true
 mathjax: true
 date: 2020-04-14 14:54:16
 summary: Reading notes for Chapter 8 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -15,7 +14,7 @@ password:
 ---
 
 # Chapter 8 - Bootstrapping
-
+<!--more-->
 In 8.1, the bootstrapping steps common to both server and client are handled by AbstractBootstrap, steps specific to clients/servers are handled by Bootstrap or ServerBootstrap.
 
 In 8.2, *Bootstrap* class is responsible to create Channels for clients and for applications using connectionless protocols.

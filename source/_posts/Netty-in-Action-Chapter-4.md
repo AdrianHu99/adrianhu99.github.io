@@ -1,12 +1,11 @@
 ---
-title: Netty-in-Action-Chapter 4
+title: Netty in Action Chapter 4
 top: false
 cover: false
 toc: true
 mathjax: true
 date: 2020-04-03 11:22:29
 summary: Reading notes for Chapter 4 of &laquo;Netty in Action&raquo;
-img: /medias/featureimages/netty_in_action.jpg
 categories: Tech
 tags:
     - Java
@@ -15,7 +14,7 @@ password:
 ---
 
 # Chapter 4 - Transports
-
+<!--more-->
 Netty OIO and NIO implementation has way less differences than Java's NIO and OIO, we only need to change the OIO eventLoopGroup to NIO eventLoopGroup, as well as oioSocketChannel to nioSocketChannel.
 
 ## 4.2 Transport API
