@@ -6,7 +6,7 @@ toc: true
 mathjax: true
 date: 2020-05-08 15:10:25
 summary: Tips on how to read a tech book
-tags: [Reading]
+tags: [Career]
 categories: [Tech]
 password:
 ---

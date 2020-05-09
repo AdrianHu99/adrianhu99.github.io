@@ -123,6 +123,8 @@ baidu_url_submit:
   token: 
   path: 
 
+marked:
+  smartypants: false
 
 live2d:
   enable: false

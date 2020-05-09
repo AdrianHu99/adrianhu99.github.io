@@ -275,6 +275,8 @@ custom_logo:
   enabled: false
   image:
 
+marked:
+  smartypants: false
 # Code Highlight theme
 # Available value:
 #    normal | night | night eighties | night blue | night bright
