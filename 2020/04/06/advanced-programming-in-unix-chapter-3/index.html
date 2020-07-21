@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="File I/O">
+<meta name="keywords" content="Operating System">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced Programming in Unix - Chapter 3">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="File I/O">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/buffer_size_comparison.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/kernel_data_structure_for_open_files.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/two_processes_one_file.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/kernel_data_structure_after_dup.png">
+<meta property="og:updated_time" content="2020-05-05T15:11:23.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Advanced Programming in Unix - Chapter 3">
+<meta name="twitter:description" content="File I/O">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/buffer_size_comparison.png">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Advanced Programming in Unix - Chapter 3 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/04/06/advanced-programming-in-unix-chapter-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Advanced Programming in Unix - Chapter 3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-06 14:45:59" itemprop="dateCreated datePublished" datetime="2020-04-06T14:45:59-04:00">2020-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="File-I-O"><a href="#File-I-O" class="headerlink" title="File I/O"></a>File I/O</h1><a id="more"></a>
+<h2 id="3-1-Introduction"><a href="#3-1-Introduction" class="headerlink" title="3.1 Introduction"></a>3.1 Introduction</h2><p>The term <em>unbuffered</em> means each <em>read</em> or <em>write</em> invokes a system call in the kernel.</p>
+<p>The unbuffered I/O functions are not part of ISO C but are part of POSIX.1 and Single UNIX Specification.</p>
+<h2 id="3-2-File-descriptors"><a href="#3-2-File-descriptors" class="headerlink" title="3.2 File descriptors"></a>3.2 File descriptors</h2><p>File descriptor is a non-negative integer, it&#39;s returned if we open or create a file.</p>
+<p>File descriptor 0 is with standard input of a process, 1 is output, and 2 is standard error.</p>
+<p>Although they should be replaced by symbolic constants <strong>STDIN_FILENO</strong>, <strong>STDOUT_FILENO</strong>, and <strong>STDERR_FILENO</strong> to improve readability.</p>
+<h2 id="3-3-open-and-openat"><a href="#3-3-open-and-openat" class="headerlink" title="3.3 open and openat"></a>3.3 open and openat</h2><p>The file descriptor returned by <em>open</em> and <em>openat</em> is guaranteed to be the lowest numbered unused descriptor.</p>
+<p>The <em>fd</em> parameter distinguishes the <em>openat</em> from the <em>open</em> function.</p>
+<p>The <em>openat</em> is to address two problems:</p>
+<ol>
+<li><p>Allow different threads in same process to access different files from different locations.</p>
+</li>
+<li><p>Provides a way to avoid time-of-check-to-time-of-use errors (TOCTTOU).</p>
+</li>
+</ol>
+<h2 id="3-6-lseek"><a href="#3-6-lseek" class="headerlink" title="3.6 lseek"></a>3.6 lseek</h2><p><em>lseek</em> is to set an open file&#39;s offset.</p>
+<p>the parameter <em>whence</em> can have three values: <strong>SEEK_SET</strong>, <strong>SEEK_CUR</strong> and <strong>SEEK_END</strong>.</p>
+<p>The offset can be greater than the file&#39;s current size, where the next <em>write</em> to the file will extend the file. There is no need to allocate disk space for the data between the old end of the file and the location where you start writing.</p>
+<h2 id="3-9-I-O-Efficienty"><a href="#3-9-I-O-Efficienty" class="headerlink" title="3.9 I/O Efficienty"></a>3.9 I/O Efficienty</h2><p><img src="buffer_size_comparison.png" alt="Buffer size comparison"></p>
+<p>The file system used for this test was the Linux ext4 file system with 4096-byte blocks. This accounts for the minimum in the system time occurring at the few timing measurements starting around 4096. Increasing the buffer size beyond this limit has little positive effect.</p>
+<p>Most file systems support <strong>read-ahead</strong> to improve performance.</p>
+<h2 id="3-10-File-Sharing"><a href="#3-10-File-Sharing" class="headerlink" title="3.10 File Sharing"></a>3.10 File Sharing</h2><ol>
+<li><p>Every process has an entry in the process table. Within that table entry is a table of open file descriptors. There are <em>fd flags</em> and <em>pointer to a file table entry</em></p>
+</li>
+<li><p>The kernel maintains a file table for all open files, each file table entry contains: <em>fd flag, current offset</em>, and <em>pointer to the v-node table entry for the file</em></p>
+</li>
+<li><p>Each open file has a v-node structure that contains information about the type of file and pointers to functions that operate on the file. They always contains the i-node for the file. The i-node contains the owner of the file, size, pointers to where the actual data blocks for the file are located on disk, and so on.</p>
+</li>
+</ol>
+<p><strong>Note</strong>: Linux has no v-node, instead a generic i-node structure is used.</p>
+<p><img src="kernel_data_structure_for_open_files.png" alt="Kernel data structure for open files"></p>
+<p><img src="two_processes_one_file.png" alt="Two processes with the same file open"></p>
+<p>It&#39;s also possible for more than one file descriptor entry to point to the same file table entry. <em>dup, fork</em>.</p>
+<h2 id="3-11-Atomic-Operations"><a href="#3-11-Atomic-Operations" class="headerlink" title="3.11 Atomic Operations"></a>3.11 Atomic Operations</h2><p>If we call <em>lseek</em> and then <em>write</em> to achieve appending a message, it&#39;s possible two different processes conflict with each other. Thus we have <strong>O_APPEND</strong> to do it atomically.</p>
+<p><strong>pread</strong> is equivalent to calling <em>lseek</em> and then <em>read</em>, except that there is no way to interrupt the two operations, and the current file offset is not updated.</p>
+<p><strong>pwrite</strong> is equivalent to calling <em>lseek</em> and then <em>write</em>.</p>
+<p>The term <em>atomic operation</em> refers to an operation that might be composed of multiple steps, either all the steps are performed or none are performed. It&#39;s not possible that only a subset of all to be performed.</p>
+<h2 id="3-12-dup-and-dup2-Functions"><a href="#3-12-dup-and-dup2-Functions" class="headerlink" title="3.12 dup and dup2 Functions"></a>3.12 dup and dup2 Functions</h2><p>With dup2, we specify the value of the new descriptor.</p>
+<p><img src="kernel_data_structure_after_dup.png" alt="Kernel data structure after dup()"></p>
+<h2 id="3-13-sync-fsync-and-fdatasync-Functions"><a href="#3-13-sync-fsync-and-fdatasync-Functions" class="headerlink" title="3.13 sync, fsync and fdatasync Functions"></a>3.13 sync, fsync and fdatasync Functions</h2><p>UNIX systems have a buffer cache or page cache in the kernel. When we write data to a file, the data is normally copied by the kernel into the buffer and queued for writing to disk at some later time. This is called <em>delayed write</em>.</p>
+<p><em>sync</em> function simply queues all the modified block buffers for writing and returns, it does not wait for the disk writes to take place. It&#39;s called periodically to guarantee regular flushing of the kernel&#39;s buffer.</p>
+<p><em>fsync</em> refers only to a single file, and waits for the disk writes to complete before returning. This is used when an application, like database needs to be sure that the blocks have been written to the disk.</p>
+<p><em>fdatasync</em> is similar to <em>fsync</em>, but it affects only the data portion of a file, while <em>fsync</em> also update the file&#39;s attributes synchronously.</p>
+<h2 id="3-14-fcntl-Function"><a href="#3-14-fcntl-Function" class="headerlink" title="3.14 fcntl Function"></a>3.14 fcntl Function</h2><p>The <strong>fcntl</strong> function is used for five different purposes: </p>
+<ol>
+<li><p>Duplicate an existing descriptor (cmd = <strong>F_DUPFD</strong> or <strong>F_DUPFD_CLOEXEC</strong>) </p>
+</li>
+<li><p>Get/set file descriptor flags (cmd = <strong>F_GETFD</strong> or <strong>F_SETFD</strong>) </p>
+</li>
+<li><p>Get/set file status flags (cmd = <strong>F_GETFL</strong> or <strong>F_SETFL</strong>) </p>
+</li>
+<li><p>Get/set asynchronous I/O ownership (cmd = <strong>F_GETOWN</strong> or <strong>F_SETOWN</strong>) </p>
+</li>
+<li><p>Get/set record locks (cmd = <strong>F_GETLK</strong>, <strong>F_SETLK</strong>, or <strong>F_SETLKW</strong>)</p>
+<p><strong>F_DUPFD</strong>, <strong>F_GETFD</strong>, <strong>F_GETFL</strong> and <strong>F_GETOWN</strong> have special return values. The first command returns the new file descriptor, the next two return the corresponding flags, and the final command returns a positive process ID or a negative process group ID.</p>
+</li>
+</ol>
+<p>With <strong>fcntl</strong>, we can modify the file descriptor without opening that file, even if the file has been opened.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Operating-System/" rel="tag"># Operating System</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/03/netty-in-action-chapter-5/" rel="prev" title="Netty in Action Chapter 5">
+      <i class="fa fa-chevron-left"></i> Netty in Action Chapter 5
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/07/netty-in-action-chapter-6/" rel="next" title="Netty in Action Chapter 6">
+      Netty in Action Chapter 6 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File-I-O"><span class="nav-number">1.</span> <span class="nav-text">File I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">3.1 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-File-descriptors"><span class="nav-number">1.2.</span> <span class="nav-text">3.2 File descriptors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-open-and-openat"><span class="nav-number">1.3.</span> <span class="nav-text">3.3 open and openat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-lseek"><span class="nav-number">1.4.</span> <span class="nav-text">3.6 lseek</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-I-O-Efficienty"><span class="nav-number">1.5.</span> <span class="nav-text">3.9 I/O Efficienty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-File-Sharing"><span class="nav-number">1.6.</span> <span class="nav-text">3.10 File Sharing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-11-Atomic-Operations"><span class="nav-number">1.7.</span> <span class="nav-text">3.11 Atomic Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-12-dup-and-dup2-Functions"><span class="nav-number">1.8.</span> <span class="nav-text">3.12 dup and dup2 Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-13-sync-fsync-and-fdatasync-Functions"><span class="nav-number">1.9.</span> <span class="nav-text">3.13 sync, fsync and fdatasync Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-14-fcntl-Function"><span class="nav-number">1.10.</span> <span class="nav-text">3.14 fcntl Function</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Digital signature">
+<meta name="keywords" content="Security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cryptography notes">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="Digital signature">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/image-20200708104031335.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/image-20200708110748416.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/image-20200708113856166.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/image-20200708152328368.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/image-20200708153106778.png">
+<meta property="og:updated_time" content="2020-07-13T03:22:52.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cryptography notes">
+<meta name="twitter:description" content="Digital signature">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/image-20200708104031335.png">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Cryptography notes | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cryptography notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-12 23:19:52" itemprop="dateCreated datePublished" datetime="2020-07-12T23:19:52-04:00">2020-07-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Digital-signature"><a href="#Digital-signature" class="headerlink" title="Digital signature"></a>Digital signature</h2><a id="more"></a>
+
+<p><img src="image-20200708104031335.png" alt></p>
+<ol>
+<li>Bob has private key and public key, and sends the public key to Alice.</li>
+<li>Bob generates a plaintext memo, and uses hash algorithm on it to have a digest.</li>
+<li>Then Bob encrypts the digest using his private key and gets a digital signature.</li>
+<li>Bob then sends the digital signature along with the memo (<strong>Note: the memo is not encrypted</strong>) to Alice.</li>
+<li>Alice uses Bob&#39;s public key and decrypt the digital signature to gets the digest.</li>
+<li>Alice then uses the same hash algorithm on the plaintext memo and gets another digest.</li>
+<li>Alice compares both digests, if they are same, then Alice can be confident that the memo has not been changed.</li>
+</ol>
+<p><em><em>NOTE: </em></em> using digital signature does not encrypt the message itself, if Bob wants to encrypt the message, he will need to use Alice&#39;s public key to encrypt it.</p>
+<h2 id="Digital-Certificate"><a href="#Digital-Certificate" class="headerlink" title="Digital Certificate"></a>Digital Certificate</h2><p>Ditital cert is issued by a third party, and it&#39;s based on trust and it verifies that the digital signature is truly signed by the claims singer. It contains information as:</p>
+<ol>
+<li>Certificate owner&#39;s name;</li>
+<li>Owner&#39;s public key and its expiration date;</li>
+<li>Certificate issuer&#39;s name;</li>
+<li>Certificate issuer&#39;s digital signature</li>
+</ol>
+<p><img src="image-20200708110748416.png" alt></p>
+<p>##　SSL Certificate</p>
+<p><img src="image-20200708113856166.png" alt></p>
+<p><strong>SSL certificate</strong> is a web server&#39;s digital certificate, issued by a third party, and verifies the identity of web server and it&#39;s public key.</p>
+<p>For example, I want to go to <a href="https://yahoo.com" target="_blank" rel="noopener">https://yahoo.com</a> and I want to make sure all communications are secure.</p>
+<ol>
+<li>Browser requests secure pages from a yahoo web server;</li>
+<li>Yahoo server sends its public key with the SSL certificate, signed by a third party (CA);</li>
+<li>Client check with CA for the to make sure the cert is valid (common browser already got public keys installed from many popular CAs);</li>
+<li>Exchange the secret: client browser creates symmetric key, it uses web server&#39;s public key to encrypt the secret and sends it;</li>
+<li>Server uses its private key to decrypt the secret, now the server gets the shared key;</li>
+<li>From now on, the messages between client and server will be encrypted and decrypted using the shared key.</li>
+</ol>
+<h2 id="PKI-Public-Key-Infrastructure"><a href="#PKI-Public-Key-Infrastructure" class="headerlink" title="PKI (Public Key Infrastructure)"></a>PKI (Public Key Infrastructure)</h2><p>A framework for managing digital certificates and public key encryption</p>
+<p><img src="image-20200708152328368.png" alt></p>
+<h2 id="SSL-TLS-handshaking-protocol"><a href="#SSL-TLS-handshaking-protocol" class="headerlink" title="SSL/TLS handshaking protocol"></a>SSL/TLS handshaking protocol</h2><ol>
+<li>Client sends &quot;ClientHello&quot; with SSL/TLS version, cryptographic algorithms and data compression methods that it supports;</li>
+<li>Server responds with &quot;ServerHello&quot; with cryptographic algorithm agreement, session ID, digital cert and its public key;</li>
+<li>Client checks with server&#39;s CA to confirm and establish trust;</li>
+<li>ClientKeyExchange - client sends a shared secret key encrypted by the server&#39;s public key;</li>
+<li>Client sends a &quot;Finished&quot; message with the shared secret key - handshake complete;</li>
+<li>Server responds with a &quot;Finished&quot; message indicating handshake is completed.</li>
+</ol>
+<p><img src="image-20200708153106778.png" alt></p>
+<h2 id="Self-signed-certificate"><a href="#Self-signed-certificate" class="headerlink" title="Self signed certificate"></a>Self signed certificate</h2><p>Self signed SSL certificate does not mean it&#39;s necessarily less secure than purchased SSL certificates</p>
+<p>All SSL certificates just ensure that the identity of the website is certified and the traffic between your browser and the web server are encrypted. They won&#39;t ensure your data won&#39;t be stolen.</p>
+<h2 id="Revocation-of-certificates"><a href="#Revocation-of-certificates" class="headerlink" title="Revocation of certificates"></a>Revocation of certificates</h2><p>Situation causes revocation: </p>
+<ol>
+<li>Certificate is no longer used;</li>
+<li>Details of certificate are changed;</li>
+<li>The certificate owner&#39;s private key was compromised;</li>
+<li>Certificates were stolen from CA</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Security/" rel="tag"># Security</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/12/spring-security-notes/" rel="prev" title="Spring security notes">
+      <i class="fa fa-chevron-left"></i> Spring security notes
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/14/the-pragmatic-programmer-chapter-7/" rel="next" title="The Pragmatic Programmer - Chapter 7">
+      The Pragmatic Programmer - Chapter 7 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Digital-signature"><span class="nav-number">1.</span> <span class="nav-text">Digital signature</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Digital-Certificate"><span class="nav-number">2.</span> <span class="nav-text">Digital Certificate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PKI-Public-Key-Infrastructure"><span class="nav-number">3.</span> <span class="nav-text">PKI (Public Key Infrastructure)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-TLS-handshaking-protocol"><span class="nav-number">4.</span> <span class="nav-text">SSL/TLS handshaking protocol</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-signed-certificate"><span class="nav-number">5.</span> <span class="nav-text">Self signed certificate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revocation-of-certificates"><span class="nav-number">6.</span> <span class="nav-text">Revocation of certificates</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Adrian&#39;s blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://adrrrrrrrian.github.io/"/>
+  <updated>2020-07-17T19:52:33.653Z</updated>
+  <id>https://adrrrrrrrian.github.io/</id>
+  
+  <author>
+    <name>adrrrrrrrian</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>July 1st half notes</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/17/july-1st-half-notes/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/17/july-1st-half-notes/</id>
+    <published>2020-07-17T19:49:43.000Z</published>
+    <updated>2020-07-17T19:52:33.653Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Integration-styles&quot;&gt;&lt;a href=&quot;#Integration-styles&quot; class=&quot;headerlink&quot; title=&quot;Integration styles&quot;&gt;&lt;/a&gt;Integration styles&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Sharing" scheme="https://adrrrrrrrian.github.io/tags/Sharing/"/>
+    
+      <category term="Architecture" scheme="https://adrrrrrrrian.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第四个OKR</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/15/di-si-ge-okr/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/15/di-si-ge-okr/</id>
+    <published>2020-07-16T01:03:43.000Z</published>
+    <updated>2020-07-16T01:04:43.225Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第四个OKR&quot;&gt;&lt;a href=&quot;#第四个OKR&quot; class=&quot;headerlink&quot; title=&quot;第四个OKR&quot;&gt;&lt;/a&gt;第四个OKR&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+      <category term="OKR" scheme="https://adrrrrrrrian.github.io/tags/OKR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Pragmatic Programmer - Chapter 7</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/</id>
+    <published>2020-07-15T03:16:12.000Z</published>
+    <updated>2020-07-15T03:16:43.626Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Chapter-7-While-you-are-coding&quot;&gt;&lt;a href=&quot;#Chapter-7-While-you-are-coding&quot; class=&quot;headerlink&quot; title=&quot;Chapter 7 - While you are coding&quot;&gt;&lt;/a&gt;Chapter 7 - While you are coding&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Career" scheme="https://adrrrrrrrian.github.io/tags/Career/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cryptography notes</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/12/cryptography-notes/</id>
+    <published>2020-07-13T03:19:52.000Z</published>
+    <updated>2020-07-13T03:22:52.906Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Digital-signature&quot;&gt;&lt;a href=&quot;#Digital-signature&quot; class=&quot;headerlink&quot; title=&quot;Digital signature&quot;&gt;&lt;/a&gt;Digital signature&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Security" scheme="https://adrrrrrrrian.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring security notes</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/12/spring-security-notes/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/12/spring-security-notes/</id>
+    <published>2020-07-13T02:39:48.000Z</published>
+    <updated>2020-07-13T02:46:20.090Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Authentication-vs-authorization&quot;&gt;&lt;a href=&quot;#Authentication-vs-authorization&quot; class=&quot;headerlink&quot; title=&quot;Authentication vs authorization&quot;&gt;&lt;/a&gt;Authentication vs authorization&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Security" scheme="https://adrrrrrrrian.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title># 第三个OKR</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/01/di-san-ge-okr/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/01/di-san-ge-okr/</id>
+    <published>2020-07-02T03:00:24.000Z</published>
+    <updated>2020-07-13T03:01:51.472Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第三个OKR&quot;&gt;&lt;a href=&quot;#第三个OKR&quot; class=&quot;headerlink&quot; title=&quot;第三个OKR&quot;&gt;&lt;/a&gt;第三个OKR&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+      <category term="OKR" scheme="https://adrrrrrrrian.github.io/tags/OKR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>June 2nd half notes</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/01/june-2nd-half-notes/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/01/june-2nd-half-notes/</id>
+    <published>2020-07-02T03:00:15.000Z</published>
+    <updated>2020-07-13T03:01:44.813Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;June-2nd-half-note&quot;&gt;&lt;a href=&quot;#June-2nd-half-note&quot; class=&quot;headerlink&quot; title=&quot;June 2nd half note&quot;&gt;&lt;/a&gt;June 2nd half note&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Sharing" scheme="https://adrrrrrrrian.github.io/tags/Sharing/"/>
+    
+      <category term="Architecture" scheme="https://adrrrrrrrian.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>June 1st half notes</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/01/june-1st-half-notes/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/01/june-1st-half-notes/</id>
+    <published>2020-07-02T03:00:05.000Z</published>
+    <updated>2020-07-13T03:01:48.865Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;June-1st-half-note&quot;&gt;&lt;a href=&quot;#June-1st-half-note&quot; class=&quot;headerlink&quot; title=&quot;June 1st half note&quot;&gt;&lt;/a&gt;June 1st half note&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Sharing" scheme="https://adrrrrrrrian.github.io/tags/Sharing/"/>
+    
+      <category term="Architecture" scheme="https://adrrrrrrrian.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第二个OKR</title>
+    <link href="https://adrrrrrrrian.github.io/2020/06/17/di-er-ge-okr/"/>
+    <id>https://adrrrrrrrian.github.io/2020/06/17/di-er-ge-okr/</id>
+    <published>2020-06-17T13:47:10.000Z</published>
+    <updated>2020-06-17T13:53:25.173Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很快第二个OKR也过去了，这次总体成绩比上次要好，大部分任务都完成了，上次说的读书的问题这次也完成的很好（虽然TCP/IP那一章我啃了一个礼拜）。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+      <category term="OKR" scheme="https://adrrrrrrrian.github.io/tags/OKR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Technology Sharing May 2020</title>
+    <link href="https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/"/>
+    <id>https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/</id>
+    <published>2020-05-31T20:46:00.000Z</published>
+    <updated>2020-05-31T20:58:38.287Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://softwareengineeringdaily.com/2020/05/15/aws-virtualization-with-anthony-liguori/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Virtualization with Anthony Liguori&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Sharing" scheme="https://adrrrrrrrian.github.io/tags/Sharing/"/>
+    
+      <category term="Architecture" scheme="https://adrrrrrrrian.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一个OKR</title>
+    <link href="https://adrrrrrrrian.github.io/2020/05/31/di-yi-ge-okr/"/>
+    <id>https://adrrrrrrrian.github.io/2020/05/31/di-yi-ge-okr/</id>
+    <published>2020-05-31T20:29:46.000Z</published>
+    <updated>2020-05-31T20:37:51.840Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开始用Notion之后，终于下定决心在五月下半月执行OKR，试一试新的workflow会不会让我自己更有效率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+      <category term="OKR" scheme="https://adrrrrrrrian.github.io/tags/OKR/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Pragmatic Programmer-Chapter 2</title>
+    <link href="https://adrrrrrrrian.github.io/2020/05/25/the-pragmatic-programmer-chapter-2/"/>
+    <id>https://adrrrrrrrian.github.io/2020/05/25/the-pragmatic-programmer-chapter-2/</id>
+    <published>2020-05-25T20:12:35.000Z</published>
+    <updated>2020-05-25T20:46:47.219Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Chapter-2-A-Pragmatic-Approach&quot;&gt;&lt;a href=&quot;#Chapter-2-A-Pragmatic-Approach&quot; class=&quot;headerlink&quot; title=&quot;Chapter 2 A Pragmatic Approach&quot;&gt;&lt;/a&gt;Chapter 2 A Pragmatic Approach&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Career" scheme="https://adrrrrrrrian.github.io/tags/Career/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Pragmatic Programmer - Chapter 1</title>
+    <link href="https://adrrrrrrrian.github.io/2020/05/09/the-pragmatic-programmer-chapter-1/"/>
+    <id>https://adrrrrrrrian.github.io/2020/05/09/the-pragmatic-programmer-chapter-1/</id>
+    <published>2020-05-09T16:00:12.000Z</published>
+    <updated>2020-05-09T16:40:17.856Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Chapter-1-A-pragmatic-strategy&quot;&gt;&lt;a href=&quot;#Chapter-1-A-pragmatic-strategy&quot; class=&quot;headerlink&quot; title=&quot;Chapter 1 A pragmatic strategy&quot;&gt;&lt;/a&gt;Chapter 1 A pragmatic strategy&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Career" scheme="https://adrrrrrrrian.github.io/tags/Career/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to read a tech book</title>
+    <link href="https://adrrrrrrrian.github.io/2020/05/08/how-to-read-a-tech-book/"/>
+    <id>https://adrrrrrrrian.github.io/2020/05/08/how-to-read-a-tech-book/</id>
+    <published>2020-05-08T19:10:25.000Z</published>
+    <updated>2020-05-09T16:01:09.520Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;How-to-read-a-tech-book&quot;&gt;&lt;a href=&quot;#How-to-read-a-tech-book&quot; class=&quot;headerlink&quot; title=&quot;How to read a tech book&quot;&gt;&lt;/a&gt;How to read a tech book&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Career" scheme="https://adrrrrrrrian.github.io/tags/Career/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>传奇程序员修炼之道-直播观后感</title>
+    <link href="https://adrrrrrrrian.github.io/2020/04/27/chuan-qi-cheng-xu-yuan-xiu-lian-zhi-dao-zhi-bo-guan-hou-gan/"/>
+    <id>https://adrrrrrrrian.github.io/2020/04/27/chuan-qi-cheng-xu-yuan-xiu-lian-zhi-dao-zhi-bo-guan-hou-gan/</id>
+    <published>2020-04-27T22:50:24.000Z</published>
+    <updated>2020-05-05T15:12:51.527Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;传奇程序员修炼之道-直播观后感&quot;&gt;&lt;a href=&quot;#传奇程序员修炼之道-直播观后感&quot; class=&quot;headerlink&quot; title=&quot;传奇程序员修炼之道 直播观后感&quot;&gt;&lt;/a&gt;传奇程序员修炼之道 直播观后感&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Career" scheme="https://adrrrrrrrian.github.io/tags/Career/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>work from home 体会</title>
+    <link href="https://adrrrrrrrian.github.io/2020/04/23/work-from-home-ti-hui/"/>
+    <id>https://adrrrrrrrian.github.io/2020/04/23/work-from-home-ti-hui/</id>
+    <published>2020-04-23T12:27:19.000Z</published>
+    <updated>2020-05-05T15:16:04.712Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;目前wfh的节奏虽然还在不断适应，但总体已经到了一个很舒服的程度。&lt;br&gt;个人生活的质量有较大的提高，我不用担心做明天的中饭的问题，可以在中午简单地做一个meal，晚上有时候我fasting，所以省下一整块时间做自己的事。&lt;br&gt;工作方面，有时候当你有非常明确的东西去做的时候，我可以变得非常高效。但对于别的工作比如说需要和别人去交涉，或者需要别人的一些帮忙时，有时候线上的交流会有一些delay，交流的热情也不如在公司里那么强烈。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Exception Handling Best Practices</title>
+    <link href="https://adrrrrrrrian.github.io/2020/04/21/java-exception-handling-best-practices/"/>
+    <id>https://adrrrrrrrian.github.io/2020/04/21/java-exception-handling-best-practices/</id>
+    <published>2020-04-21T10:40:45.000Z</published>
+    <updated>2020-05-05T15:11:31.853Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Do-NOT-just-catch-Exception-or-Throwable-which-will-also-catch-RuntimeException&quot;&gt;&lt;a href=&quot;#Do-NOT-just-catch-Exception-or-Throwable-which-will-also-catch-RuntimeException&quot; class=&quot;headerlink&quot; title=&quot;Do NOT just catch Exception or Throwable, which will also catch RuntimeException&quot;&gt;&lt;/a&gt;Do &lt;strong&gt;NOT&lt;/strong&gt; just catch Exception or Throwable, which will also catch RuntimeException&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Netty in Action Chapter 9</title>
+    <link href="https://adrrrrrrrian.github.io/2020/04/17/netty-in-action-chapter-9/"/>
+    <id>https://adrrrrrrrian.github.io/2020/04/17/netty-in-action-chapter-9/</id>
+    <published>2020-04-17T12:23:59.000Z</published>
+    <updated>2020-05-05T15:12:40.500Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Chapter-9-Unit-test&quot;&gt;&lt;a href=&quot;#Chapter-9-Unit-test&quot; class=&quot;headerlink&quot; title=&quot;Chapter 9 - Unit test&quot;&gt;&lt;/a&gt;Chapter 9 - Unit test&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
+    
+      <category term="Netty" scheme="https://adrrrrrrrian.github.io/tags/Netty/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Netty in Action Chapter 8</title>
+    <link href="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/"/>
+    <id>https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/</id>
+    <published>2020-04-14T18:54:16.000Z</published>
+    <updated>2020-05-05T15:12:36.688Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Chapter-8-Bootstrapping&quot;&gt;&lt;a href=&quot;#Chapter-8-Bootstrapping&quot; class=&quot;headerlink&quot; title=&quot;Chapter 8 - Bootstrapping&quot;&gt;&lt;/a&gt;Chapter 8 - Bootstrapping&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
+    
+      <category term="Netty" scheme="https://adrrrrrrrian.github.io/tags/Netty/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Netty in Action Chapter 7</title>
+    <link href="https://adrrrrrrrian.github.io/2020/04/09/netty-in-action-chapter-7/"/>
+    <id>https://adrrrrrrrian.github.io/2020/04/09/netty-in-action-chapter-7/</id>
+    <published>2020-04-09T13:04:33.000Z</published>
+    <updated>2020-05-05T15:12:27.380Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Chapter-7-EventLoop&quot;&gt;&lt;a href=&quot;#Chapter-7-EventLoop&quot; class=&quot;headerlink&quot; title=&quot;Chapter 7 - EventLoop&quot;&gt;&lt;/a&gt;Chapter 7 - EventLoop&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
+    
+      <category term="Netty" scheme="https://adrrrrrrrian.github.io/tags/Netty/"/>
+    
+  </entry>
+  
+</feed>

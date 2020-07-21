@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Chapter 4 - Transports">
+<meta name="keywords" content="Java,Netty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty in Action Chapter 4">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="Chapter 4 - Transports">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/netty_provided_transports.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/selector_workflow.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/OIO_processing_logic.png">
+<meta property="og:updated_time" content="2020-05-05T15:12:00.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Netty in Action Chapter 4">
+<meta name="twitter:description" content="Chapter 4 - Transports">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/netty_provided_transports.png">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Netty in Action Chapter 4 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/04/03/netty-in-action-chapter-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Netty in Action Chapter 4
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-03 11:22:29" itemprop="dateCreated datePublished" datetime="2020-04-03T11:22:29-04:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Chapter-4-Transports"><a href="#Chapter-4-Transports" class="headerlink" title="Chapter 4 - Transports"></a>Chapter 4 - Transports</h1><a id="more"></a>
+<p>Netty OIO and NIO implementation has way less differences than Java&#39;s NIO and OIO, we only need to change the OIO eventLoopGroup to NIO eventLoopGroup, as well as oioSocketChannel to nioSocketChannel.</p>
+<h2 id="4-2-Transport-API"><a href="#4-2-Transport-API" class="headerlink" title="4.2 Transport API"></a>4.2 Transport API</h2><p>A <em>Channel</em> has a <em>ChannelPipeline</em> and a <em>ChannelConfig</em> assigned to it.</p>
+<p> Typical uses for <em>ChannelHandlers</em> include: </p>
+<ul>
+<li>Transforming data from one format to another </li>
+<li>Providing notification of exceptions </li>
+<li>Providing notification of a Channel becoming active or inactive </li>
+<li>Providing notification when a Channel is registered with or deregistered from an EventLoop </li>
+<li>Providing notification about user-defined events</li>
+</ul>
+<p>Netty&#39;s Channel implementation is thread-safe. </p>
+<h2 id="4-3-Included-Transports"><a href="#4-3-Included-Transports" class="headerlink" title="4.3 Included Transports"></a>4.3 Included Transports</h2><p><img src="netty_provided_transports.png" alt="Netty-provided transports"></p>
+<h3 id="4-3-1-NIO"><a href="#4-3-1-NIO" class="headerlink" title="4.3.1 NIO"></a>4.3.1 NIO</h3><p>It makes use of selector-based API, whose basic concept is to serve as a registry where you request to be notified when there is a state change of a <em>Channel</em>.<br><strong>Selection operation bit-set</strong></p>
+<ol>
+<li>OP_ACCEPT: when a new connection is accepted, and a Channel is created</li>
+<li>OP_CONNECT: when a connection is established</li>
+<li>OP_READ: when data is ready to be read from the Channel</li>
+<li>OP_WRITE: when it&#39;s possible to write more data to the Channel</li>
+</ol>
+<p><img src="selector_workflow.png" alt="Selector Workflow"></p>
+<p><strong>Zero-copy</strong><br>A feature only available for NIO and Epoll.<br>Allow you to quickly and efficiently move data from a file system to the network without copying from kernel space to user space, which significantly improves the performance.</p>
+<h3 id="4-3-2-Epoll"><a href="#4-3-2-Epoll" class="headerlink" title="4.3.2 Epoll"></a>4.3.2 Epoll</h3><p>Epoll is now the standard for non-blocking networking on Linux.<br>To substitute epoll for NIO, replace <em>NioEventLoopGroup</em> with <em>EpollEventLoopGroup</em> and <em>NioServerSocketChannel</em> with <em>EpollServerSocketChannel</em></p>
+<h3 id="4-3-3-OIO"><a href="#4-3-3-OIO" class="headerlink" title="4.3.3 OIO"></a>4.3.3 OIO</h3><p><img src="OIO_processing_logic.png" alt="OIO Processing Logic"><br>Netty makes use of <em>SO_TIMEOUT</em> Socket flag, which specifies the maximum number of milliseconds to wait for an I/O operation to complete. If operation fails to complete within the time interval, it will throw an exception and continue the processing loop.</p>
+<h3 id="4-3-4-Local-transport-for-communication-within-a-JVM"><a href="#4-3-4-Local-transport-for-communication-within-a-JVM" class="headerlink" title="4.3.4 Local transport for communication within a JVM"></a>4.3.4 Local transport for communication within a JVM</h3><p>In this transport, the <em>SocketAddress</em> associated with a server <em>Channel</em> isn&#39;t bound to a physical network address; rather, it&#39;s stored in a registry for as long as the server is running and is deregistered when the <em>Channel</em> is closed.<br>The client wishing to connect to the server running in the same JVM must implement the same transport.</p>
+<h3 id="4-3-5-Embedded-Transport"><a href="#4-3-5-Embedded-Transport" class="headerlink" title="4.3.5 Embedded Transport"></a>4.3.5 Embedded Transport</h3><p>Netty provides an additional transport to allow you to embed <em>ChannelHandlers</em> as helper classes inside other <em>ChannelHandlers</em>, so you can extend the functionality of a <em>ChannelHandlers</em> without modifying its internal code.<br><em>EmbeddedChannel</em> is the key of embedded transport, it will be easy to help unit tests.</p>
+<h2 id="4-4-Transport-use-cases"><a href="#4-4-Transport-use-cases" class="headerlink" title="4.4 Transport use cases"></a>4.4 Transport use cases</h2><table>
+<thead>
+<tr>
+<th>Transport</th>
+<th>TCP</th>
+<th>UDP</th>
+<th>SCTP</th>
+<th>UDT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NIO</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr>
+<td>Epoll</td>
+<td>X</td>
+<td>X</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>OIO</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Application needs</th>
+<th>Recommended transport</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Non-blocking code base or general starting point</td>
+<td>NIO</td>
+</tr>
+<tr>
+<td>Blocing code base</td>
+<td>OIO</td>
+</tr>
+<tr>
+<td>Communication within the same JVM</td>
+<td>Local</td>
+</tr>
+<tr>
+<td>Testing ChannelHandler implementations</td>
+<td>Embedded</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Netty/" rel="tag"># Netty</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/02/netty-in-action-chapter-3/" rel="prev" title="Netty in Action - Chapter 3">
+      <i class="fa fa-chevron-left"></i> Netty in Action - Chapter 3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/03/netty-in-action-chapter-5/" rel="next" title="Netty in Action Chapter 5">
+      Netty in Action Chapter 5 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-4-Transports"><span class="nav-number">1.</span> <span class="nav-text">Chapter 4 - Transports</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Transport-API"><span class="nav-number">1.1.</span> <span class="nav-text">4.2 Transport API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Included-Transports"><span class="nav-number">1.2.</span> <span class="nav-text">4.3 Included Transports</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-NIO"><span class="nav-number">1.2.1.</span> <span class="nav-text">4.3.1 NIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-Epoll"><span class="nav-number">1.2.2.</span> <span class="nav-text">4.3.2 Epoll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-3-OIO"><span class="nav-number">1.2.3.</span> <span class="nav-text">4.3.3 OIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-4-Local-transport-for-communication-within-a-JVM"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.3.4 Local transport for communication within a JVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-5-Embedded-Transport"><span class="nav-number">1.2.5.</span> <span class="nav-text">4.3.5 Embedded Transport</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-Transport-use-cases"><span class="nav-number">1.3.</span> <span class="nav-text">4.4 Transport use cases</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

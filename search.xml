@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>July 1st half notes</title>
+      <link href="/2020/07/17/july-1st-half-notes/"/>
+      <url>/2020/07/17/july-1st-half-notes/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Integration-styles"><a href="#Integration-styles" class="headerlink" title="Integration styles"></a>Integration styles</h2><a id="more"></a><h3 id="1-File-Transfer"><a href="#1-File-Transfer" class="headerlink" title="1. File Transfer"></a>1. <a href="https://www.youtube.com/watch?v=_uRYlUuxjVA&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=66" target="_blank" rel="noopener">File Transfer</a></h3><p>FTP, HDFS, SCP, SMB, CIFS</p><p><strong>Pros:</strong></p><ol><li>Universal integration style</li><li>Integration simplicity</li><li>System abstraction</li></ol><p><strong>Cons:</strong></p><ol><li>Error processing</li><li>Data synchronization timeliness</li><li>Data-only transfer</li></ol><h3 id="2-Shared-Database"><a href="#2-Shared-Database" class="headerlink" title="2. Shared Database"></a>2. <a href="https://www.youtube.com/watch?v=CSAFJNoT34M&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=65" target="_blank" rel="noopener">Shared Database</a></h3><p>SQL, ODBC, JDBC, OLE-DB, RDA</p><p><strong>Pros:</strong></p><ol><li>Near-universal integration</li><li>System abstraction</li><li>System decoupling</li><li>East of integration</li></ol><p><strong>Cons:</strong></p><ol><li>Doesn&#39;t work well with ORM (A can&#39;t assume table is not touched by others)</li><li>performance bottleneck issues (if too many apps attached to the same db)</li><li>Schema change issues</li><li>Data ownership issues</li></ol><h3 id="3-Remote-Procedure-Call"><a href="#3-Remote-Procedure-Call" class="headerlink" title="3. Remote Procedure Call"></a>3. <a href="https://www.youtube.com/watch?v=OGgbajZNwpU&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=64" target="_blank" rel="noopener">Remote Procedure Call</a></h3><p>REST, SOAP, RMI (Remote Method Invocation), CORBA (Common Object Request Broker Architecture), WebSockets , CGI (Common Gateway Interface)</p><p><strong>Pros:</strong></p><ol><li>preserve data encapsulation and ownership</li><li>external systems integration</li><li>mature frameworks and tools</li></ol><p><strong>Cons:</strong></p><ol><li>tight system coupling (if B is down, A has no other ways to defer it)</li><li>async communication (on truly queueing mechanism with RPI)</li><li>broadcast capabilities</li></ol><h3 id="4-Messaging"><a href="#4-Messaging" class="headerlink" title="4. Messaging"></a>4. <a href="https://www.youtube.com/watch?v=Oq5VP0cKwXI&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=63" target="_blank" rel="noopener">Messaging</a></h3><p>JMS (Java Message Service), MSMQ (Microsoft Message Queue), AMQP (Advanced Message Queuing Protocol), AWS SNS, AWS SQS, STOMP (Simple Text Oriented Messaging Protocol), SMPP (Short Message Peer-to-Peer SMS Messaging), MQTT (MQ Telemetry Transport - M2M/IOT Messaging), JT/400 (AS400 Data Queue)</p><p><strong>Pros:</strong></p><ol><li>Highly decoupled system</li><li>Guaranteed delivery</li><li>Async communication</li><li>Broadcast capabilities</li><li>East of scalability</li></ol><p><strong>Cons:</strong></p><ol><li>Integration beyond firewall (RPI shines here)</li><li>Implementation complexity</li><li>Testing complexity</li><li>Cross platform standards</li><li>Async error handling</li></ol><h2 id="The-Good-Parts-of-AWS-with-Daniel-Vassallo"><a href="#The-Good-Parts-of-AWS-with-Daniel-Vassallo" class="headerlink" title="The Good Parts of AWS with Daniel Vassallo"></a>The Good Parts of AWS with Daniel Vassallo</h2><p><a href="https://softwareengineeringdaily.com/2020/07/07/the-good-parts-of-aws-with-daniel-vassallo/" target="_blank" rel="noopener">link</a></p><p>They talked about AWS technologies, with the focus on what you really need to build an application. Some notes I have: </p><ol><li>You might be disappointed with DynamoDB if you get from RDBMB to that. It&#39;s more similar to Redis than MySQL;</li><li>Always use EC2 by default;</li><li>With S3 you can separate storage and computing, one of the least appreciated values of S3 is you can think of S3 as having infinite bandwidth for all practical purposes. And use the default one at the beginning.</li><li>Default to network load balancers in general as ALB has some scale issues but NLB generally won&#39;t because it&#39;s a big multi-tenant router, you will have to use all of AWS&#39;s capacity to have issues.</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Sharing </tag>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第四个OKR</title>
+      <link href="/2020/07/15/di-si-ge-okr/"/>
+      <url>/2020/07/15/di-si-ge-okr/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第四个OKR"><a href="#第四个OKR" class="headerlink" title="第四个OKR"></a>第四个OKR</h1><a id="more"></a><p>第四个OKR结束了！结果喜人。</p><table><thead><tr><th align="center"></th><th align="center">第三个OKR</th><th align="center">第四个OKR</th></tr></thead><tbody><tr><td align="center">总完成率* 总任务量</td><td align="center">20.03</td><td align="center">26.862</td></tr><tr><td align="center">weight3完成量</td><td align="center">三个100%，两个一半，一个0</td><td align="center">三个100%，一个一半，一个刚开始</td></tr><tr><td align="center">weight2完成量</td><td align="center">一个100%，两个快结束，两个刚开始一个0</td><td align="center">三个100%，四个快结束</td></tr><tr><td align="center">weight1完成量</td><td align="center">一个100%，一个快结束，一个刚开始</td><td align="center">两个100%，一个快结束，一个刚开始</td></tr></tbody></table><p>有些课程比想象中进度要缓慢不少，比如正在学习的go的这门课程，55节课，每节课10分钟以内，看起来非常轻松，也就加起来十个小时的事儿。可是学下来才发现并不是这样，跟着写代码，理解代码，理解课程背后的一些内容，这些都很花时间，算下来其实远不止十个小时。再加上战线比较长，学了几节课之后会有疲惫感。</p><p>这个OKR的读书任务比较重，所以完成程度比较差，每一章的内容长度比堪比之前的两章甚至还多，所以刚读起来就心里有了压力。再加上APUE这本书非常难啃，幸运的是我找到了一个非常好的讲解视频，跟这它看会让阅读轻松非常多，同时这也意味着花在上面的时间更多了（因为要加上视频和代码练习）。之后希望能够先看下篇幅，再去定任务，如果一章很长的话，那就读少一点。</p><p>因为堆积的to read list太长，我这一两周都没有去阅读新的email或者别的信息源，目的是想把积压的文章读完。结果是文章也没读，新的文章也完全没有加进来。有的文章很短，有的文章很长，有时也让人动力不高。</p><p>有一个想法是，在OKR开始的时候，不如每一个任务都试着做一做，知道大概是什么样的，心里有一个大概的认知，任务量大不大，多久能做完。这样在比如效率不高的时候，也许就可以做那些自己知道的可以无脑去做的任务。</p><p>还有一个感受就是，每天因为要完成OKR给自己带来的压力，有一点影响工作。有时早上起来之后想先读书，啃大部头，看到九点多十点就会嘀咕要不要去工作，会有一种无形的压力的感觉。也许可以把工作中的一个挑战放进OKR里面。</p><p>有了OKR以来，生活中多了一点点压力，非常正向的压力，让我在做决策的时候随时都在想，这个对我的OKR的帮助是大还是小。我非常欣喜于这种优先级的思考给我带来的好处。</p><p>总而言之，好希望有一个能够轻松顺利全部完成的OKR啊！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Efficiency </tag>
+            
+            <tag> OKR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>The Pragmatic Programmer - Chapter 7</title>
+      <link href="/2020/07/14/the-pragmatic-programmer-chapter-7/"/>
+      <url>/2020/07/14/the-pragmatic-programmer-chapter-7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-7-While-you-are-coding"><a href="#Chapter-7-While-you-are-coding" class="headerlink" title="Chapter 7 - While you are coding"></a>Chapter 7 - While you are coding</h1><a id="more"></a><h2 id="Listen-to-your-lizard-brain"><a href="#Listen-to-your-lizard-brain" class="headerlink" title="Listen to your lizard brain"></a>Listen to your lizard brain</h2><blockquote><p>The trick is first to notice it is happening, and then to work out why. </p><p>(Page 328). </p></blockquote><h2 id="Programming-by-coincidence"><a href="#Programming-by-coincidence" class="headerlink" title="Programming by coincidence"></a>Programming by coincidence</h2><ul><li>Always be aware of what you are doing. Fred let things get slowly out of hand, until he ended up boiled, like the frog here. </li><li>Can you explain the code, in detail, to a more junior programmer? If not, perhaps you are relying on coincidences. </li><li>Don’t code in the dark. Build an application you don’t fully grasp, or use a technology you don’t understand, and you’ll likely be bitten by coincidences. If you’re not sure why it works, you won’t know why it fails. </li><li>Proceed from a plan, whether that plan is in your head, on the back of a cocktail napkin, or on a whiteboard.</li><li>Rely only on reliable things. Don’t depend on assumptions. If you can’t tell if something is reliable, assume the worst. </li><li>Document your assumptions. Topic 23, Design by Contract, can help clarify your assumptions in your own mind, as well as help communicate them to others. </li><li>Don’t just test your code, but test your assumptions as well. Don’t guess; actually try it. Write an assertion to test your assumptions (see Topic 25, Assertive Programming). If your assertion is right, you have improved the documentation in your code. If you discover your assumption is wrong, then count yourself lucky.</li><li>Prioritize your effort. Spend time on the important aspects; more than likely, these are the hard parts. If you don’t have fundamentals or infrastructure correct, brilliant bells and whistles will be irrelevant. </li><li>Don’t be a slave to history. Don’t let existing code dictate future code. All code can be replaced if it is no longer appropriate. Even within one program, don’t let what you’ve already done constrain what you do next—be ready to refactor (see Topic 40, Refactoring). This decision may impact the project schedule. The assumption is that the impact will be less than the cost of not making the change.</li></ul><h2 id="Algorithm-speed"><a href="#Algorithm-speed" class="headerlink" title="Algorithm speed"></a>Algorithm speed</h2><h2 id="Refactoring"><a href="#Refactoring" class="headerlink" title="Refactoring"></a>Refactoring</h2><blockquote><p>disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior.</p><p>-- Martin Fowler</p></blockquote><h3 id="Refactor-scenarios"><a href="#Refactor-scenarios" class="headerlink" title="Refactor scenarios:"></a>Refactor scenarios:</h3><ol><li>Duplication</li><li>Nonorthogonal design</li><li>requirement change</li><li>Performance</li><li>Outdated knowledge</li></ol><h3 id="Refactor-tips"><a href="#Refactor-tips" class="headerlink" title="Refactor tips"></a>Refactor tips</h3><ol><li>Don’t try to refactor and add functionality at the same time. </li><li>Make sure you have good tests before you begin refactoring. Run the tests as often as possible. That way you will know quickly if your changes have broken anything.</li><li>Take short, deliberate steps: move a field from one class to another, split a method, rename a variable. Refactoring often involves making many localized changes that result in a larger-scale change. If you keep your steps small, and test after each step, you will avoid prolonged debugging.</li></ol><h2 id="Test-to-code"><a href="#Test-to-code" class="headerlink" title="Test to code"></a>Test to code</h2><ul><li><p>Tests can definitely help drive development, but as with every drive, unless you have a destination in mind, you can end up going in circles.</p></li><li><p>Contract</p><p>If module A has two components A1 and A2, we should test: </p><ol><li>A1&#39;s contract in full;</li><li>A2&#39;s contract in full;</li><li>A&#39;s contract</li></ol><p>If A1 and A2 contact tests passed but A&#39;s tests failed, then we are sure the problem is on A or how A uses A1/A2.</p></li><li><p>Try to feed tests with real-world data;</p></li><li><p>Have a magic URL which exposes diagnostic info of the system;</p></li><li><p>Property-based testing can surprise you and help you</p></li></ul><h2 id="Stay-safe-our-there"><a href="#Stay-safe-our-there" class="headerlink" title="Stay safe our there"></a>Stay safe our there</h2><ol><li>Minimize attack surface area;<ol><li>Code complexity</li><li>Input data</li><li>Authorized user</li><li>Unauthenticated services</li><li>Output data</li><li>Debug info</li></ol></li><li>Principle of Least Privilege </li><li>Secure Defaults <ol><li>The default setting should be the most secure value</li></ol></li><li>Encrypt Sensitive Data </li><li>Maintain Security Updates</li></ol><h2 id="Naming-things"><a href="#Naming-things" class="headerlink" title="Naming things"></a>Naming things</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Career </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cryptography notes</title>
+      <link href="/2020/07/12/cryptography-notes/"/>
+      <url>/2020/07/12/cryptography-notes/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Digital-signature"><a href="#Digital-signature" class="headerlink" title="Digital signature"></a>Digital signature</h2><a id="more"></a><p><img src="image-20200708104031335.png" alt></p><ol><li>Bob has private key and public key, and sends the public key to Alice.</li><li>Bob generates a plaintext memo, and uses hash algorithm on it to have a digest.</li><li>Then Bob encrypts the digest using his private key and gets a digital signature.</li><li>Bob then sends the digital signature along with the memo (<strong>Note: the memo is not encrypted</strong>) to Alice.</li><li>Alice uses Bob&#39;s public key and decrypt the digital signature to gets the digest.</li><li>Alice then uses the same hash algorithm on the plaintext memo and gets another digest.</li><li>Alice compares both digests, if they are same, then Alice can be confident that the memo has not been changed.</li></ol><p><em><em>NOTE: </em></em> using digital signature does not encrypt the message itself, if Bob wants to encrypt the message, he will need to use Alice&#39;s public key to encrypt it.</p><h2 id="Digital-Certificate"><a href="#Digital-Certificate" class="headerlink" title="Digital Certificate"></a>Digital Certificate</h2><p>Ditital cert is issued by a third party, and it&#39;s based on trust and it verifies that the digital signature is truly signed by the claims singer. It contains information as:</p><ol><li>Certificate owner&#39;s name;</li><li>Owner&#39;s public key and its expiration date;</li><li>Certificate issuer&#39;s name;</li><li>Certificate issuer&#39;s digital signature</li></ol><p><img src="image-20200708110748416.png" alt></p><p>##　SSL Certificate</p><p><img src="image-20200708113856166.png" alt></p><p><strong>SSL certificate</strong> is a web server&#39;s digital certificate, issued by a third party, and verifies the identity of web server and it&#39;s public key.</p><p>For example, I want to go to <a href="https://yahoo.com" target="_blank" rel="noopener">https://yahoo.com</a> and I want to make sure all communications are secure.</p><ol><li>Browser requests secure pages from a yahoo web server;</li><li>Yahoo server sends its public key with the SSL certificate, signed by a third party (CA);</li><li>Client check with CA for the to make sure the cert is valid (common browser already got public keys installed from many popular CAs);</li><li>Exchange the secret: client browser creates symmetric key, it uses web server&#39;s public key to encrypt the secret and sends it;</li><li>Server uses its private key to decrypt the secret, now the server gets the shared key;</li><li>From now on, the messages between client and server will be encrypted and decrypted using the shared key.</li></ol><h2 id="PKI-Public-Key-Infrastructure"><a href="#PKI-Public-Key-Infrastructure" class="headerlink" title="PKI (Public Key Infrastructure)"></a>PKI (Public Key Infrastructure)</h2><p>A framework for managing digital certificates and public key encryption</p><p><img src="image-20200708152328368.png" alt></p><h2 id="SSL-TLS-handshaking-protocol"><a href="#SSL-TLS-handshaking-protocol" class="headerlink" title="SSL/TLS handshaking protocol"></a>SSL/TLS handshaking protocol</h2><ol><li>Client sends &quot;ClientHello&quot; with SSL/TLS version, cryptographic algorithms and data compression methods that it supports;</li><li>Server responds with &quot;ServerHello&quot; with cryptographic algorithm agreement, session ID, digital cert and its public key;</li><li>Client checks with server&#39;s CA to confirm and establish trust;</li><li>ClientKeyExchange - client sends a shared secret key encrypted by the server&#39;s public key;</li><li>Client sends a &quot;Finished&quot; message with the shared secret key - handshake complete;</li><li>Server responds with a &quot;Finished&quot; message indicating handshake is completed.</li></ol><p><img src="image-20200708153106778.png" alt></p><h2 id="Self-signed-certificate"><a href="#Self-signed-certificate" class="headerlink" title="Self signed certificate"></a>Self signed certificate</h2><p>Self signed SSL certificate does not mean it&#39;s necessarily less secure than purchased SSL certificates</p><p>All SSL certificates just ensure that the identity of the website is certified and the traffic between your browser and the web server are encrypted. They won&#39;t ensure your data won&#39;t be stolen.</p><h2 id="Revocation-of-certificates"><a href="#Revocation-of-certificates" class="headerlink" title="Revocation of certificates"></a>Revocation of certificates</h2><p>Situation causes revocation: </p><ol><li>Certificate is no longer used;</li><li>Details of certificate are changed;</li><li>The certificate owner&#39;s private key was compromised;</li><li>Certificates were stolen from CA</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Security </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring security notes</title>
+      <link href="/2020/07/12/spring-security-notes/"/>
+      <url>/2020/07/12/spring-security-notes/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Authentication-vs-authorization"><a href="#Authentication-vs-authorization" class="headerlink" title="Authentication vs authorization"></a>Authentication vs authorization</h1><a id="more"></a><h3 id="Authentication-who-you-are"><a href="#Authentication-who-you-are" class="headerlink" title="Authentication: who you are?"></a>Authentication: who you are?</h3><p>​            </p><ol><li>knowledge based authentication (username password)</li><li>possession based authentication (token, text message)</li><li>Multi-fact authentication (1+2)</li></ol><h3 id="Principle-an-logged-in-user"><a href="#Principle-an-logged-in-user" class="headerlink" title="Principle: an logged in user"></a>Principle: an logged in user</h3><h3 id="Authorization-what-do-you-want-to-do-Are-you-allowed-to-do-this"><a href="#Authorization-what-do-you-want-to-do-Are-you-allowed-to-do-this" class="headerlink" title="Authorization: what do you want to do? Are you allowed to do this?"></a>Authorization: what do you want to do? Are you allowed to do this?</h3><p>​    This depends on the permission (granted authority) a user has.</p><ol><li>Authorities are fine grained</li><li>Roles are coarse grained (a group of authorities)</li></ol><p>One spring boot application can have multiple authorization providers (LDAP, JWT, Oauth, database auth, in memory auth, etc...), there is a authorization manager who handles the incoming authorization request and propagate that to the proper provider to authorize (the provider has to support the authorization type).</p><h1 id="JWT-JSON-Web-Token"><a href="#JWT-JSON-Web-Token" class="headerlink" title="JWT - JSON Web Token"></a>JWT - JSON Web Token</h1><p>RFC5741</p><h3 id="Session-Token-reference-token"><a href="#Session-Token-reference-token" class="headerlink" title="Session Token - reference token"></a><strong>Session Token - reference token</strong></h3><p>Token is created and maintained by server side. </p><p>Client passes the token to the server as part of every request.</p><p>Usually it is stored in cookies</p><p>Issues are: </p><ol><li>There isn&#39;t always just one server, usually there are multiple server nodes under a load balancer;</li><li>If we use one shared cache (redis for example) to store the token, it will resolve 1, but introduces single point of failure.</li></ol><h3 id="JSON-Web-Token-value-token"><a href="#JSON-Web-Token-value-token" class="headerlink" title="JSON Web Token - value token"></a><strong>JSON Web Token - value token</strong></h3><p><strong>JWT only comes into the picture when authentication is complete.</strong></p><p>Server will not give a reference of the details, instead it gives client the detail itself. </p><p><img src="image-20200703140104398.png" alt></p><p>There is a payload that is the core part of JWT, which is surrounded by a header and a signature to make it secure. Although there are chances that the JWT was stolen by others. To prevent that, you will need to be careful of how to transmit your JWT, like using HTTPS instead of HTTP, with a bunch of other authentication and authorization mechanisms, like OAuth.</p><p><strong>How to disable JWTs?</strong>  Have a blacklist of JWTs.</p><h2 id="Structure-of-JWT"><a href="#Structure-of-JWT" class="headerlink" title="Structure of JWT"></a>Structure of JWT</h2><p>This <a href="https://jwt.io/" target="_blank" rel="noopener">website</a> will give you the idea of what JWT looks like.</p><p>For signature: </p><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// signature algorithm</span>data <span class="token operator">=</span> <span class="token function">base64urlEncode</span><span class="token punctuation">(</span> header <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> <span class="token function">base64urlEncode</span><span class="token punctuation">(</span> payload <span class="token punctuation">)</span><span class="token punctuation">;</span>signature <span class="token operator">=</span> <span class="token function">Hash</span><span class="token punctuation">(</span> data<span class="token punctuation">,</span> secret <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="JWT-pros-and-cons"><a href="#JWT-pros-and-cons" class="headerlink" title="JWT pros and cons"></a>JWT pros and cons</h2><h3 id="PROS"><a href="#PROS" class="headerlink" title="PROS"></a>PROS</h3><ol><li>No database lookups</li><li></li></ol><h3 id="CONS"><a href="#CONS" class="headerlink" title="CONS"></a>CONS</h3><ol><li>non revocable (revoke them before they expire can be hard) - keep lifecycle short, revocation list.</li><li></li></ol><h1 id="OAuth"><a href="#OAuth" class="headerlink" title="OAuth"></a>OAuth</h1><p>OAuth is for authorization between services (microservices).</p><p><img src="image-20200705115002217.png" alt></p><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><ol><li>Resource</li><li>Resource owner</li><li>Resource server</li><li>Client</li></ol><h3 id="OAuth-workflow"><a href="#OAuth-workflow" class="headerlink" title="OAuth workflow"></a>OAuth workflow</h3><ol><li>Authorization code flow</li></ol><p><img src="image-20200705115533934.png" alt></p><ul><li>Resource owner sends request to client (I want you to go to my google drive account to get the photo and print it);</li><li>Client sends request to the authorization server (might be on the same backend server as the resource server)</li><li>Authorization server asks resource owner for the permission;</li><li>Owner sends the confirmation back to auth server;</li><li>After getting the permission from owner, authorization server will send client a <strong>auth token</strong></li><li>After getting the <strong>auth token</strong>, client will make another request to auth server for <strong>access token</strong></li><li>Auth server sends <strong>access token</strong> to the client</li><li>Client then uses the <strong>access token</strong> to access the resource in the resource server;</li><li>Resource server responds with the resource;</li></ul><p>Think of <strong>access token</strong> as the hotel room key, <strong>auth token</strong> as booking confirmation.</p><ol start="2"><li>Implicit flow</li></ol><ul><li>Resource owner sends request to client (I want you to go to my google drive account to get the photo and print it);</li><li>Client sends request to the authorization server (might be on the same backend server as the resource server)</li><li>Authorization server asks resource owner for the permission;</li><li>Owner sends the confirmation back to auth server;</li><li>After getting the permission from owner, authorization server will send client a <strong>access token</strong></li><li>Client then uses the <strong>access token</strong> to access the resource in the resource server;</li><li>Resource server responds with the resource;</li></ul><p>It&#39;s less secure than the first flow, and it&#39;s primarily used with short-lived access tokens.</p><ol start="3"><li>Client credentials flow (when the client is well trusted - confidential clients)</li></ol><p><img src="image-20200705122105774.png" alt="image-20200705122105774"></p><ul><li>Microservice 1 sends request to auth server;</li><li>Auth server replies with an <strong>access token</strong>;</li><li>Microservice 1 sends request to Microservice 2 with this token;</li><li>Microservice 2 will server the request;</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Security </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title># 第三个OKR</title>
+      <link href="/2020/07/01/di-san-ge-okr/"/>
+      <url>/2020/07/01/di-san-ge-okr/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第三个OKR"><a href="#第三个OKR" class="headerlink" title="第三个OKR"></a>第三个OKR</h1><a id="more"></a><p>第三个OKR结束了。</p><p>在第二个OKR结束之后，我对第三个OKR做一个改动：在每一个OKR加上权重，突出优先级。我有六个OKR task的优先级最高(3),六个优先级中等(2)，三个优先级最低（1）。</p><p>结果怎么样呢？</p><ul><li>六个最高优先级的OKR task中，我完成了三个，有两个进行到了一半，有一个没有开始。</li><li>六个中等优先级的OKR task中，我完成了一个，有两个完成了一大半，两个完成了一小部分，一个没有开始。</li><li>三个最低优先级的OKR task中，我完成了一个，有一个完成了一大半，一个完成了一小部分。</li></ul><p>总体算来，完成率是60%左右。</p><p>虽然之前的OKR没有用上权重，但是这次OKR有肉眼可见的提升，我的确成功地增加了更高优先级OKR的完成度。考虑到这两周我花了不少时间玩游戏，这个完成度我很满意。</p><p>当然，这也并不代表什么问题都没有：</p><p>有些任务涉及到他人，我们需要拆分得更细一些，因为你无法控制别人的行为，而他们又会影响你的进度<br>有的课程有很多个课时，如果不管这些细节的话，学习的过程会比较没有那么多动力，比如一门课有五十节课，哼哧哼哧学了一个礼拜学到第二十节，但是进度条还是0。Target value从1改成50的话，也许会更有motivation，而且如果做不完的话也会很方便的挪到下一个OKR<br>现在有了权重，我就能大概知道我一个OKR task能完成多少任务了，这有点类似JIRA里面的每一个card的point，加起来就知道一个sprint完成的任务。</p><p>对于七月第一个OKR，我并不会做太大的调整，目前选出的任务的权重加起来的总量和上一个一样，希望能有更高的完成度。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Efficiency </tag>
+            
+            <tag> OKR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>June 2nd half notes</title>
+      <link href="/2020/07/01/june-2nd-half-notes/"/>
+      <url>/2020/07/01/june-2nd-half-notes/</url>
+      
+        <content type="html"><![CDATA[<h1 id="June-2nd-half-note"><a href="#June-2nd-half-note" class="headerlink" title="June 2nd half note"></a>June 2nd half note</h1><a id="more"></a><h2 id="Microservice-pattern-API-gateway"><a href="#Microservice-pattern-API-gateway" class="headerlink" title="Microservice pattern: API gateway"></a>Microservice pattern: API gateway</h2><p><a href="https://hvalls.dev/posts/microservice-pattern-api-gateway" target="_blank" rel="noopener">link</a></p><p>About API Gateway:</p><ul><li>It acts as router</li><li>It is the only entry point to our collection of microservices. This way, microservices are not needed to be public, anymore, but are behind an internal network and API Gateway is the responsible of making requests against a service or another one (Service Discovery)</li><li>It acts as a data aggregator: API Gateway fetches data from several services and aggregate it to return a single rich response. Depending on the API consumer, data representation may change according the needs, and here is where Backend For Frontend (BFF) comes into play.</li><li>It is a protocol abstraction layer: API Gateway can be exposed as a REST API or GraphQL or whatever, no matter what protocol or technology is being used internally to communicate with the microservices.</li><li>Error management is centralized: When a service is not available, is getting too slow or something like that, API Gateway can provide data from cache, default responses or make smart decisions to avoid bottlenecks or fatal errors propagation. This keeps the circuit closed (Circuit Breaker) and makes the system more resilient and reliable.</li></ul><h2 id="Automating-safe-hands-off-deployment"><a href="#Automating-safe-hands-off-deployment" class="headerlink" title="Automating safe hands off deployment"></a>Automating safe hands off deployment</h2><p><a href="https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/" target="_blank" rel="noopener">link</a></p><p>Question regrading pipeline as code: how to achieve version control for splunk alerts, reports, etc...?</p><h2 id="How-to-Make-Yourself-Study-When-You-Have-ZERO-Motivation"><a href="#How-to-Make-Yourself-Study-When-You-Have-ZERO-Motivation" class="headerlink" title="How to Make Yourself Study When You Have ZERO Motivation"></a>How to Make Yourself Study When You Have ZERO Motivation</h2><p><a href="https://www.youtube.com/watch?v=9oWOsocN7qg" target="_blank" rel="noopener">link</a></p><ol><li>Go out for a walk</li><li>Decide on a single task to work on</li><li>Clear to neutral - clean up your workspace</li><li>Use &quot;low effort&quot; hack - the blank page is the enemy</li></ol><h2 id="Refactoring-Patterns-Migration-vs-Adaptation"><a href="#Refactoring-Patterns-Migration-vs-Adaptation" class="headerlink" title="Refactoring Patterns: Migration vs. Adaptation"></a>Refactoring Patterns: Migration vs. Adaptation</h2><p><a href="https://www.youtube.com/watch?v=DKPn0AcvLKo&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=68" target="_blank" rel="noopener">link</a></p><p><strong>Migration pattern:</strong></p><ol><li>easier to roll back changes</li><li>a lot less risk</li><li>a lot more costs (keep both components need maintenance)</li><li>requires switching logic (not good if there are too many afferent components that are associated with this component)</li></ol><p><strong>Adaption pattern:</strong></p><ol><li>hard to roll back changes</li><li>a lot more risk</li><li>less costs (more of refactor instead of replacement)</li><li>no changes to calling components (afferent components)</li></ol><p><strong>Conclusion</strong>: it depends on the level of coupling, risk and costs.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Sharing </tag>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>June 1st half notes</title>
+      <link href="/2020/07/01/june-1st-half-notes/"/>
+      <url>/2020/07/01/june-1st-half-notes/</url>
+      
+        <content type="html"><![CDATA[<h1 id="June-1st-half-note"><a href="#June-1st-half-note" class="headerlink" title="June 1st half note"></a>June 1st half note</h1><a id="more"></a><h2 id="Analyzing-Architecture-Code-Metrics"><a href="#Analyzing-Architecture-Code-Metrics" class="headerlink" title="Analyzing Architecture: Code Metrics"></a>Analyzing Architecture: Code Metrics</h2><p><a href="https://www.youtube.com/watch?v=pELKNy8B5Nw&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=71" target="_blank" rel="noopener">link</a></p><h2 id="Cyclomatic-complexity"><a href="#Cyclomatic-complexity" class="headerlink" title="Cyclomatic complexity"></a>Cyclomatic complexity</h2><p>It provides a numeric value representing the complexity of a function or method</p><p>V(G) = e - n + 2</p><p>e - number of edges</p><p>n - number of nodes</p><h2 id="Core-metrics"><a href="#Core-metrics" class="headerlink" title="Core metrics"></a>Core metrics</h2><ol><li>number of classes per package - trend analysis</li><li>number of lines of source code (based on a context) - trend analysis</li><li>average complexity (1+ num_paths_thru_method; range: 2-4)</li><li>DIT (depth of inheritance tree) across components</li><li>WMC (weighted methods/class; sum of CC) - trend analysis</li><li>CE (efferent coupling count)</li><li>CA (afferent coupling count)</li></ol><h2 id="Refactoring-Business-Justification"><a href="#Refactoring-Business-Justification" class="headerlink" title="Refactoring: Business Justification"></a>Refactoring: Business Justification</h2><p>[link](Refactoring: Business Justification)</p><p>When we want to break the monolith, from technical point of view, we can make these justifications:</p><ol><li>components will be more decoupled;</li><li>each part will use fewer jvm resources;</li><li>deployment is limited to a separate application unit, thereby reducing deployment time and increasing robustness</li></ol><p>But customers will not pay for that, how we can convince customers to pay for that? We can make these business justifications:</p><ol><li>new functionality can be delivered faster to market;</li><li>overall application quality will be improved, thereby reducing bugs and costs of fixing them;</li><li>development costs with developing new functionality will be significantly reduced</li></ol><p>Then the next question would be, once we decide to go this way, how do we measure to prove that it really works? We need business metrics:</p><ol><li>for reducing overall costs:<ol><li>number of bugs</li><li>actual development and testing hours</li></ol></li><li>for better time to market:<ol><li>actual development and testing hours</li><li>end-to-end calendar time from development to release</li></ol></li><li>better user satisfaction:<ol><li>number of bugs</li><li>number of reported bugs</li><li>performance metrics and trends</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Sharing </tag>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第二个OKR</title>
+      <link href="/2020/06/17/di-er-ge-okr/"/>
+      <url>/2020/06/17/di-er-ge-okr/</url>
+      
+        <content type="html"><![CDATA[<p>很快第二个OKR也过去了，这次总体成绩比上次要好，大部分任务都完成了，上次说的读书的问题这次也完成的很好（虽然TCP/IP那一章我啃了一个礼拜）。</p><a id="more"></a><p>问题是什么呢？我在这个OKR的最后一天在写这一篇文章，而这一篇文章将是我这两周唯一发表的一篇文章，远低于我的预期（5篇）。</p><p>我分析了一下原因，大概有下面几个：</p><ol><li>没有合适的规划，比如每一篇大概用哪个主题；</li><li>惰性，往往看到有别的可以完成，就去完成别的更简单的任务了</li></ol><p>我觉得OKR的综合评分是不是加上权重会更好一点，比如写作应该是优先级非常高的任务，应该给予比较高的权重。</p><p>还有一点，有一些任务是比较琐碎的，比如push多少个commit，看多少篇科技文章。这些给我的感觉：</p><ol><li>它们和别的有可能会有重合，比如我学习了一些课，就自然会push一些代码去github。</li><li>它们感觉太细粒度了，如果有一个更high level的objective的话，是不是会更好？</li><li>但是去除他们又感觉怕怕的，毕竟它们的存在对我来说也是一个督促，在一些情况下能起到提醒的作用。</li></ol><p>第三个OKR 我准备加上权重，这样虽然有些任务比较琐碎，有重复性，但是如果权重比较低的话，也会让我自然而然地去选择权重较高的项目去完成。同时这些琐碎的任务也能让我在效率较低的时候实现刷刷刷的快感。</p><p>看看有了这些改变之后，能不能反映更真实的结果，督促自己完成更重要的任务。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Efficiency </tag>
+            
+            <tag> OKR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Technology Sharing May 2020</title>
+      <link href="/2020/05/31/technology-sharing-may-2020/"/>
+      <url>/2020/05/31/technology-sharing-may-2020/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p><a href="https://softwareengineeringdaily.com/2020/05/15/aws-virtualization-with-anthony-liguori/" target="_blank" rel="noopener">AWS Virtualization with Anthony Liguori</a></p><a id="more"></a><p>这篇podcast 谈论了AWS 虚拟化技术的演进史，从EC2谈起，到之后的Outpost，Fargate，Serverless。</p><p>最开始EC2用的虚拟化技术是Zen，后来他们开始构建自己的硬件系统，也就是Nitro Project。他们最初的希望是它能够很大程度得简化系统，从而改善性能。</p><p>谈及Lambda的时候，Anthony谈到了他们最重视的是安全，而EC2 instance是他们安全方面非常成熟的产品，也就自然成为了lambda使用的平台。每个lambda function都是一个EC2 instance。</p><p>讨论到底层架构，他们说到Nitro 就是一个bare-metal的系统。Firecracker在其之上运行，跑一些程式，一些在Firecracker的代码允许一些程式去启动和执行。Hypervisor是一个平台，你可以在上面启动不同的虚拟机；VMM（virtual machine monitor）是一个针对那些虚拟机的监控器。那Nitro就是Hypervisor，而Firecracker就是VMM。</p><p>他们针对Fargate和Serverless的优化，简单点来说，就是在启动过程中去除那些陈旧的，对于container不重要的东西，让启动时间减少。</p><p>Anthony提到，quantum computing是下一个可以改变世界的新技术。</p></li><li><p><a href="https://www.mcls.io/blog/encouraging-a-culture-of-written-communication" target="_blank" rel="noopener">Encouraging a Culture of Written Communication</a></p><p>这篇文章提到了书面交流的文化，我认为对于大多数在特殊时期在家上班的人来说，比较受用。</p><p>很多人觉得书面交流需要比较正式，但是那些主要是针对更广大的受众，或者是针对上级的交流。对于组内交流或者是问问题，书面交流不一定非要那么正式，错别字，语病都是可以被允许的。</p><p>书面交流的另一个好处：它容易被搜寻到。但另一个问题是，我们需要有一个平台去存储这些信息和知识，这样人们不会因为太多信息源而迷失方向，书写者也不会因为它而耽误书写的进度。</p><p>但是太过于依赖书面交流也有不好的地方，在有些时候，一个视频电话可能解决问题更快，更方便。不要在这上面墨守成规。</p><p>Thinking out loud。在你对有些事情不确定的情况下，可以把思路写在公用的频道里，让别人也看到，这样别人可以给你反馈。在软件事故发生的时候，这会变得很有用，大家会快速得交流，也就能够很快得对事故有一个一致的理解和解决方案。没有私人对话或者视频会话，这会变得更搞笑。</p></li><li><p><a href="https://www.youtube.com/watch?v=vRplv975ce0&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=77" target="_blank" rel="noopener">Soft Skills: Gaining Technical Breadth</a></p><p>这个视频谈及了如何增长技术广度，如图所示，“你知道的技术”被认为是技术深度，“你知道你不知道的技术”被认为是技术广度。作为一个相当架构师的人来说，我们需要增加技术广度，然后增加技术深度。<br><img src="pyramid.png" alt="Tech pyramid"><br>Mark提到三个信息源：InfoQ，Thoughtworks Tech Radar，DZone。</p><p>他每天的习惯是花20分钟浏览收到的订阅邮件，然后如果有感兴趣的内容，会标注下，留到晚上或者周末细读。日积月累后，就会增长技术广度。</p></li><li><p><a href="https://www.infoq.com/presentations/microservices-federated-growth/" target="_blank" rel="noopener">Controlled Chaos: Taming Organic, Federated Growth of Microservices</a></p><p> This talk mentions that microservices architecture is evolving through organic federated growth. The agility that the enterprises crave ends up with an architecture that we can&#39;t control. And in such a distributed architecture, metrics and tracing might not work that well. One interesting thing he mentioned is that building distributed systems may force a new waterfall thinking on devs as there is a long ramp before you can deploy that. Instead, build resilient federations based on DDD, and compensation strategy if anything happens. For operators, rapid detect-react loops are really important, which should be based on golden signals(requests, latency, concurrency, bandwidth), metrics, etc...</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Sharing </tag>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一个OKR</title>
+      <link href="/2020/05/31/di-yi-ge-okr/"/>
+      <url>/2020/05/31/di-yi-ge-okr/</url>
+      
+        <content type="html"><![CDATA[<p>开始用Notion之后，终于下定决心在五月下半月执行OKR，试一试新的workflow会不会让我自己更有效率。</p><a id="more"></a><p>OKR的全称是Objectives and Key Results。它的特点有：</p><ol><li>可量化，在一定时间内完成的目标是可以量化的，比如一周健身三次；</li><li>目标是比较有挑战的，一般目标定8分，只会完成6分，定10分的话，会完成8分。这样你才会不断为此而奋斗；</li></ol><h2 id="转变"><a href="#转变" class="headerlink" title="转变"></a>转变</h2><p>之前我一直是用todoist（后来改成Microsoft Todo后又改了回来），规定下每天应该干什么，有些东西是一三五做，有些是二四六。后来我发现，这些有一些死板了，如果我需要在两周的时间内阅读两个章节，或者是一周健身三次，为什么一定要规定在哪天去做呢？只要在这段时间过去之后做总结，看有没有达标就可以了，这样的情况对我来说就很适合用OKR。</p><h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>用了OKR之后，有一个比较明显的感受是：以前我的注意力容易分散，如果在某天找到比较好的东西的话，可能明天就想去试试。这样就会打破原先的计划，而且很有可能两头都完成不好，还不如坚持之前的计划，把新发现的东西放在之后的list里；现在用了OKR，我会形成这样的思维，在发现新的东西的时候，会主动想到OKR的优先级，会更希望完成OKR中列下的事项。</p><p>这次OKR我列下了11个事项，完成了六个，有两个完全没有开始。虽然不够完美，但好歹也是一个不错的开始。</p><h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>OKR的事项中，其实是有难易之分的，今天看来，我会更倾向于把更难的人物拖到最后做，有些就干脆没有做完，希望之后能够想到一个好的方法去解决。</p><p>而且，有一些会重复发生的任务（比如说，每个月月中和月底制定下一个OKR），这样的事项不能放进OKR中，但是是需要track或者提醒的。也许它们还是应该用todoist来管理，或者直接设calendar的reminder？</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总而言之，从daily todo list 到OKR的确让我更productive，也更容易集中注意力干更高优先级的事情。但它不是完美的，还有很多东西需要我去探索和提升。</p><p>这是我用Notion之后的第一个比较大的尝试，之后希望能够做一个思维导图来管理的我knowledge base。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Efficiency </tag>
+            
+            <tag> OKR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>The Pragmatic Programmer-Chapter 2</title>
+      <link href="/2020/05/25/the-pragmatic-programmer-chapter-2/"/>
+      <url>/2020/05/25/the-pragmatic-programmer-chapter-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-2-A-Pragmatic-Approach"><a href="#Chapter-2-A-Pragmatic-Approach" class="headerlink" title="Chapter 2 A Pragmatic Approach"></a>Chapter 2 A Pragmatic Approach</h1><a id="more"></a><h2 id="Topic-8-The-essence-of-good-design"><a href="#Topic-8-The-essence-of-good-design" class="headerlink" title="Topic 8: The essence of good design"></a>Topic 8: The essence of good design</h2><ul><li>Good design is easier to change than bad design</li><li>If you can&#39;t make sure what form change will take, 1. try to make what you write replaceable; 2. treat this as a way to develop instincts</li></ul><h2 id="Topic-9-DRY"><a href="#Topic-9-DRY" class="headerlink" title="Topic 9: DRY"></a>Topic 9: DRY</h2><ul><li>DRY principle: Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</li><li>Do you find yourself making a change in multiple places, and in multiple different formats? If so, your code isn&#39;t dry</li><li>Not all code duplication is knowledge duplication</li><li>Comments can be duplicated as well. If the code can say what it does, why we need docs?</li><li>Whenever a module exposes a data structure, you&#39;re coupling all the code that uses that structure to the implementation of that module.</li><li>Foster an environment where it&#39;s easier to find and reuse existing stuff than to write it yourself.</li></ul><h2 id="Topic-10-Orthogonality"><a href="#Topic-10-Orthogonality" class="headerlink" title="Topic 10: Orthogonality"></a>Topic 10: Orthogonality</h2><ul><li><p>Two things are orthogonal if changes in one do not affect any of the others</p></li><li><p>Two major benefits of orthogonal systems: increased productivity and reduced risk</p><ul><li>Changes are localized</li><li>It promotes reuse</li><li>Diseased code is isolated</li><li>System is less fragile</li><li>Better for testing</li><li>Not tightly tied to a particular vendor</li></ul></li><li><p>Ask yourself, if I dramatically change the requirements behind a particular function, how many modules are affected? The answer should be one for orthogonal system</p></li><li><p>How to maintain orthogonality:</p><ul><li>Keep your code decoupled - Law of Demeter, if you need to change an object&#39;s state, get the object to do it for you.</li><li>Avoid global data</li><li>Avoid similar functions - take a look at Strategy Pattern</li></ul></li></ul><h2 id="Topic-11-Reversibility"><a href="#Topic-11-Reversibility" class="headerlink" title="Topic 11: Reversibility"></a>Topic 11: Reversibility</h2><ul><li>You can&#39;t plan for rapid change of architectural volatility. But what you can do is to make it easy to change</li><li>Hide third-party APIs behind your own abstraction layers</li><li>Break code into components</li></ul><h2 id="Topic-12-Tracer-Bullets"><a href="#Topic-12-Tracer-Bullets" class="headerlink" title="Topic 12 Tracer Bullets"></a>Topic 12 Tracer Bullets</h2><ul><li><p>With tracer ability, we are able to track the progress</p></li><li><p>Advantages of trace code</p><ul><li>Users get to see something working early and tell you how close to the target</li><li>Developers build a structure to work in</li><li>An integration platform</li><li>You have something to demonstrate</li><li>You have a better feel for progress</li></ul></li><li><p>Tracer code vs. Prototyping</p><ul><li>Tracer code makes the whole structure, while prototyping focuses on one part of the structure</li><li>Prototyping generates disposable code, while tracer code is lean but complete.</li></ul></li></ul><h2 id="Topic-13-Prototypes-and-Post-it-notes"><a href="#Topic-13-Prototypes-and-Post-it-notes" class="headerlink" title="Topic 13: Prototypes and Post-it notes"></a>Topic 13: Prototypes and Post-it notes</h2><ul><li>How to use prototypes<ul><li>Correctness - may use dummy data</li><li>Completeness - may function in a very limited case</li><li>Robustness - Error checking is likely to be incomplete or missing</li><li>Style - Won&#39;t have much in the way of comments or documentation</li></ul></li></ul><h2 id="Topic-14-Domain-Languages"><a href="#Topic-14-Domain-Languages" class="headerlink" title="Topic 14: Domain Languages"></a>Topic 14: Domain Languages</h2><ul><li>Internal domain language gives you the advantage of power your pipeline, but it limits the choice of the language;</li><li>External domain language needs a parser, but you don&#39;t have any restrictions on what language to use;</li><li>The rule is: Don&#39;t spend more effort than you save</li></ul><h2 id="Topic-15-Estimate"><a href="#Topic-15-Estimate" class="headerlink" title="Topic 15: Estimate"></a>Topic 15: Estimate</h2><ul><li><p>Where do estimates come from?</p><ul><li>Understand what&#39;s being asked - the scope</li><li>Build a model of the system - mental model for the project</li><li>Break it into components</li><li>Give each parameter a value - to work out which parameter have the most impact on the result</li><li>Keep track of the estimations</li></ul></li><li><p>PERT (Programming Evaluation Review Technique) usually has an optimistic, a most likely, and a pessimistic estimate</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Career </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>The Pragmatic Programmer - Chapter 1</title>
+      <link href="/2020/05/09/the-pragmatic-programmer-chapter-1/"/>
+      <url>/2020/05/09/the-pragmatic-programmer-chapter-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-1-A-pragmatic-strategy"><a href="#Chapter-1-A-pragmatic-strategy" class="headerlink" title="Chapter 1 A pragmatic strategy"></a>Chapter 1 A pragmatic strategy</h1><a id="more"></a><h2 id="Topic-1-It-39-s-your-life"><a href="#Topic-1-It-39-s-your-life" class="headerlink" title="Topic 1: It&#39;s your life"></a>Topic 1: It&#39;s your life</h2><p>Many developers are frustrated and have lots of complaints about technology has passed them by, their team sucks, etc…</p><p>Why can&#39;t you change it?</p><ul><li><p>Martin Fowler says <a href="http://wiki.c2.com/?ChangeYourOrganization" target="_blank" rel="noopener">you can change your organization or change your organization</a></p></li><li><p>Make time to learn, even if it requires some of your personal time.</p></li><li><p>Ask if you want to work remotely. If they say no, then find someone who says yes.</p></li></ul><h2 id="Topic-2-The-cat-ate-my-source-code"><a href="#Topic-2-The-cat-ate-my-source-code" class="headerlink" title="Topic 2: The cat ate my source code"></a>Topic 2: The cat ate my source code</h2><p>Even the best projects can have mistakes. These things happen, and we try to deal with them as professionally as we can. We must own up to our shortcomings - our ignorance and our mistakes.</p><ul><li>Trust in a team is absolutely essential for creativity and collaboration. In a healthy environment, you can safely speak your mind, present your ideas, and rely on your team members who can in turn rely on you.</li><li>When you accept the responsibility for an outcome, you should expect to be held accountable for it. <strong>When you make a mistake, admit it honestly and try to offer options.</strong></li><li><strong>Don&#39;t blame on someone or something else, or make up an excuse. Any of these may play a role, but it&#39;s up to you to provide solutions, not excuses.</strong></li><li>If there was a risk that the vendor wouldn&#39;t come through for you, you should have had a contingency plan.If your mass storage melts, and you don&#39;t have a backup, it&#39;s your fault.</li><li>Before approaching to anyone to tell them why something is not working, stop and listen to yourself. Talk to the rubber duck on your monitor: does your excuse sound reasonable or stupid? How&#39;s it going to sound to your boss?</li><li><strong>Instead of excuses, provide options.</strong> Don&#39;t say it can&#39;t be done, explain what can be done to salvage the situation.<ul><li>Does code have to be deleted?</li><li>Do you need to spend time prototyping to determine the best way to proceed?</li><li>Do you need to introduce better testing or automation?</li><li>Do you need other people to help?</li><li>Do you need to spend more time with the users?</li><li>Do you need to learn some technique in greater depth? Would a book or a course help?</li></ul></li><li>Try not to flush out the lame excuses before voicing them aloud. If you must, tell your cat first.</li><li>When you find yourself saying &quot;I don&#39;t know&quot;, be sure to follow it up with &quot;but I&#39;ll find out.&quot; It&#39;s a great way to admit what you don&#39;t know, but then take responsibility like a pro.</li></ul><h2 id="Topic-3-Software-entropy"><a href="#Topic-3-Software-entropy" class="headerlink" title="Topic 3: Software entropy"></a>Topic 3: Software entropy</h2><ul><li>A broken window can turn a clean intact inhabited building into a smashed and abandoned derelict very quickly.</li><li>Don&#39;t live with broken window, fix them as soon as it&#39;s discovered. If you don&#39;t have enough time, board it up.</li><li>Don&#39;t cause collateral damage just because there&#39;s a crisis of some sort. One broken window is one too many.</li></ul><h2 id="Topic-4-Stone-soup-and-boiled-frogs"><a href="#Topic-4-Stone-soup-and-boiled-frogs" class="headerlink" title="Topic 4: Stone soup and boiled frogs"></a>Topic 4: Stone soup and boiled frogs</h2><ul><li>Start-up fatigue: you may be in a situation where you know what needs to be done, and you know you are right. But ask permission to tackle the thing and you will be met with delays and blank stares. People will form committees, budgets will need approval and things will get complicated. Everyone will guard their own resources.</li><li>People find it easier to join an ongoing success.</li><li>It&#39;s often the accumulation of small things that breaks morale and teams.</li></ul><h2 id="Topic-5-Good-enough-software"><a href="#Topic-5-Good-enough-software" class="headerlink" title="Topic 5: Good-enough software"></a>Topic 5: Good-enough software</h2><ul><li>It&#39;s equally unprofessional to promise impossible time scales and to cut basic engineering corners to meet a deadline</li><li>Don&#39;t spoil a perfectly good program by over-embellishment and over-refinement. Move on, and let your code stand in its own right for a while.</li></ul><h2 id="Topic-6-Your-knowledge-portfolio"><a href="#Topic-6-Your-knowledge-portfolio" class="headerlink" title="Topic 6: Your knowledge portfolio"></a>Topic 6: Your knowledge portfolio</h2><ul><li>Your knowledge and experience are your most important day-to-day professional assets. <strong>Unfortunately, they are expiring assets</strong>.</li><li>Your ability to learn new things is your most important strategic asset.<ul><li>Invest regularly - you must invest in your knowledge portfolio regularly even if it&#39;s just a small amount. The habit is as important as the sums, so plan to use a consistent time and place, away from interruptions.<ul><li>Learn at least one new language every year</li><li>Read a technical book each month</li><li>Read non-technical books too</li><li>Take classes</li><li>Participate in local user groups and meetups, actively participate</li><li>Experiment with different environments</li><li>Stay current</li></ul></li><li>Diversify - The more technologies you are comfortable with, the better you will be to adjust to change. And don&#39;t forget all the other skills you need, including non-technical areas.</li><li>Manage risk - Don&#39;t put all your technical eggs in one basket</li><li>Buy low, sell high</li><li>Review and re-balance - This is a very dynamic industry, maybe the technology you started investing is already stone cold by now, maybe you need to brush up on the database technology you haven&#39;t used in a while.</li></ul></li><li>The process of learning will expand your thinking, opening you to new possibilities and new ways of doing things.</li><li>If you can&#39;t find answer yourself, find out who can.</li><li>All of this reading and researching takes time, so you need to plan ahead. Always have something to read in an otherwise dead moment. Time spent waiting for doctors and dentists can be a great opportunity to catch up on your reading.</li><li>Ask &quot;why&quot; five times.<ul><li>Who does the benefit?</li><li>What&#39;s the context?</li><li>When or where would this work?</li><li>Why is this a problem?</li></ul></li><li>If you are doing very detailed implementation and coding, read a book on design and architecture. If you are doing high-level design, read a book on coding techniques</li></ul><h2 id="Topic-7-Communicate"><a href="#Topic-7-Communicate" class="headerlink" title="Topic 7: Communicate"></a>Topic 7: Communicate</h2><ul><li>A large part of our day is spent communicating, so we need to do it well.</li><li>Treat English as just another programming language.</li><li>The meaning of your communication is the response you get.</li><li>Plan what you want to say - ask yourself &quot;does this communicate what I want to express to my audience in a way that works for them?&quot;</li><li>Make what you&#39;re saying relevant in time, as well as in content. Sometimes all it takes is the simple question: &quot;Is this a good time to talk about…?&quot;</li><li>Make it look good, don&#39;t just concentrate solely on content. Use markdown for example.</li><li>We often find that the documents end up being less important than the process we go thru to produce them. If possible, involve your readers with early drafts of your document.</li><li>Be a listener</li><li>Keep people informed makes them far more forgiving of the occasional slip, and makes them feel that you haven&#39;t forgotten them.</li><li>We want to apply all of our pragmatic principles to documentation as well as to code</li><li><strong>SUMMARY</strong> <ul><li>Know what you want to say. </li><li>Know your audience. </li><li>Choose your moment. </li><li>Choose a style. </li><li>Make it look good. </li><li>Involve your audience. </li><li>Be a listener. </li><li>Get back to people. </li><li>Keep code and documentation together.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Career </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>How to read a tech book</title>
+      <link href="/2020/05/08/how-to-read-a-tech-book/"/>
+      <url>/2020/05/08/how-to-read-a-tech-book/</url>
+      
+        <content type="html"><![CDATA[<h1 id="How-to-read-a-tech-book"><a href="#How-to-read-a-tech-book" class="headerlink" title="How to read a tech book"></a>How to read a tech book</h1><a id="more"></a><p>Original article is <a href="https://www.cnblogs.com/yudao/p/4391194.html" target="_blank" rel="noopener">here</a>.</p><p>There are three types of tech books:  </p><ol><li>Books on languages, java, C, Python, etc...</li><li>Books on algorithms</li><li>Books on certain topics, OS, Linux, networking, etc....</li></ol><p>For books on languages, the key is to <strong>practice</strong>. It&#39;s much less efficient to just read or listen how to code because it&#39;s passive learning. When you finish a Java book, you should write code based on examples in the book, for more than one time.</p><p>For books on algorithms, the key is to <strong>understand</strong>. It&#39;s naturally harder to understand how algorithms work because they are abstract, and even if you think you understand them, after couple months you will forget most of it. Thus, we need to use it in real examples. Try some ACM OJ so you can leverage algorithms you learned into real examples, which strenthen your understanding of those algorithms.</p><p>For books that are very theoretical, <strong>read it three times</strong>. </p><p>For the first time, read it fast, don&#39;t fall into a specific detail, as the main goal is to get the overall structure and key information of the each chapter.</p><p>For the second time, read it slowly, try to understand every single aspect without any care on progress. If there is something really hard to understand, mark it and deal with it later (you can always go back to it, and search online, or ask other people). It&#39;s not recommended to write notes as you read it, instead, when you finish a chapter, think about what you learned from it, and record them. Writting blogs is a good way to keep track of your summaries of knowledge.</p><p>For the third time, presumably it will be easier to read now. You can strengthen your understanding of topics and may even have new ideas. Also, it&#39;s useful to practice based on the examples in the book, and read some source codes.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Career </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>传奇程序员修炼之道-直播观后感</title>
+      <link href="/2020/04/27/chuan-qi-cheng-xu-yuan-xiu-lian-zhi-dao-zhi-bo-guan-hou-gan/"/>
+      <url>/2020/04/27/chuan-qi-cheng-xu-yuan-xiu-lian-zhi-dao-zhi-bo-guan-hou-gan/</url>
+      
+        <content type="html"><![CDATA[<h1 id="传奇程序员修炼之道-直播观后感"><a href="#传奇程序员修炼之道-直播观后感" class="headerlink" title="传奇程序员修炼之道 直播观后感"></a>传奇程序员修炼之道 直播观后感</h1><a id="more"></a><p><a href="http://play.itdks.com/watch/10045724?lang=en-us" target="_blank" rel="noopener">http://play.itdks.com/watch/10045724?lang=en-us</a></p><h2 id="如何从小工成长为大牛"><a href="#如何从小工成长为大牛" class="headerlink" title="如何从小工成长为大牛"></a>如何从小工成长为大牛</h2><p><strong>云风</strong>：以前觉得挑战复杂的东西比较有成就感，JPEG 解码器。但现在会去追求如何把复杂的东西变简单，或者怎么找到简单的方法去解决问题。<br>KISS 原则 - keep it simple and stupid</p><p><strong>陈皓</strong>：之前在银行，后来在外包公司当码农，动力主要是为了找好的工作。提升最多是在外企，当时看到外企用版本管理很震惊。当时在啃TCP/IP的书，后来在银行的工作中学以致用。<br>学习的时候喜欢看一下原理，研究为什么是这样的设计，之后觉得所有技术都在解决一个问题：把控制逻辑和业务逻辑拆分。</p><p><strong>孙玄</strong>：浙大毕业，然后去百度做百度空间，之后去58做IM，做到架构师级别。后来在转转，研究中台，做首席架构师。后来发现自己对教育很感兴趣，后来去创业做教育。<br>做任何事情的时候，能不能从本质的东西搞清楚，如果本质搞清楚，道明白，那术都可以不一样。<br>心目中有两种架构师：第一种把复杂问题简单化，第二种是把简单问题复杂化。</p><p><strong>唐巧</strong>：2000-2007 算法，2008 架构，2010 领域知识，2012 表达与写作，2014 产品与组织，2018 商业。<br>后来进IBM 觉得代码写得不好，开始研究架构，如何把代码写得好看。<br>后来发现周围的程序员太闷，不善言辞，跟产品经理沟通不好，所以去研究表达和写作。最终成为公司里最能把产品表达清楚的程序员。<br>觉得重要的是1.执行 2. 迭代</p><p><strong>程军</strong>：从中兴到一号店到饿了吗到贝壳找房<br>认同本质的思路<br>在饿了吗开始从用户的角度去思考<br>保持高质量的输出（写文章）是非常困难的，需要去思考<br>高效能人士的七个习惯</p><h2 id="关于读书"><a href="#关于读书" class="headerlink" title="关于读书"></a>关于读书</h2><p><strong>陈皓</strong>：139页 状态机，设计模式<br>状态是一个很重要的事情<br>比如一个英文文档，写一个程序要弄清楚多少单词，需要维护两个状态，一个是单词怎么开始，第二个是单词怎么样结束</p><p><strong>唐巧</strong>：关于测试到底由谁负责<br>书中说了应该是程序员负责<br>意识大于流程</p><p>写公众号，表达，写作</p><p><strong>唐巧</strong>：<br>产品是能接受bug的，这和程序员思维非常不同</p><p><strong>云风</strong>：<br>好的东西要易于修改</p><h2 id="问答环节"><a href="#问答环节" class="headerlink" title="问答环节"></a>问答环节</h2><p><strong>云风</strong>：<br><a href="https://blog.codingnow.com/2019/09/hierarchy_tree.html" target="_blank" rel="noopener">https://blog.codingnow.com/2019/09/hierarchy_tree.html</a><br><a href="https://blog.codingnow.com/2020/04/hierarchy_order.html#more" target="_blank" rel="noopener">https://blog.codingnow.com/2020/04/hierarchy_order.html#more</a></p><p><strong>陈皓</strong>：<br>硬实力：</p><ol><li>底层</li><li>code review</li></ol><p>软实力：<br>管理老板，产品经理</p><pre><code>XY 问题， 产品经理总会带来Y问题，需要追问X问题让更多人跟你承担压力，要说有条件的事，不要总是说“是”</code></pre><p><strong>云风</strong>：<br>don&#39;t think outside of the box, instead find the the box</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Career </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>work from home 体会</title>
+      <link href="/2020/04/23/work-from-home-ti-hui/"/>
+      <url>/2020/04/23/work-from-home-ti-hui/</url>
+      
+        <content type="html"><![CDATA[<p>目前wfh的节奏虽然还在不断适应，但总体已经到了一个很舒服的程度。<br>个人生活的质量有较大的提高，我不用担心做明天的中饭的问题，可以在中午简单地做一个meal，晚上有时候我fasting，所以省下一整块时间做自己的事。<br>工作方面，有时候当你有非常明确的东西去做的时候，我可以变得非常高效。但对于别的工作比如说需要和别人去交涉，或者需要别人的一些帮忙时，有时候线上的交流会有一些delay，交流的热情也不如在公司里那么强烈。</p><a id="more"></a><p>我刚开始会有一些struggle，所以我每天给自己定两个大目标，你有对公司做足够的贡献吗？你有对自己做足够的贡献吗？<br>更细化一点的话，我会列出三个最重要的事情，今天必须实现，比如一个比较重要的活，或者针对一个topic做一个research，或者写一篇文章，继续读书计划等等。对我来说，清晨的效率比较高，适合做这些事，特别是阅读。<br>然后我会列一些不那么重要但是Nice to have的东西，比如读一篇技术类文章，看一个技术类视频，etc...</p><p>有一些对工作效率有影响的东西，比如刷手机，是需要想办法去杜绝的，比如早上干完第一件事之前，强制自己不要去刷，因为容易扰乱心神。<br>有一个比较有趣的发现是，我是一个内向的人，在家让我非常舒服，我可以在想中断的时候在家里到处走走，这样很助于我转换思路，激发创造力。而如果在公司的话，我会尽量去避免随意走动，因为不想碰到同事而去硬着头皮尬聊。</p><p>在家里也很难避免地需要去做更多的house work，做得多了，会开始去思考如何优化他们，比如厨房用品如何更好地摆放，橱柜怎么收拾会更方便使用和整理，为此而改造了不少东西，也买了一些提高家务活效率的东西。想得多了，渐渐发现之前有些日常用品的购买被收了智商税，比如电动牙刷的刷头或者打印机的墨盒，如果在亚马逊买适合型号的非官方用品的话，会比官方用品便宜非常多。</p><p>厨艺的提高是不可避免的，现在甚至让我觉得我完全不需要去外面吃了，follow了老饭骨这个频道后，觉得一切都可以自己做。上周迷上了做面，从做鲜奶馒头开始，到杂粮馒头，再到流沙包，虽然成功率有起伏，但起码可以对外宣扬会做一些面食了，之后希望能学油泼面。</p><p>我也开始了yard work，之前拖了很久都没有开动的后院deck计划被改成了patio，因为更简单一点，每天下午花一点时间刨土，现在已经刨出了一个10ft * 10ft小区域，之后就是填gravel和砖块的活了，暑假竣工后，终于可以好好享受后院了。</p><p>女友和我都认为，这可能是一辈子唯一的机会能在一起呆那么多天，24小时都不分开，我们都很珍惜这个机会，虽然偶有分歧和争吵，但在一起做了很多有意思的事情，非常幸福。猫女儿也很幸福，虽然大部分时间是在睡觉，但需要我们的时候，我们总是随叫随到的。</p><p>也许再过一两个月就要复工了，老板跟我聊天的时候说到有的同事会跟他说希望复工后也能保持一周有几天在家上班的节奏，我深有所感。找到自己的节奏的话，在家里会更加高效，因为完全可以做到免除打扰，有些不必要的会议也可以不去参加。</p><p>也许人们之后会努力让自己成为自由职业者？至少我会开始有这样的想法了。</p><p>不管在哪里，都要努力的生活啊！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Efficiency </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java Exception Handling Best Practices</title>
+      <link href="/2020/04/21/java-exception-handling-best-practices/"/>
+      <url>/2020/04/21/java-exception-handling-best-practices/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Do-NOT-just-catch-Exception-or-Throwable-which-will-also-catch-RuntimeException"><a href="#Do-NOT-just-catch-Exception-or-Throwable-which-will-also-catch-RuntimeException" class="headerlink" title="Do NOT just catch Exception or Throwable, which will also catch RuntimeException"></a>Do <strong>NOT</strong> just catch Exception or Throwable, which will also catch RuntimeException</h4><a id="more"></a><pre><code>// Badtry {  ...} catch (Throwable th) {  ...}// Goodtry {  ...} catch (SpecificException ex) {  ...}</code></pre><h4 id="When-catching-an-exception-do-NOT-just-throw-it-Instead-do-something-like-throw-it-with-some-description-log-an-error-or-stop-the-process"><a href="#When-catching-an-exception-do-NOT-just-throw-it-Instead-do-something-like-throw-it-with-some-description-log-an-error-or-stop-the-process" class="headerlink" title="When catching an exception, do NOT just throw it. Instead, do something like throw it with some description, log an error or stop the process."></a>When catching an exception, do <strong>NOT</strong> just throw it. Instead, do something like <strong>throw it with some description</strong>, <strong>log an error</strong> or <strong>stop the process.</strong></h4><p><strong>If you catch an exception and do nothing or just log and then let the method continue, include a comment why it&#39;s ok to ignore the exception</strong></p><pre><code>// Badtry {  ...} catch (SpecificException ex) {  throw ex;}// Good try {  ...} catch (SpecificException ex) {  log.error(&quot;This function does not work due to SpecificException: &quot;, ex);}</code></pre><p>OR</p><pre><code>try {  ...} catch (SpecificException ex) {  throw new SpecificException(&quot;This function does not work due to SpecificException: &quot;, ex);}</code></pre><p>OR</p><pre><code>try {  ...} catch (SpecificException ex) {  // Let the method continue because xyz...  log.info(&quot;xxxxxx&quot;);}</code></pre><h4 id="When-catching-an-exception-we-may-want-to-log-an-error-or-warning-and-do-NOT-just-log-the-string-without-the-stacktrace"><a href="#When-catching-an-exception-we-may-want-to-log-an-error-or-warning-and-do-NOT-just-log-the-string-without-the-stacktrace" class="headerlink" title="When catching an exception, we may want to log an error or warning, and do NOT just log the string without the stacktrace"></a>When catching an exception, we may want to log an error or warning, and do <strong>NOT</strong> just log the string without the stacktrace</h4><pre><code>// Badtry {  ...} catch (SpecificException ex) {  log.error(&quot;Something wrong...&quot;);}// Good try {  ...} catch (SpecificException ex) {  log.error(&quot;This function does not work due to SpecificException: &quot;, ex);}</code></pre><h4 id="How-all-kinds-of-different-methods-in-Exception-work-in-the-console"><a href="#How-all-kinds-of-different-methods-in-Exception-work-in-the-console" class="headerlink" title="How all kinds of different methods in Exception work in the console"></a>How all kinds of different methods in Exception work in the console</h4><pre><code>public class TestAllMethods {    static final Log log = LogFactory.getLog(TestAllMethods.class);    public static void main(String[] args) {        try {            System.out.println(10/0);        } catch (ArithmeticException ex) {            ex.printStackTrace();            //You will get:             // java.lang.ArithmeticException: / by zero            //        at TestAllMethods.main(TestAllMethods.java:10)            log.error(&quot;Try just the exception: \n&quot;, ex);            // You will get:             // Sep 06, 2017 3:45:54 PM TestAllMethods main            // SEVERE: Try just the exception:             // java.lang.ArithmeticException: / by zero            //      at TestAllMethods.main(TestAllMethods.java:10)            log.error(&quot;Try getMessage(): \n&quot; + ex.getMessage());              // You will get:            //  Sep 06, 2017 3:45:54 PM TestAllMethods main            //  SEVERE: Try getMessage():             //  / by zero            log.error(&quot;Try toString(): \n&quot; + ex.toString());            // You will get:             // Sep 06, 2017 3:45:54 PM TestAllMethods main            // SEVERE: Try toString():             // java.lang.ArithmeticException: / by zero            log.error(&quot;Try getStackTrace(): \n&quot; + ex.getStackTrace());            // You will get:            // Sep 06, 2017 3:45:54 PM TestAllMethods main            // SEVERE: Try getStackTrace():             // [Ljava.lang.StackTraceElement;@5a07e868            log.error(&quot;Try Arrays.toString(ex.getStackTrace()): \n&quot; + Arrays.toString(ex.getStackTrace()));            // You will get:            // Sep 06, 2017 3:45:54 PM TestAllMethods main            // SEVERE: Try Arrays.toString(ex.getStackTrace()):             // [TestAllMethods.main(TestAllMethods.java:10)]            log.error(&quot;Try getCause(): \n&quot; + ex.getCause());            // You will get:             // Sep 06, 2017 3:45:54 PM TestAllMethods main            // SEVERE: Try getCause():             // null        }    }}</code></pre><p><strong>Conclusions:</strong></p><p>1) <strong>ex.toString()</strong> is better than <strong>ex.getMessage()</strong> as <strong>toString</strong> includes the exception class name, which <strong>getMessage</strong> does not;</p><p>2) <strong>ex.getStackTrace()</strong> will return an array of <strong>StackTraceElement</strong>, so do <strong>NOT</strong> print that directly, instead we need <strong>Arrays.toString(ex.getStackTrace())</strong> to show the content of that exception;</p><p>3) <strong>ex.getCause()</strong> will show you the cause of this exception or null if the cause is nonexistent or unknown.</p><h4 id="Try-to-avoid-duplicated-stack-trace-by-NOT-log-an-exception-with-the-stack-trace-and-then-throw-it"><a href="#Try-to-avoid-duplicated-stack-trace-by-NOT-log-an-exception-with-the-stack-trace-and-then-throw-it" class="headerlink" title="Try to avoid duplicated stack trace by NOT log an exception with the stack trace and then throw it"></a>Try to <strong>avoid</strong> duplicated stack trace by <strong>NOT</strong> log an exception with the stack trace and then throw it</h4><pre><code>// Badpublic static void main(String[] args) {    try {        test();    } catch (SQLException ex) {        log.error(&quot;second level: &quot;, ex);    }}private static void test() throws SQLException {    try {        throw new SQLException();    } catch (SQLException ex) {        log.error(&quot;first level: &quot;, ex);        throw new SQLException(ex);    }}// You will get: Sep 06, 2017 4:12:40 PM MultipleException testSEVERE: first level: java.sql.SQLException    at MultipleException.test(MultipleException.java:19)    at MultipleException.main(MultipleException.java:11)Sep 06, 2017 4:12:40 PM MultipleException mainSEVERE: second level: java.sql.SQLException: java.sql.SQLException    at MultipleException.test(MultipleException.java:22)    at MultipleException.main(MultipleException.java:11)Caused by: java.sql.SQLException    at MultipleException.test(MultipleException.java:19)    ... 1 more// Good public static void main(String[] args) {    try {        test();    } catch (SQLException ex) {        log.error(&quot;wrong: &quot;, ex);    }}private static void test() throws SQLException {    try {        throw new SQLException();    } catch (SQLException ex) {        //log.error(&quot;first level: &quot;, ex);        throw new SQLException(&quot;first level: &quot;, ex);    }}// You will get: Sep 06, 2017 4:16:25 PM MultipleException mainSEVERE: wrong: java.sql.SQLException: first level:     at MultipleException.test(MultipleException.java:22)    at MultipleException.main(MultipleException.java:11)Caused by: java.sql.SQLException    at MultipleException.test(MultipleException.java:19)    ... 1 more</code></pre><h4 id="Remember-to-release-the-resource-using-try-with-resource-or-try-catch-finally-block"><a href="#Remember-to-release-the-resource-using-try-with-resource-or-try-catch-finally-block" class="headerlink" title="Remember to release the resource using try-with-resource or try-catch-finally block"></a>Remember to <strong>release the resource</strong> using try-with-resource or try-catch-finally block</h4><pre><code>// Badtry {  Connection conn = getConnection();} catch (SpecificException ex) {  log.error(&quot;This function does not work due to SpecificException: &quot;, ex);}// Good try {  Connection conn = getConnection();  ...} catch (SpecificException ex) {  log.error(&quot;This function does not work due to SpecificException: &quot;, ex);} finally {  context.close(conn);}</code></pre><p>OR</p><pre><code>try (Connection conn = getConnection()) {  ...} catch (SpecificException ex) {  log.error(&quot;This function does not work due to SpecificException: &quot;, ex);} </code></pre><h4 id="If-you-are-using-try-with-resource-the-implicit-finally-block-could-throw-an-exception-A-and-if-it-happens-when-something-in-try-block-also-throws-an-exception-B-A-will-be-suppressed-exception-of-B-and-log-warn-error-info-will-print-both-exceptions-out"><a href="#If-you-are-using-try-with-resource-the-implicit-finally-block-could-throw-an-exception-A-and-if-it-happens-when-something-in-try-block-also-throws-an-exception-B-A-will-be-suppressed-exception-of-B-and-log-warn-error-info-will-print-both-exceptions-out" class="headerlink" title="If you are using try-with-resource, the implicit finally() block could throw an exception A, and if it happens when something in try block also throws an exception B, A will be suppressed exception of B, and log.warn/error/info() will print both exceptions out."></a>If you are using try-with-resource, the implicit finally() block could throw an exception A, and if it happens when something in try block also throws an exception B, A will be suppressed exception of B, and log.warn/error/info() will print both exceptions out.</h4><figcaption>20, 2017 1:17:02 PM toml.main.Main logException</figcaption><pre class="line-numbers language-Nov"><code class="language-Nov">WARNING: logException - MyExceptionA: toml.main.MyExceptionA: MyExceptionA in run    at toml.main.MyAutoClose.run(MyAutoClose.java:7)    at toml.main.Main.callMyAutoClose(Main.java:25)    at toml.main.Main.main(Main.java:12)    Suppressed: toml.main.MyExceptionB: MyExceptionB in close        at toml.main.MyAutoClose.close(MyAutoClose.java:13)        at toml.main.Main.callMyAutoClose(Main.java:26)        ... 1 more<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action Chapter 9</title>
+      <link href="/2020/04/17/netty-in-action-chapter-9/"/>
+      <url>/2020/04/17/netty-in-action-chapter-9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-9-Unit-test"><a href="#Chapter-9-Unit-test" class="headerlink" title="Chapter 9 - Unit test"></a>Chapter 9 - Unit test</h1><a id="more"></a><p>In this chapter, it introduces the use of <strong>EmbeddedChannel</strong>, we can write data into the channel (no matter it&#39;s inbound or outbound data), and check the output at the end of the pipeline. It&#39;s convenient especially for unit tests.<br><img src="embedded_channel_workflow.png" alt="EmbeddedChannel data flow"><br>In doc of <strong>EmbeddedChannel</strong>, you may find that only this channel has an initialization method where you can put a list of handlers, which is easy for writing tests.<br>In <a href="https://github.com/adrrrrrrrian/programs-for-language-learning/tree/master/Java/Netty/Chapter9" target="_blank" rel="noopener">here</a>, unit tests for inbound traffic, outbound traffic and exception handling are listed.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action Chapter 8</title>
+      <link href="/2020/04/14/netty-in-action-chapter-8/"/>
+      <url>/2020/04/14/netty-in-action-chapter-8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-8-Bootstrapping"><a href="#Chapter-8-Bootstrapping" class="headerlink" title="Chapter 8 - Bootstrapping"></a>Chapter 8 - Bootstrapping</h1><a id="more"></a><p>In 8.1, the bootstrapping steps common to both server and client are handled by AbstractBootstrap, steps specific to clients/servers are handled by Bootstrap or ServerBootstrap.</p><p>In 8.2, <em>Bootstrap</em> class is responsible to create Channels for clients and for applications using connectionless protocols.<br><img src="bootstrapping_process.png" alt="Bootstrapping process"><br>We must make sure to not mix OioEventLoopGroup with NioSocketChannel, it will throw exceptions.</p><p>In 8.3, <em>ServerBootstrap</em> creates <em>ServerChannel</em> to create Channels which represents accepted connections.<br>In 8.4, we are able to bootstrap clients from a Channel, in case we need to act as a client to a third system while processing a client request. And one general guideline from Netty is to reuse EventLoops wherever possible to reduce the cost of thread creation.<br><img src="eventLoop_shared_among_channels.png" alt="EventLoop shared among Channels"><br>In 8.5, we know that we can add more than one ChannelHandlers during a bootstrap by adding them in the pipeline attached to the bootstrap.<br>In 8.6, we are able to use ChannelOptions to apply configurations for all Channels automatically, it includes low-level properties and buffer settings.<br>Netty also offers <em>AttributeMaps</em> to associate data item with both client and server Channels.<br>In 8.8, when we need to shut down the application, we will need to shut down the <em>EventLoopGroup</em>, which is a matter of calling <em>EventLoopGroup.shutdownGracefully()</em>, we can also call <em>Channel.close()</em>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action Chapter 7</title>
+      <link href="/2020/04/09/netty-in-action-chapter-7/"/>
+      <url>/2020/04/09/netty-in-action-chapter-7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-7-EventLoop"><a href="#Chapter-7-EventLoop" class="headerlink" title="Chapter 7 - EventLoop"></a>Chapter 7 - EventLoop</h1><a id="more"></a><p>In 7.1, it introduces Executor&#39;s threading model in JDK, where there is a thread pool, and an available is selected from it to process a task, the thread will be returned back to the pool once the task is completed.<br><img src="executor_logic.png" alt="Executor Logic"><br>It has performance issues when the number of threads increases, and can be very complex in larger scope.</p><p>In 7.2, it introduces <em>EventLoop</em> in Netty, the basic idea is that each task is an instance of <strong>Runnable</strong>. An <em>EventLoop</em> will only be associated to one thread that never changes, but it could be assigned to serve multiple <em>Channels</em>.<br>All I/O operations are handled by the thread that is assigned to the <em>EventLoop</em>.<br>The key difference is: <strong>In Netty, the task assignment is seperated from the thread creation</strong>, which makes it much  more flexible.</p><p>In 7.3, it gives us examples of how Java NIO implements scheduled tasks, and how Netty does that, the difference is Java NIO will have to create a thread pool, which is not ideal performance wise. For Netty, we are able to just use the <em>EventLoop</em> associated to that <em>Channel</em>, and make a scheduled task.</p><p>In 7.4, implementation details of Netty threading model is introduced. For an <em>EventLoop</em>, if incoming task is in the same thread assigned to that <em>EventLoop</em>, it will be executed, otherwise it will be put in a queue.<br>The EventLoop/thread allocation is shown in the screenshot below.<br><img src="eventloop_allocation.png" alt="EventLoop Allocation"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action Chapter 6</title>
+      <link href="/2020/04/07/netty-in-action-chapter-6/"/>
+      <url>/2020/04/07/netty-in-action-chapter-6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-6-ChannelHandler-and-ChannelPipeline"><a href="#Chapter-6-ChannelHandler-and-ChannelPipeline" class="headerlink" title="Chapter 6 - ChannelHandler and ChannelPipeline"></a>Chapter 6 - ChannelHandler and ChannelPipeline</h1><a id="more"></a><h2 id="6-1-ChannelHandler-family"><a href="#6-1-ChannelHandler-family" class="headerlink" title="6.1 ChannelHandler family"></a>6.1 ChannelHandler family</h2><p><strong>Channel State Model</strong><br><img src="channel_state_model.png" alt="Channel State Model"></p><ul><li><p>When we override <em>channelRead()</em> in <em>ChannelInboundHandler</em>, we need to release the memory associated with <em>ByteBuf</em> ourselves using <em>ReferenceCountUtil.release()</em>.<br><em>SimpleChannelInboundHandler</em> will release resources automatically.</p></li><li><p><em>ChannelInboundHandler</em> is able to defer an operation/event on demand. If writing to a remote peer is suspended, you can defer flush operations and resume them later.</p></li><li><p>A <em>ChannelHandler</em> could be sharable across multiple <em>ChannelPipelines</em>.</p></li><li><p><img src="ChannelHandlerAdaptor.png" alt="Channel Handler Adaptor class hierarchy"></p></li><li><p><em>ResourceLeakDetector</em> is provided by Netty to sample about 1% of the buffer allocations to make sure there is no memory leaks</p></li><li><p>It&#39;s important not only to release resources but also to notify the <em>ChannelPromise</em> so the listener could be notified that a message has been handled.</p></li></ul><h2 id="6-2-Interface-ChannelPipeline"><a href="#6-2-Interface-ChannelPipeline" class="headerlink" title="6.2 Interface ChannelPipeline"></a>6.2 Interface ChannelPipeline</h2><p><img src="channelPipeline_channelHandlers.png" alt="ChannelPipeline and ChannelHandlers"></p><ul><li>It&#39;s important not to block the EventLoop thread as it would have a negative impact on the overal handling of I/O.</li><li>If we want to handle legacy code that uses blocking APIs, <em>ChannelPipeline</em> has add() method that accepts an <em>EventExecutorGroup</em>. If an event is passed there, it will be handled by one of the <em>EventExecutors</em> in that group and be removed from the <em>EventLoop</em> of the <em>Channel</em> itself. There is an implementation called <em>DefaultEventExecutorGroup</em>.</li></ul><h2 id="6-3-Interface-ChannelHandlerContext"><a href="#6-3-Interface-ChannelHandlerContext" class="headerlink" title="6.3 Interface ChannelHandlerContext"></a>6.3 Interface ChannelHandlerContext</h2><ul><li>The <em>ChannelHandlerContext</em> associated with a <em>ChannelHandler</em> never changes, so it&#39;s ok to cache it. It&#39;s created when adding <em>ChannelHandler</em> to pipeline.</li><li>Some other classes have same methods whose names are identical to methods in <em>ChannelHandlerContext</em>. However, the latter will provide <strong>better</strong> performance.</li><li>If write() is invoked on either <em>Channel</em> or <em>ChannelPipeline</em> level, the event will be propagated all the way through the pipeline, otherwise if it&#39;s invoked on the <em>ChannelHandlerContext</em>, the movement will be from one handler to the next.</li><li>To invoke processing starting from a specific handler, you must refer to the <em>ChannelHandlerContext</em> that&#39;s associated with the handler <strong>before</strong> that one.<br><img src="operationsTriggeredViaContext.png" alt="Event flow for operations triggered via ChannelHandlerContext"></li><li>When you share a handler to multiple pipelines, you need to make sure the handler must be thread-safe</li></ul><h2 id="6-4-Exception-Handling"><a href="#6-4-Exception-Handling" class="headerlink" title="6.4 Exception Handling"></a>6.4 Exception Handling</h2><ul><li>The default implementation for exception handling won&#39;t do anything except forwarding the exception to the next handler in the pipeline.</li><li>If it reaches the end of the pipeline, it&#39;s logged as unhandled.</li><li>Every outbound operation returns a <em>ChannelFuture</em>, which is registered by listeners to be notified of success or error when the operation completes.</li><li>As a subclass of <em>ChannelFuture</em>, <em>ChannelPromise</em> also has writable methods that provide for immediate notification: setSuccess() and setFailure()</li></ul><p>There are two ways of adding a listener. </p><ol><li>The most common way is to invoke addListener on the <em>ChannelFuture</em> that is returned by an outbound operation.<br><img src="channelFutureListenerToChannelFuture.png" alt="Adding a ChannelFutureListener to a ChannelFuture"></li><li>The second way is to add a <em>ChannelFutureListener</em> to the <em>ChannelPromise</em> that is passed as an argument to the methods.<br><img src="channelFutureListenerToChannelPromise.png" alt="Adding a ChannelFutureListener to a ChannelPromise"></li></ol><ul><li>If <em>ChannelOutboundHandler</em> itself throws an exception, Netty will notify all the listeners that registered with the ChannelPromise.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Advanced Programming in Unix - Chapter 3</title>
+      <link href="/2020/04/06/advanced-programming-in-unix-chapter-3/"/>
+      <url>/2020/04/06/advanced-programming-in-unix-chapter-3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="File-I-O"><a href="#File-I-O" class="headerlink" title="File I/O"></a>File I/O</h1><a id="more"></a><h2 id="3-1-Introduction"><a href="#3-1-Introduction" class="headerlink" title="3.1 Introduction"></a>3.1 Introduction</h2><p>The term <em>unbuffered</em> means each <em>read</em> or <em>write</em> invokes a system call in the kernel.</p><p>The unbuffered I/O functions are not part of ISO C but are part of POSIX.1 and Single UNIX Specification.</p><h2 id="3-2-File-descriptors"><a href="#3-2-File-descriptors" class="headerlink" title="3.2 File descriptors"></a>3.2 File descriptors</h2><p>File descriptor is a non-negative integer, it&#39;s returned if we open or create a file.</p><p>File descriptor 0 is with standard input of a process, 1 is output, and 2 is standard error.</p><p>Although they should be replaced by symbolic constants <strong>STDIN_FILENO</strong>, <strong>STDOUT_FILENO</strong>, and <strong>STDERR_FILENO</strong> to improve readability.</p><h2 id="3-3-open-and-openat"><a href="#3-3-open-and-openat" class="headerlink" title="3.3 open and openat"></a>3.3 open and openat</h2><p>The file descriptor returned by <em>open</em> and <em>openat</em> is guaranteed to be the lowest numbered unused descriptor.</p><p>The <em>fd</em> parameter distinguishes the <em>openat</em> from the <em>open</em> function.</p><p>The <em>openat</em> is to address two problems:</p><ol><li><p>Allow different threads in same process to access different files from different locations.</p></li><li><p>Provides a way to avoid time-of-check-to-time-of-use errors (TOCTTOU).</p></li></ol><h2 id="3-6-lseek"><a href="#3-6-lseek" class="headerlink" title="3.6 lseek"></a>3.6 lseek</h2><p><em>lseek</em> is to set an open file&#39;s offset.</p><p>the parameter <em>whence</em> can have three values: <strong>SEEK_SET</strong>, <strong>SEEK_CUR</strong> and <strong>SEEK_END</strong>.</p><p>The offset can be greater than the file&#39;s current size, where the next <em>write</em> to the file will extend the file. There is no need to allocate disk space for the data between the old end of the file and the location where you start writing.</p><h2 id="3-9-I-O-Efficienty"><a href="#3-9-I-O-Efficienty" class="headerlink" title="3.9 I/O Efficienty"></a>3.9 I/O Efficienty</h2><p><img src="buffer_size_comparison.png" alt="Buffer size comparison"></p><p>The file system used for this test was the Linux ext4 file system with 4096-byte blocks. This accounts for the minimum in the system time occurring at the few timing measurements starting around 4096. Increasing the buffer size beyond this limit has little positive effect.</p><p>Most file systems support <strong>read-ahead</strong> to improve performance.</p><h2 id="3-10-File-Sharing"><a href="#3-10-File-Sharing" class="headerlink" title="3.10 File Sharing"></a>3.10 File Sharing</h2><ol><li><p>Every process has an entry in the process table. Within that table entry is a table of open file descriptors. There are <em>fd flags</em> and <em>pointer to a file table entry</em></p></li><li><p>The kernel maintains a file table for all open files, each file table entry contains: <em>fd flag, current offset</em>, and <em>pointer to the v-node table entry for the file</em></p></li><li><p>Each open file has a v-node structure that contains information about the type of file and pointers to functions that operate on the file. They always contains the i-node for the file. The i-node contains the owner of the file, size, pointers to where the actual data blocks for the file are located on disk, and so on.</p></li></ol><p><strong>Note</strong>: Linux has no v-node, instead a generic i-node structure is used.</p><p><img src="kernel_data_structure_for_open_files.png" alt="Kernel data structure for open files"></p><p><img src="two_processes_one_file.png" alt="Two processes with the same file open"></p><p>It&#39;s also possible for more than one file descriptor entry to point to the same file table entry. <em>dup, fork</em>.</p><h2 id="3-11-Atomic-Operations"><a href="#3-11-Atomic-Operations" class="headerlink" title="3.11 Atomic Operations"></a>3.11 Atomic Operations</h2><p>If we call <em>lseek</em> and then <em>write</em> to achieve appending a message, it&#39;s possible two different processes conflict with each other. Thus we have <strong>O_APPEND</strong> to do it atomically.</p><p><strong>pread</strong> is equivalent to calling <em>lseek</em> and then <em>read</em>, except that there is no way to interrupt the two operations, and the current file offset is not updated.</p><p><strong>pwrite</strong> is equivalent to calling <em>lseek</em> and then <em>write</em>.</p><p>The term <em>atomic operation</em> refers to an operation that might be composed of multiple steps, either all the steps are performed or none are performed. It&#39;s not possible that only a subset of all to be performed.</p><h2 id="3-12-dup-and-dup2-Functions"><a href="#3-12-dup-and-dup2-Functions" class="headerlink" title="3.12 dup and dup2 Functions"></a>3.12 dup and dup2 Functions</h2><p>With dup2, we specify the value of the new descriptor.</p><p><img src="kernel_data_structure_after_dup.png" alt="Kernel data structure after dup()"></p><h2 id="3-13-sync-fsync-and-fdatasync-Functions"><a href="#3-13-sync-fsync-and-fdatasync-Functions" class="headerlink" title="3.13 sync, fsync and fdatasync Functions"></a>3.13 sync, fsync and fdatasync Functions</h2><p>UNIX systems have a buffer cache or page cache in the kernel. When we write data to a file, the data is normally copied by the kernel into the buffer and queued for writing to disk at some later time. This is called <em>delayed write</em>.</p><p><em>sync</em> function simply queues all the modified block buffers for writing and returns, it does not wait for the disk writes to take place. It&#39;s called periodically to guarantee regular flushing of the kernel&#39;s buffer.</p><p><em>fsync</em> refers only to a single file, and waits for the disk writes to complete before returning. This is used when an application, like database needs to be sure that the blocks have been written to the disk.</p><p><em>fdatasync</em> is similar to <em>fsync</em>, but it affects only the data portion of a file, while <em>fsync</em> also update the file&#39;s attributes synchronously.</p><h2 id="3-14-fcntl-Function"><a href="#3-14-fcntl-Function" class="headerlink" title="3.14 fcntl Function"></a>3.14 fcntl Function</h2><p>The <strong>fcntl</strong> function is used for five different purposes: </p><ol><li><p>Duplicate an existing descriptor (cmd = <strong>F_DUPFD</strong> or <strong>F_DUPFD_CLOEXEC</strong>) </p></li><li><p>Get/set file descriptor flags (cmd = <strong>F_GETFD</strong> or <strong>F_SETFD</strong>) </p></li><li><p>Get/set file status flags (cmd = <strong>F_GETFL</strong> or <strong>F_SETFL</strong>) </p></li><li><p>Get/set asynchronous I/O ownership (cmd = <strong>F_GETOWN</strong> or <strong>F_SETOWN</strong>) </p></li><li><p>Get/set record locks (cmd = <strong>F_GETLK</strong>, <strong>F_SETLK</strong>, or <strong>F_SETLKW</strong>)</p><p><strong>F_DUPFD</strong>, <strong>F_GETFD</strong>, <strong>F_GETFL</strong> and <strong>F_GETOWN</strong> have special return values. The first command returns the new file descriptor, the next two return the corresponding flags, and the final command returns a positive process ID or a negative process group ID.</p></li></ol><p>With <strong>fcntl</strong>, we can modify the file descriptor without opening that file, even if the file has been opened.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Operating System </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action Chapter 5</title>
+      <link href="/2020/04/03/netty-in-action-chapter-5/"/>
+      <url>/2020/04/03/netty-in-action-chapter-5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-5-ByteBuf"><a href="#Chapter-5-ByteBuf" class="headerlink" title="Chapter 5 - ByteBuf"></a>Chapter 5 - ByteBuf</h1><a id="more"></a><h2 id="5-1-The-ByteBuf-API"><a href="#5-1-The-ByteBuf-API" class="headerlink" title="5.1 The ByteBuf API"></a>5.1 The ByteBuf API</h2><p>Advantages of <em>ByteBuf</em> API: </p><ol><li>It’s extensible to user-defined buffer types.</li><li>Transparent zero-copy is achieved by a built-in composite buffer type.</li><li>Capacity is expanded on demand (as with the JDK StringBuilder).</li><li>Switching between reader and writer modes doesn&#39;t require calling ByteBuffer&#39;s flip() method.</li><li>Reading and writing employ distinct indices.</li><li>Method chaining is supported.</li><li>Reference counting is supported.</li><li>Pooling is supported.</li></ol><h2 id="5-2-Class-ByteBuf"><a href="#5-2-Class-ByteBuf" class="headerlink" title="5.2 Class ByteBuf"></a>5.2 Class ByteBuf</h2><p>ByteBuf has two indexes, <em>readerIndex</em> and <em>writerIndex</em>:</p><p><img src="bytebuf.png" alt="ByteBuf"></p><p>The max capacity of a ByteBuf can be specified, moving writerIndex past this value will cause an exception</p><h3 id="5-2-2-ByteBuf-usage-patterns"><a href="#5-2-2-ByteBuf-usage-patterns" class="headerlink" title="5.2.2 ByteBuf usage patterns"></a>5.2.2 ByteBuf usage patterns</h3><p><strong>Heap Buffers</strong><br>Store data in the JVM heap space.<br><strong>Direct Buffers</strong><br>Store data outside of heap, this is to avoid copying the buffer content to/from an intermediate buffer before/after a native I/O operation. This is <strong>ideal</strong> for network data transfer.<br>On the other side, it&#39;s harder to allocate and release than heap-based buffers.<br><strong>Composite Buffers</strong><br>It aggregates multiple <strong>ByteBufs</strong>.<br>If we don&#39;t want to reallocate both bufferes for each message, it&#39;s a good fit. (if messages contain same body but different headers, we can keep the body and replace header every time)</p><h2 id="5-3-Byte-level-operations"><a href="#5-3-Byte-level-operations" class="headerlink" title="5.3 Byte-level operations"></a>5.3 Byte-level operations</h2><ol><li>We are able to access <em>ByteBuf</em> randomly by giving the index of the byte we want to get<br><img src="bytebuf_internal_segmentation.png" alt="ByteBuf internal segmentation"></li><li>The segment that is already read is discardable, which will be cleaned by calling <em>discardReadBytes()</em>, which will increase the size of writable bytes, but it also causes memory coping by moving the readable bytes to the beginning of the byteBuf.</li><li>We can use <em>ByteBufProcessor</em> as a parameter of forEachByte() method of <em>ByteBuf</em> to do searching</li><li>We can copy a byteBuf or slice it.</li><li>There are many variants of <em>read</em> and <em>write</em> operations of <em>ByteBuf</em></li><li>Netty uses the <em>PooledByteBufAllocator</em> by default, which can be changed via <em>ChannelConfig</em></li></ol><h2 id="5-6-Reference-counting"><a href="#5-6-Reference-counting" class="headerlink" title="5.6 Reference counting"></a>5.6 Reference counting</h2><p>It tracks the number of active references to a specific object, starting with 0.<br>As long as it&#39;s greater than 0, the object is guaranteed not to be released.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action Chapter 4</title>
+      <link href="/2020/04/03/netty-in-action-chapter-4/"/>
+      <url>/2020/04/03/netty-in-action-chapter-4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-4-Transports"><a href="#Chapter-4-Transports" class="headerlink" title="Chapter 4 - Transports"></a>Chapter 4 - Transports</h1><a id="more"></a><p>Netty OIO and NIO implementation has way less differences than Java&#39;s NIO and OIO, we only need to change the OIO eventLoopGroup to NIO eventLoopGroup, as well as oioSocketChannel to nioSocketChannel.</p><h2 id="4-2-Transport-API"><a href="#4-2-Transport-API" class="headerlink" title="4.2 Transport API"></a>4.2 Transport API</h2><p>A <em>Channel</em> has a <em>ChannelPipeline</em> and a <em>ChannelConfig</em> assigned to it.</p><p> Typical uses for <em>ChannelHandlers</em> include: </p><ul><li>Transforming data from one format to another </li><li>Providing notification of exceptions </li><li>Providing notification of a Channel becoming active or inactive </li><li>Providing notification when a Channel is registered with or deregistered from an EventLoop </li><li>Providing notification about user-defined events</li></ul><p>Netty&#39;s Channel implementation is thread-safe. </p><h2 id="4-3-Included-Transports"><a href="#4-3-Included-Transports" class="headerlink" title="4.3 Included Transports"></a>4.3 Included Transports</h2><p><img src="netty_provided_transports.png" alt="Netty-provided transports"></p><h3 id="4-3-1-NIO"><a href="#4-3-1-NIO" class="headerlink" title="4.3.1 NIO"></a>4.3.1 NIO</h3><p>It makes use of selector-based API, whose basic concept is to serve as a registry where you request to be notified when there is a state change of a <em>Channel</em>.<br><strong>Selection operation bit-set</strong></p><ol><li>OP_ACCEPT: when a new connection is accepted, and a Channel is created</li><li>OP_CONNECT: when a connection is established</li><li>OP_READ: when data is ready to be read from the Channel</li><li>OP_WRITE: when it&#39;s possible to write more data to the Channel</li></ol><p><img src="selector_workflow.png" alt="Selector Workflow"></p><p><strong>Zero-copy</strong><br>A feature only available for NIO and Epoll.<br>Allow you to quickly and efficiently move data from a file system to the network without copying from kernel space to user space, which significantly improves the performance.</p><h3 id="4-3-2-Epoll"><a href="#4-3-2-Epoll" class="headerlink" title="4.3.2 Epoll"></a>4.3.2 Epoll</h3><p>Epoll is now the standard for non-blocking networking on Linux.<br>To substitute epoll for NIO, replace <em>NioEventLoopGroup</em> with <em>EpollEventLoopGroup</em> and <em>NioServerSocketChannel</em> with <em>EpollServerSocketChannel</em></p><h3 id="4-3-3-OIO"><a href="#4-3-3-OIO" class="headerlink" title="4.3.3 OIO"></a>4.3.3 OIO</h3><p><img src="OIO_processing_logic.png" alt="OIO Processing Logic"><br>Netty makes use of <em>SO_TIMEOUT</em> Socket flag, which specifies the maximum number of milliseconds to wait for an I/O operation to complete. If operation fails to complete within the time interval, it will throw an exception and continue the processing loop.</p><h3 id="4-3-4-Local-transport-for-communication-within-a-JVM"><a href="#4-3-4-Local-transport-for-communication-within-a-JVM" class="headerlink" title="4.3.4 Local transport for communication within a JVM"></a>4.3.4 Local transport for communication within a JVM</h3><p>In this transport, the <em>SocketAddress</em> associated with a server <em>Channel</em> isn&#39;t bound to a physical network address; rather, it&#39;s stored in a registry for as long as the server is running and is deregistered when the <em>Channel</em> is closed.<br>The client wishing to connect to the server running in the same JVM must implement the same transport.</p><h3 id="4-3-5-Embedded-Transport"><a href="#4-3-5-Embedded-Transport" class="headerlink" title="4.3.5 Embedded Transport"></a>4.3.5 Embedded Transport</h3><p>Netty provides an additional transport to allow you to embed <em>ChannelHandlers</em> as helper classes inside other <em>ChannelHandlers</em>, so you can extend the functionality of a <em>ChannelHandlers</em> without modifying its internal code.<br><em>EmbeddedChannel</em> is the key of embedded transport, it will be easy to help unit tests.</p><h2 id="4-4-Transport-use-cases"><a href="#4-4-Transport-use-cases" class="headerlink" title="4.4 Transport use cases"></a>4.4 Transport use cases</h2><table><thead><tr><th>Transport</th><th>TCP</th><th>UDP</th><th>SCTP</th><th>UDT</th></tr></thead><tbody><tr><td>NIO</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>Epoll</td><td>X</td><td>X</td><td>-</td><td>-</td></tr><tr><td>OIO</td><td>X</td><td>X</td><td>X</td><td>X</td></tr></tbody></table><table><thead><tr><th>Application needs</th><th>Recommended transport</th></tr></thead><tbody><tr><td>Non-blocking code base or general starting point</td><td>NIO</td></tr><tr><td>Blocing code base</td><td>OIO</td></tr><tr><td>Communication within the same JVM</td><td>Local</td></tr><tr><td>Testing ChannelHandler implementations</td><td>Embedded</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action - Chapter 3</title>
+      <link href="/2020/04/02/netty-in-action-chapter-3/"/>
+      <url>/2020/04/02/netty-in-action-chapter-3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-3-Netty-components-and-design"><a href="#Chapter-3-Netty-components-and-design" class="headerlink" title="Chapter 3 - Netty components and design"></a>Chapter 3 - Netty components and design</h1><a id="more"></a><p>Channel - Sockets<br>EventLoop - Control flow, multithreading, concurrency<br>ChannelFuture - Asynchronous notification, a placeholder for the result of an operation that&#39;s to be executed in the future.</p><h3 id="Interface-EventLoop"><a href="#Interface-EventLoop" class="headerlink" title="Interface EventLoop"></a>Interface EventLoop</h3><ol><li>An <em>EventLoopGroup</em> can contain multiple <em>EventLoops</em></li><li>An <em>EventLoop</em> is bound to a single Thread for its lifetime</li><li>All I/O events processed by an <em>EventLoop</em> are handled on its dedicated Thread</li><li>A channel is registered for its lifetime with a single <em>EventLoop</em></li><li>A single <em>EventLoop</em> may be assigned to one or more <em>Channels</em></li></ol><p><img src="channel_eventLoop.png" alt="Channel and EventLoop"></p><h3 id="Interface-ChannelHandler"><a href="#Interface-ChannelHandler" class="headerlink" title="Interface ChannelHandler"></a>Interface ChannelHandler</h3><p>Primary component of Netty which serves as the container for all application logic that applies to inbound and outbound data. </p><h3 id="Interface-ChannelPipeline"><a href="#Interface-ChannelPipeline" class="headerlink" title="Interface ChannelPipeline"></a>Interface ChannelPipeline</h3><p><em>ChannelHandlers</em> are installed in <em>ChannelPipeline</em> as follows: </p><ol><li>The <em>ChannelInitializer</em> implementation is registered with a <em>ServerBootstrap</em></li><li>When <em>ChannelInitializer</em>.<em>initChannel</em>() is called, it will install a custom set of <em>ChannelHandlers</em> in the pipeline</li><li>The <em>ChannelInitializer</em> removes itself from the <em>ChannelPipeline</em></li></ol><p><img src="channelPipeline.png" alt="ChannelPipeline"></p><p>There are two ways of sending messages in Netty: </p><ol><li>Write directly to the <em>Channel</em>, which will cause the message to start from the tail of the pipeline</li><li>Write to a <em>ChannelHandlerContext</em>, which will cause the message to start from the next handler in the pipeline</li></ol><h3 id="Encoder-and-decoder"><a href="#Encoder-and-decoder" class="headerlink" title="Encoder and decoder"></a>Encoder and decoder</h3><p>When inbound message comes in, it will be decoded<br>When outbound message goes out, it will be encoded</p><p>The encoder/decoder adapter classes provided by Netty implement either <em>ChannelInboundHandler</em> or <em>ChannelOutboundHandler</em><br>For each inbound message, it will call decode() and forward the decoded bytes to the next <em>ChannelInboundHandler</em> in the pipeline; An encoder converts the message to bytes and forwards them to the next <em>ChannelOutboundHandler</em></p><h3 id="Bootstrapping"><a href="#Bootstrapping" class="headerlink" title="Bootstrapping"></a>Bootstrapping</h3><p><em>bootstrapping a server</em>: bind a process to a given port (<strong>ServerBootstrap</strong>)<br><em>bootstrapping a client</em>: connect one process to another one running on a host at a specific port (<strong>Bootstrap</strong>)</p><p>A server needs two distinct set of <em>Channels</em>:</p><ol><li>The first set will contain a single <em>ServerChannel</em> representing the server&#39;s own listening socket, bound to a local port.</li><li>The second set will contain all of the <em>Channels</em> that have been created to handle incoming client connections - one for each connection the server accepted.</li></ol><p>This explains why two distinct <em>EventLoopGroups</em> are required</p><p><img src="eventLoopGroup.png" alt="Server with EventLoopGroups"></p><p>The first group will assign an <em>EventLoop</em> that is responsible for creating <em>Channels</em> for incoming connection requests. The second group will assign <em>EventLoop</em> to handle the <em>Channel</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty in Action - Chapter 2</title>
+      <link href="/2020/03/31/netty-in-action-chapter-2/"/>
+      <url>/2020/03/31/netty-in-action-chapter-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-2-First-Netty-Application-Echo-Client-and-Server"><a href="#Chapter-2-First-Netty-Application-Echo-Client-and-Server" class="headerlink" title="Chapter 2 - First Netty Application - Echo Client and Server"></a>Chapter 2 - First Netty Application - Echo Client and Server</h1><a id="more"></a><h2 id="Echo-Server"><a href="#Echo-Server" class="headerlink" title="Echo Server"></a>Echo Server</h2><ol><li>At least one ChannelHandler - implementation of data processing</li><li>Bootstrapping - startup code that configures server.</li></ol><h2 id="Echo-Client"><a href="#Echo-Client" class="headerlink" title="Echo Client"></a>Echo Client</h2><p>The client will: </p><ol><li>Connect to the server</li><li>Send one or more messages</li><li>For each message, wait for and receive the same message back from the server</li><li>Close the connection</li></ol><p><strong>NOTE</strong>: SimpleChannelInboundHandler takes care of releasing the memory reference to the ByteBuf that holds the message.</p><h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a><a href="https://github.com/adrrrrrrrian/programs-for-language-learning/tree/master/Java/Netty/Chapter2" target="_blank" rel="noopener">Sample Code</a></h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Advanced Programming in Unix - Chapter 2</title>
+      <link href="/2020/03/30/advanced-programming-in-unix-chapter-2/"/>
+      <url>/2020/03/30/advanced-programming-in-unix-chapter-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="UNIX-Standardization-and-Implementations"><a href="#UNIX-Standardization-and-Implementations" class="headerlink" title="UNIX Standardization and Implementations"></a>UNIX Standardization and Implementations</h1><a id="more"></a><h2 id="Unix-Standardization"><a href="#Unix-Standardization" class="headerlink" title="Unix Standardization"></a>Unix Standardization</h2><h4 id="FIPS"><a href="#FIPS" class="headerlink" title="FIPS"></a>FIPS</h4><p>FIPS stands for Federal Information Processing Standard.</p><h2 id="Unix-System-Implementations"><a href="#Unix-System-Implementations" class="headerlink" title="Unix System Implementations"></a>Unix System Implementations</h2><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>Linux is an OS that provides rich UNIX programming environment, and is freely available under the GPU Public License.<br>Linux is distributed by often being the first OS that supports new hardware.</p><h2 id="Limits"><a href="#Limits" class="headerlink" title="Limits"></a>Limits</h2><p>There are two types of limits:<br>    1. Runtime limits (<code>how many characters in a filename</code>)<br>    2. Compile-time limits (<code>what&#39;s the largest value of a short integer</code>)</p><p>NOTE: a particular value may not be included in the header if the actual value depends on the available memory on the system, POSIX.1 provides sysconf, pathconf and fpathconf for us to call during runtime. There is a problem: some values do not have upper bound.</p><h2 id="sysconf-pathconf-and-fpathconf"><a href="#sysconf-pathconf-and-fpathconf" class="headerlink" title="sysconf, pathconf and fpathconf"></a>sysconf, pathconf and fpathconf</h2><p>They return <code>-1</code> and set <code>errno</code> to EINVAL if the name isn&#39;t one of the appropriate constants.<br>Some names can return either the value of the variable or an indication that it&#39;s indefinite, where return value is <code>-1</code> but no change on <code>errno</code>.</p><h2 id="Differences-between-Standards"><a href="#Differences-between-Standards" class="headerlink" title="Differences between Standards"></a>Differences between Standards</h2><p>There are differences between ISO C standard and POSIX.1. If it happens, POSIX.1 defers to the ISO C standard. </p><p>Example:<br>    1. <code>clock_t</code>, where ISO C does not provide unit, but POSIX.1 does.<br>    2. ISO C standards specifies a function but not as strongly as POSIX.1</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Operating System </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Advanced Programming in Unix - Chapter 1</title>
+      <link href="/2020/03/29/advanced-programming-in-unix-chapter-1/"/>
+      <url>/2020/03/29/advanced-programming-in-unix-chapter-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="UNIX-System-Overview"><a href="#UNIX-System-Overview" class="headerlink" title="UNIX System Overview"></a>UNIX System Overview</h1><h2 id="UNIX-Architecture"><a href="#UNIX-Architecture" class="headerlink" title="UNIX Architecture"></a>UNIX Architecture</h2><p>an operating system can be defined as the software that controls the hardware resources of the computer and provides an environment under which programs can run. We call it the kernel.</p><a id="more"></a><p><img src="unix_architecture.png" alt="Unix Architecture"></p><p>Interface to the kernel is a layer of software called the system calls.<br>Libraries of common functions are built on top of the system call interface.<br>The shell is a special application that provides an interface for running other applications.</p><h2 id="Logging-In"><a href="#Logging-In" class="headerlink" title="Logging In"></a>Logging In</h2><h3 id="Login-Name"><a href="#Login-Name" class="headerlink" title="Login Name"></a>Login Name</h3><p>sar: x: 205:105:Stephen Rago:/home/sar:/bin/ksh<br>loginName:encryptedPwd:userID:groupID:commentField:homeDirectory:shellProgram</p><p>The system knows which shell to execute based on the last field.</p><h3 id="Shells"><a href="#Shells" class="headerlink" title="Shells"></a>Shells</h3><p>A shell is a command-line interpreter that reads user input and executes commands.</p><p><img src="common_shell.png" alt="Common Shell"></p><h2 id="Files-and-Directories"><a href="#Files-and-Directories" class="headerlink" title="Files and Directories"></a>Files and Directories</h2><h3 id="File-System"><a href="#File-System" class="headerlink" title="File System"></a>File System</h3><p>A directory is a file that contains directory entries. </p><h3 id="Pathname"><a href="#Pathname" class="headerlink" title="Pathname"></a>Pathname</h3><p>A pathname that begins with a slash is called an absolute pathname; otherwise, it&#39;s called a relative pathname. Relative pathnames refer to files relative to the current directory.</p><h2 id="Input-and-Output"><a href="#Input-and-Output" class="headerlink" title="Input and Output"></a>Input and Output</h2><h3 id="Unbuffered-I-O"><a href="#Unbuffered-I-O" class="headerlink" title="Unbuffered I/O"></a>Unbuffered I/O</h3><p>Unbuffered I/O is provided by the function <code>open</code>, <code>read</code>, <code>write</code>, <code>lseek</code> and <code>close</code>    </p><h3 id="Standard-I-O"><a href="#Standard-I-O" class="headerlink" title="Standard I/O"></a>Standard I/O</h3><p>This prevents us from worrying about choosing optimal buffer sizes.<br>The most common function is <code>printf</code>.<br><code>fgets</code> reads an entire line<br><code>getc</code> reads one character at a time<br><code>putc</code> writes one character at a time</p><h2 id="Programs-and-Process-Control"><a href="#Programs-and-Process-Control" class="headerlink" title="Programs and Process Control"></a>Programs and Process Control</h2><h3 id="Process-Control"><a href="#Process-Control" class="headerlink" title="Process Control"></a>Process Control</h3><p>There are three primary functions for process control: <code>fork</code>, <code>exec</code> and <code>waitpid</code></p><h3 id="Threads-and-Thread-IDs"><a href="#Threads-and-Thread-IDs" class="headerlink" title="Threads and Thread IDs"></a>Threads and Thread IDs</h3><p>Thread of control - one set of machine instructions executing at a time.<br>All the threads within a process share the same address space, file descriptors, stacks and process-related attributes.</p><h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><p>When an error occurs in UNIX system functions, a negative value is returned and an integer <code>errno</code> is set to a value that gives additional information.<br><strong>Note</strong>: </p><ol><li>The value of <code>errno</code> is never cleared even if there is no error occurred. Therefore we should make sure it&#39;s only returned when a function indicates that an error occurred. </li><li>The value of <code>errno</code> is never set to 0 by any of the functions.</li></ol><p>Errors could be fatal (non-recoverable) and nonfatal (recoverable)</p><h2 id="User-Identification"><a href="#User-Identification" class="headerlink" title="User Identification"></a>User Identification</h2><p>Starting with 4.2 BSD, most of UNIX systems allow a user to belong to up to 16 additional user groups.</p><h2 id="Time-Values"><a href="#Time-Values" class="headerlink" title="Time Values"></a>Time Values</h2><p>UNIX system maintains three values for a process:<br>    1. Clock time<br>    2. User CPU time<br>    3. System CPU time<br>The user CPU time is the CPU time attributed to user instructions. The system CPU time is the CPU time attributed to the kernel when it executes on behalf of the process.</p><h2 id="System-calls-and-library-functions"><a href="#System-calls-and-library-functions" class="headerlink" title="System calls and library functions"></a>System calls and library functions</h2><p>We should realize, that we can replace the library functions, if desired, whereas the system calls usually cannot be replaced</p><p><img src="systemCallAndLibraryCall.png" alt="System Call and Library Call"><br>System calls usually provide a minimal interface, whereas library functions often provide more elaborate functionality</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Operating System </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Netty-in-Action-Chapter 1</title>
+      <link href="/2020/03/28/netty-in-action-chapter-1-1/"/>
+      <url>/2020/03/28/netty-in-action-chapter-1-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chapter-1-Netty-asynchronous-and-event-driven"><a href="#Chapter-1-Netty-asynchronous-and-event-driven" class="headerlink" title="Chapter 1 - Netty - asynchronous and event-driven"></a>Chapter 1 - Netty - asynchronous and event-driven</h1><a id="more"></a><h2 id="Networking-in-Java"><a href="#Networking-in-Java" class="headerlink" title="Networking in Java"></a>Networking in Java</h2><p>Previously we have to use one thread per connection to do the read/write, this has problems:</p><ol><li>Resource waste</li><li>Memory allocation</li><li>Limit on number of threads supported by JVM</li></ol><p><img src="java_bloking_IO.png" alt="Java blocking I/O"></p><h3 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h3><p>It&#39;s the key for JAVA NIO, it uses event notification API to indicate if a socket is done read/write</p><h2 id="Introducing-Netty"><a href="#Introducing-Netty" class="headerlink" title="Introducing Netty"></a>Introducing Netty</h2><p><img src="netty_feature_summary.png" alt="Netty feature summary"></p><h2 id="Netty-39-s-core-components"><a href="#Netty-39-s-core-components" class="headerlink" title="Netty&#39;s core components"></a>Netty&#39;s core components</h2><h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h3><p>Just like a car with incoming and outcoming messages</p><h3 id="Callbacks"><a href="#Callbacks" class="headerlink" title="Callbacks"></a>Callbacks</h3><p>Netty uses callbacks internally when handling events; when a callback is triggered the event can be handled by an implementation of interface ChannelHandler. The next listing shows an example: when a new connection has been established the ChannelHandler callback channelActive() will be called and will print a message.<br><img src="callback.png" alt="Netty callback"></p><h3 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h3><ol><li>Provide a way to notify the application when the operation is completed</li><li>Java&#39;s Future can only provide manual check for the status of the operation</li><li>Netty&#39;s Future does not need to do manual check anymore </li><li>Netty&#39;s ChannelFuture is able to let you register to the ChannelFutureListener interfaces, the listener has a callback has a callback methods for indication of completion</li></ol><p><img src="callback_with_future.png" alt="Netty Future 1"><br><img src="callback_with_future2.png" alt="Netty Future 2"></p><h3 id="Events-and-handlers"><a href="#Events-and-handlers" class="headerlink" title="Events and handlers"></a>Events and handlers</h3><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p><strong><em>Future, Callbacks and Handlers</em></strong>: provide a processing environment that allows the logic of your application to evolve independently of any concerns with network operations.<br><strong><em>Selectors, Events, and EventLoops</em></strong>: abstracts the <em>Selector</em> away from the application by firing events, eliminating all the handwritten dispatch code that would otherwise be required, also eliminates any concern you might have about synchronization in <em>ChannelHandlers</em>.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Netty </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从零开始学架构-笔记01</title>
+      <link href="/2020/03/18/cong-ling-kai-shi-xue-jia-gou-bi-ji-01/"/>
+      <url>/2020/03/18/cong-ling-kai-shi-xue-jia-gou-bi-ji-01/</url>
+      
+        <content type="html"><![CDATA[<h1 id="01-架构到底是指什么？"><a href="#01-架构到底是指什么？" class="headerlink" title="01 | 架构到底是指什么？"></a>01 | 架构到底是指什么？</h1><a id="more"></a><p>系统与子系统、模块与组件、框架与架构。</p><h2 id="系统与子系统"><a href="#系统与子系统" class="headerlink" title="系统与子系统"></a>系统与子系统</h2><p>以微信举例来说：<br>微信本身是一个系统，包含聊天、登录、支付、朋友圈等子系统。</p><ul><li>朋友圈这个系统又包括动态、评论、点赞等子系统。</li><li>评论这个系统可能又包括防刷子系统、审核子系统、发布子系统、存储子系统。</li><li>评论审核子系统不再包含业务意义上的子系统，而是包括各个模块或者组件，这些模块或者组件本身也是另外一个维度上的系统。例如，MySQL、Redis 等是存储系统，但不是业务子系统。</li></ul><h2 id="模块与组件"><a href="#模块与组件" class="headerlink" title="模块与组件"></a>模块与组件</h2><p>从逻辑的角度来拆分系统后，得到的单元就是“模块”；从物理的角度来拆分系统后，得到的单元就是“组件”。划分模块的主要目的是职责分离；划分组件的主要目的是单元复用。</p><p>以一个最简单的网站系统来为例。假设我们要做一个学生信息管理系统，这个系统从逻辑的角度来拆分，可以分为“登录注册模块”“个人信息模块”“个人成绩模块”；从物理的角度来拆分，可以拆分为 Nginx、Web 服务器、MySQL。</p><h2 id="框架与架构"><a href="#框架与架构" class="headerlink" title="框架与架构"></a>框架与架构</h2><p>框架关注的是“规范”，架构关注的是“结构”。</p><p>架构会根据角度的不同而产生不同的定义，这也是4+1视图的由来：<br><img src="4+1.jpg" alt="4+1 from IBM"></p><p>举例来说：</p><ol><li>从业务逻辑的角度，“学生管理系统”的架构由<strong>登录注册模块</strong>、<strong>个人信息模块</strong>和<strong>个人成绩模块</strong>组成</li><li>从物理部署的角度，“学生管理系统”的架构由<strong>nginx</strong>，<strong>web服务器</strong>和<strong>mysql</strong>组成</li><li>从开发规范的角度，“学生管理系统”的架构由<strong>Model</strong>, <strong>View</strong> 和<strong>Controller</strong>组成</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>首先，“系统是一群关联个体组成”，这些“个体”可以是“子系统”“模块”“组件”等；架构需要明确系统包含哪些“个体”。其次，系统中的个体需要“根据某种规则”运作，架构需要明确个体运作和协作的规则。</p><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>原来对架构的理解完全由自己工作中的产品决定的，中型规模的产品，已经有了关于模块和组件的理解，也有了从业务逻辑和物理部署角度对于架构的认识。<br>现在产品越来越大，也在向SaaS和microservice转型，物理部署相较于业务逻辑，改动会更大一点，而且cloud提供了很多原来on prem无法提供的功能，比如serverless，或者redis。<br>以后的趋势也许会越来越倾向于：架构被外包给cloud provider，就像发型设计师一样，程序员和云平台的架构师沟通好，然后他们给出一套方案，直接用就行了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

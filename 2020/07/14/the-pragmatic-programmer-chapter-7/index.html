@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Chapter 7 - While you are coding">
+<meta name="keywords" content="Career">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Pragmatic Programmer - Chapter 7">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="Chapter 7 - While you are coding">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-07-15T03:16:43.626Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Pragmatic Programmer - Chapter 7">
+<meta name="twitter:description" content="Chapter 7 - While you are coding">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>The Pragmatic Programmer - Chapter 7 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The Pragmatic Programmer - Chapter 7
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-14 23:16:12" itemprop="dateCreated datePublished" datetime="2020-07-14T23:16:12-04:00">2020-07-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Chapter-7-While-you-are-coding"><a href="#Chapter-7-While-you-are-coding" class="headerlink" title="Chapter 7 - While you are coding"></a>Chapter 7 - While you are coding</h1><a id="more"></a>
+<h2 id="Listen-to-your-lizard-brain"><a href="#Listen-to-your-lizard-brain" class="headerlink" title="Listen to your lizard brain"></a>Listen to your lizard brain</h2><blockquote>
+<p>The trick is first to notice it is happening, and then to work out why. </p>
+<p>(Page 328). </p>
+</blockquote>
+<h2 id="Programming-by-coincidence"><a href="#Programming-by-coincidence" class="headerlink" title="Programming by coincidence"></a>Programming by coincidence</h2><ul>
+<li>Always be aware of what you are doing. Fred let things get slowly out of hand, until he ended up boiled, like the frog here. </li>
+<li>Can you explain the code, in detail, to a more junior programmer? If not, perhaps you are relying on coincidences. </li>
+<li>Don’t code in the dark. Build an application you don’t fully grasp, or use a technology you don’t understand, and you’ll likely be bitten by coincidences. If you’re not sure why it works, you won’t know why it fails. </li>
+<li>Proceed from a plan, whether that plan is in your head, on the back of a cocktail napkin, or on a whiteboard.</li>
+<li>Rely only on reliable things. Don’t depend on assumptions. If you can’t tell if something is reliable, assume the worst. </li>
+<li>Document your assumptions. Topic 23, Design by Contract, can help clarify your assumptions in your own mind, as well as help communicate them to others. </li>
+<li>Don’t just test your code, but test your assumptions as well. Don’t guess; actually try it. Write an assertion to test your assumptions (see Topic 25, Assertive Programming). If your assertion is right, you have improved the documentation in your code. If you discover your assumption is wrong, then count yourself lucky.</li>
+<li>Prioritize your effort. Spend time on the important aspects; more than likely, these are the hard parts. If you don’t have fundamentals or infrastructure correct, brilliant bells and whistles will be irrelevant. </li>
+<li>Don’t be a slave to history. Don’t let existing code dictate future code. All code can be replaced if it is no longer appropriate. Even within one program, don’t let what you’ve already done constrain what you do next—be ready to refactor (see Topic 40, Refactoring). This decision may impact the project schedule. The assumption is that the impact will be less than the cost of not making the change.</li>
+</ul>
+<h2 id="Algorithm-speed"><a href="#Algorithm-speed" class="headerlink" title="Algorithm speed"></a>Algorithm speed</h2><h2 id="Refactoring"><a href="#Refactoring" class="headerlink" title="Refactoring"></a>Refactoring</h2><blockquote>
+<p>disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior.</p>
+<p>-- Martin Fowler</p>
+</blockquote>
+<h3 id="Refactor-scenarios"><a href="#Refactor-scenarios" class="headerlink" title="Refactor scenarios:"></a>Refactor scenarios:</h3><ol>
+<li>Duplication</li>
+<li>Nonorthogonal design</li>
+<li>requirement change</li>
+<li>Performance</li>
+<li>Outdated knowledge</li>
+</ol>
+<h3 id="Refactor-tips"><a href="#Refactor-tips" class="headerlink" title="Refactor tips"></a>Refactor tips</h3><ol>
+<li>Don’t try to refactor and add functionality at the same time. </li>
+<li>Make sure you have good tests before you begin refactoring. Run the tests as often as possible. That way you will know quickly if your changes have broken anything.</li>
+<li>Take short, deliberate steps: move a field from one class to another, split a method, rename a variable. Refactoring often involves making many localized changes that result in a larger-scale change. If you keep your steps small, and test after each step, you will avoid prolonged debugging.</li>
+</ol>
+<h2 id="Test-to-code"><a href="#Test-to-code" class="headerlink" title="Test to code"></a>Test to code</h2><ul>
+<li><p>Tests can definitely help drive development, but as with every drive, unless you have a destination in mind, you can end up going in circles.</p>
+</li>
+<li><p>Contract</p>
+<p>If module A has two components A1 and A2, we should test: </p>
+<ol>
+<li>A1&#39;s contract in full;</li>
+<li>A2&#39;s contract in full;</li>
+<li>A&#39;s contract</li>
+</ol>
+<p>If A1 and A2 contact tests passed but A&#39;s tests failed, then we are sure the problem is on A or how A uses A1/A2.</p>
+</li>
+<li><p>Try to feed tests with real-world data;</p>
+</li>
+<li><p>Have a magic URL which exposes diagnostic info of the system;</p>
+</li>
+<li><p>Property-based testing can surprise you and help you</p>
+</li>
+</ul>
+<h2 id="Stay-safe-our-there"><a href="#Stay-safe-our-there" class="headerlink" title="Stay safe our there"></a>Stay safe our there</h2><ol>
+<li>Minimize attack surface area;<ol>
+<li>Code complexity</li>
+<li>Input data</li>
+<li>Authorized user</li>
+<li>Unauthenticated services</li>
+<li>Output data</li>
+<li>Debug info</li>
+</ol>
+</li>
+<li>Principle of Least Privilege </li>
+<li>Secure Defaults <ol>
+<li>The default setting should be the most secure value</li>
+</ol>
+</li>
+<li>Encrypt Sensitive Data </li>
+<li>Maintain Security Updates</li>
+</ol>
+<h2 id="Naming-things"><a href="#Naming-things" class="headerlink" title="Naming things"></a>Naming things</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Career/" rel="tag"># Career</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/12/cryptography-notes/" rel="prev" title="Cryptography notes">
+      <i class="fa fa-chevron-left"></i> Cryptography notes
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/15/di-si-ge-okr/" rel="next" title="第四个OKR">
+      第四个OKR <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-7-While-you-are-coding"><span class="nav-number">1.</span> <span class="nav-text">Chapter 7 - While you are coding</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Listen-to-your-lizard-brain"><span class="nav-number">1.1.</span> <span class="nav-text">Listen to your lizard brain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programming-by-coincidence"><span class="nav-number">1.2.</span> <span class="nav-text">Programming by coincidence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm-speed"><span class="nav-number">1.3.</span> <span class="nav-text">Algorithm speed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Refactoring"><span class="nav-number">1.4.</span> <span class="nav-text">Refactoring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Refactor-scenarios"><span class="nav-number">1.4.1.</span> <span class="nav-text">Refactor scenarios:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Refactor-tips"><span class="nav-number">1.4.2.</span> <span class="nav-text">Refactor tips</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Test-to-code"><span class="nav-number">1.5.</span> <span class="nav-text">Test to code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stay-safe-our-there"><span class="nav-number">1.6.</span> <span class="nav-text">Stay safe our there</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naming-things"><span class="nav-number">1.7.</span> <span class="nav-text">Naming things</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Chapter 1 A pragmatic strategy">
+<meta name="keywords" content="Career">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Pragmatic Programmer - Chapter 1">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/05/09/the-pragmatic-programmer-chapter-1/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="Chapter 1 A pragmatic strategy">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-05-09T16:40:17.856Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Pragmatic Programmer - Chapter 1">
+<meta name="twitter:description" content="Chapter 1 A pragmatic strategy">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/05/09/the-pragmatic-programmer-chapter-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>The Pragmatic Programmer - Chapter 1 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/05/09/the-pragmatic-programmer-chapter-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The Pragmatic Programmer - Chapter 1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-09 12:00:12" itemprop="dateCreated datePublished" datetime="2020-05-09T12:00:12-04:00">2020-05-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Chapter-1-A-pragmatic-strategy"><a href="#Chapter-1-A-pragmatic-strategy" class="headerlink" title="Chapter 1 A pragmatic strategy"></a>Chapter 1 A pragmatic strategy</h1><a id="more"></a>
+<h2 id="Topic-1-It-39-s-your-life"><a href="#Topic-1-It-39-s-your-life" class="headerlink" title="Topic 1: It&#39;s your life"></a>Topic 1: It&#39;s your life</h2><p>Many developers are frustrated and have lots of complaints about technology has passed them by, their team sucks, etc…</p>
+<p>Why can&#39;t you change it?</p>
+<ul>
+<li><p>Martin Fowler says <a href="http://wiki.c2.com/?ChangeYourOrganization" target="_blank" rel="noopener">you can change your organization or change your organization</a></p>
+</li>
+<li><p>Make time to learn, even if it requires some of your personal time.</p>
+</li>
+<li><p>Ask if you want to work remotely. If they say no, then find someone who says yes.</p>
+</li>
+</ul>
+<h2 id="Topic-2-The-cat-ate-my-source-code"><a href="#Topic-2-The-cat-ate-my-source-code" class="headerlink" title="Topic 2: The cat ate my source code"></a>Topic 2: The cat ate my source code</h2><p>Even the best projects can have mistakes. These things happen, and we try to deal with them as professionally as we can. We must own up to our shortcomings - our ignorance and our mistakes.</p>
+<ul>
+<li>Trust in a team is absolutely essential for creativity and collaboration. In a healthy environment, you can safely speak your mind, present your ideas, and rely on your team members who can in turn rely on you.</li>
+<li>When you accept the responsibility for an outcome, you should expect to be held accountable for it. <strong>When you make a mistake, admit it honestly and try to offer options.</strong></li>
+<li><strong>Don&#39;t blame on someone or something else, or make up an excuse. Any of these may play a role, but it&#39;s up to you to provide solutions, not excuses.</strong></li>
+<li>If there was a risk that the vendor wouldn&#39;t come through for you, you should have had a contingency plan.If your mass storage melts, and you don&#39;t have a backup, it&#39;s your fault.</li>
+<li>Before approaching to anyone to tell them why something is not working, stop and listen to yourself. Talk to the rubber duck on your monitor: does your excuse sound reasonable or stupid? How&#39;s it going to sound to your boss?</li>
+<li><strong>Instead of excuses, provide options.</strong> Don&#39;t say it can&#39;t be done, explain what can be done to salvage the situation.<ul>
+<li>Does code have to be deleted?</li>
+<li>Do you need to spend time prototyping to determine the best way to proceed?</li>
+<li>Do you need to introduce better testing or automation?</li>
+<li>Do you need other people to help?</li>
+<li>Do you need to spend more time with the users?</li>
+<li>Do you need to learn some technique in greater depth? Would a book or a course help?</li>
+</ul>
+</li>
+<li>Try not to flush out the lame excuses before voicing them aloud. If you must, tell your cat first.</li>
+<li>When you find yourself saying &quot;I don&#39;t know&quot;, be sure to follow it up with &quot;but I&#39;ll find out.&quot; It&#39;s a great way to admit what you don&#39;t know, but then take responsibility like a pro.</li>
+</ul>
+<h2 id="Topic-3-Software-entropy"><a href="#Topic-3-Software-entropy" class="headerlink" title="Topic 3: Software entropy"></a>Topic 3: Software entropy</h2><ul>
+<li>A broken window can turn a clean intact inhabited building into a smashed and abandoned derelict very quickly.</li>
+<li>Don&#39;t live with broken window, fix them as soon as it&#39;s discovered. If you don&#39;t have enough time, board it up.</li>
+<li>Don&#39;t cause collateral damage just because there&#39;s a crisis of some sort. One broken window is one too many.</li>
+</ul>
+<h2 id="Topic-4-Stone-soup-and-boiled-frogs"><a href="#Topic-4-Stone-soup-and-boiled-frogs" class="headerlink" title="Topic 4: Stone soup and boiled frogs"></a>Topic 4: Stone soup and boiled frogs</h2><ul>
+<li>Start-up fatigue: you may be in a situation where you know what needs to be done, and you know you are right. But ask permission to tackle the thing and you will be met with delays and blank stares. People will form committees, budgets will need approval and things will get complicated. Everyone will guard their own resources.</li>
+<li>People find it easier to join an ongoing success.</li>
+<li>It&#39;s often the accumulation of small things that breaks morale and teams.</li>
+</ul>
+<h2 id="Topic-5-Good-enough-software"><a href="#Topic-5-Good-enough-software" class="headerlink" title="Topic 5: Good-enough software"></a>Topic 5: Good-enough software</h2><ul>
+<li>It&#39;s equally unprofessional to promise impossible time scales and to cut basic engineering corners to meet a deadline</li>
+<li>Don&#39;t spoil a perfectly good program by over-embellishment and over-refinement. Move on, and let your code stand in its own right for a while.</li>
+</ul>
+<h2 id="Topic-6-Your-knowledge-portfolio"><a href="#Topic-6-Your-knowledge-portfolio" class="headerlink" title="Topic 6: Your knowledge portfolio"></a>Topic 6: Your knowledge portfolio</h2><ul>
+<li>Your knowledge and experience are your most important day-to-day professional assets. <strong>Unfortunately, they are expiring assets</strong>.</li>
+<li>Your ability to learn new things is your most important strategic asset.<ul>
+<li>Invest regularly - you must invest in your knowledge portfolio regularly even if it&#39;s just a small amount. The habit is as important as the sums, so plan to use a consistent time and place, away from interruptions.<ul>
+<li>Learn at least one new language every year</li>
+<li>Read a technical book each month</li>
+<li>Read non-technical books too</li>
+<li>Take classes</li>
+<li>Participate in local user groups and meetups, actively participate</li>
+<li>Experiment with different environments</li>
+<li>Stay current</li>
+</ul>
+</li>
+<li>Diversify - The more technologies you are comfortable with, the better you will be to adjust to change. And don&#39;t forget all the other skills you need, including non-technical areas.</li>
+<li>Manage risk - Don&#39;t put all your technical eggs in one basket</li>
+<li>Buy low, sell high</li>
+<li>Review and re-balance - This is a very dynamic industry, maybe the technology you started investing is already stone cold by now, maybe you need to brush up on the database technology you haven&#39;t used in a while.</li>
+</ul>
+</li>
+<li>The process of learning will expand your thinking, opening you to new possibilities and new ways of doing things.</li>
+<li>If you can&#39;t find answer yourself, find out who can.</li>
+<li>All of this reading and researching takes time, so you need to plan ahead. Always have something to read in an otherwise dead moment. Time spent waiting for doctors and dentists can be a great opportunity to catch up on your reading.</li>
+<li>Ask &quot;why&quot; five times.<ul>
+<li>Who does the benefit?</li>
+<li>What&#39;s the context?</li>
+<li>When or where would this work?</li>
+<li>Why is this a problem?</li>
+</ul>
+</li>
+<li>If you are doing very detailed implementation and coding, read a book on design and architecture. If you are doing high-level design, read a book on coding techniques</li>
+</ul>
+<h2 id="Topic-7-Communicate"><a href="#Topic-7-Communicate" class="headerlink" title="Topic 7: Communicate"></a>Topic 7: Communicate</h2><ul>
+<li>A large part of our day is spent communicating, so we need to do it well.</li>
+<li>Treat English as just another programming language.</li>
+<li>The meaning of your communication is the response you get.</li>
+<li>Plan what you want to say - ask yourself &quot;does this communicate what I want to express to my audience in a way that works for them?&quot;</li>
+<li>Make what you&#39;re saying relevant in time, as well as in content. Sometimes all it takes is the simple question: &quot;Is this a good time to talk about…?&quot;</li>
+<li>Make it look good, don&#39;t just concentrate solely on content. Use markdown for example.</li>
+<li>We often find that the documents end up being less important than the process we go thru to produce them. If possible, involve your readers with early drafts of your document.</li>
+<li>Be a listener</li>
+<li>Keep people informed makes them far more forgiving of the occasional slip, and makes them feel that you haven&#39;t forgotten them.</li>
+<li>We want to apply all of our pragmatic principles to documentation as well as to code</li>
+<li><strong>SUMMARY</strong> <ul>
+<li>Know what you want to say. </li>
+<li>Know your audience. </li>
+<li>Choose your moment. </li>
+<li>Choose a style. </li>
+<li>Make it look good. </li>
+<li>Involve your audience. </li>
+<li>Be a listener. </li>
+<li>Get back to people. </li>
+<li>Keep code and documentation together.</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Career/" rel="tag"># Career</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/08/how-to-read-a-tech-book/" rel="prev" title="How to read a tech book">
+      <i class="fa fa-chevron-left"></i> How to read a tech book
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/25/the-pragmatic-programmer-chapter-2/" rel="next" title="The Pragmatic Programmer-Chapter 2">
+      The Pragmatic Programmer-Chapter 2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-1-A-pragmatic-strategy"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1 A pragmatic strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-1-It-39-s-your-life"><span class="nav-number">1.1.</span> <span class="nav-text">Topic 1: It&#39;s your life</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-2-The-cat-ate-my-source-code"><span class="nav-number">1.2.</span> <span class="nav-text">Topic 2: The cat ate my source code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-3-Software-entropy"><span class="nav-number">1.3.</span> <span class="nav-text">Topic 3: Software entropy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-4-Stone-soup-and-boiled-frogs"><span class="nav-number">1.4.</span> <span class="nav-text">Topic 4: Stone soup and boiled frogs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-5-Good-enough-software"><span class="nav-number">1.5.</span> <span class="nav-text">Topic 5: Good-enough software</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-6-Your-knowledge-portfolio"><span class="nav-number">1.6.</span> <span class="nav-text">Topic 6: Your knowledge portfolio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-7-Communicate"><span class="nav-number">1.7.</span> <span class="nav-text">Topic 7: Communicate</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

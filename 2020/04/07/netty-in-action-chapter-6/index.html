@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Chapter 6 - ChannelHandler and ChannelPipeline">
+<meta name="keywords" content="Java,Netty">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netty in Action Chapter 6">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="Chapter 6 - ChannelHandler and ChannelPipeline">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/channel_state_model.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/ChannelHandlerAdaptor.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/channelPipeline_channelHandlers.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/operationsTriggeredViaContext.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/channelFutureListenerToChannelFuture.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/channelFutureListenerToChannelPromise.png">
+<meta property="og:updated_time" content="2020-05-05T15:12:19.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Netty in Action Chapter 6">
+<meta name="twitter:description" content="Chapter 6 - ChannelHandler and ChannelPipeline">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/channel_state_model.png">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Netty in Action Chapter 6 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/04/07/netty-in-action-chapter-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Netty in Action Chapter 6
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-07 11:43:45" itemprop="dateCreated datePublished" datetime="2020-04-07T11:43:45-04:00">2020-04-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Chapter-6-ChannelHandler-and-ChannelPipeline"><a href="#Chapter-6-ChannelHandler-and-ChannelPipeline" class="headerlink" title="Chapter 6 - ChannelHandler and ChannelPipeline"></a>Chapter 6 - ChannelHandler and ChannelPipeline</h1><a id="more"></a>
+<h2 id="6-1-ChannelHandler-family"><a href="#6-1-ChannelHandler-family" class="headerlink" title="6.1 ChannelHandler family"></a>6.1 ChannelHandler family</h2><p><strong>Channel State Model</strong><br><img src="channel_state_model.png" alt="Channel State Model"></p>
+<ul>
+<li><p>When we override <em>channelRead()</em> in <em>ChannelInboundHandler</em>, we need to release the memory associated with <em>ByteBuf</em> ourselves using <em>ReferenceCountUtil.release()</em>.<br><em>SimpleChannelInboundHandler</em> will release resources automatically.</p>
+</li>
+<li><p><em>ChannelInboundHandler</em> is able to defer an operation/event on demand. If writing to a remote peer is suspended, you can defer flush operations and resume them later.</p>
+</li>
+<li><p>A <em>ChannelHandler</em> could be sharable across multiple <em>ChannelPipelines</em>.</p>
+</li>
+<li><p><img src="ChannelHandlerAdaptor.png" alt="Channel Handler Adaptor class hierarchy"></p>
+</li>
+<li><p><em>ResourceLeakDetector</em> is provided by Netty to sample about 1% of the buffer allocations to make sure there is no memory leaks</p>
+</li>
+<li><p>It&#39;s important not only to release resources but also to notify the <em>ChannelPromise</em> so the listener could be notified that a message has been handled.</p>
+</li>
+</ul>
+<h2 id="6-2-Interface-ChannelPipeline"><a href="#6-2-Interface-ChannelPipeline" class="headerlink" title="6.2 Interface ChannelPipeline"></a>6.2 Interface ChannelPipeline</h2><p><img src="channelPipeline_channelHandlers.png" alt="ChannelPipeline and ChannelHandlers"></p>
+<ul>
+<li>It&#39;s important not to block the EventLoop thread as it would have a negative impact on the overal handling of I/O.</li>
+<li>If we want to handle legacy code that uses blocking APIs, <em>ChannelPipeline</em> has add() method that accepts an <em>EventExecutorGroup</em>. If an event is passed there, it will be handled by one of the <em>EventExecutors</em> in that group and be removed from the <em>EventLoop</em> of the <em>Channel</em> itself. There is an implementation called <em>DefaultEventExecutorGroup</em>.</li>
+</ul>
+<h2 id="6-3-Interface-ChannelHandlerContext"><a href="#6-3-Interface-ChannelHandlerContext" class="headerlink" title="6.3 Interface ChannelHandlerContext"></a>6.3 Interface ChannelHandlerContext</h2><ul>
+<li>The <em>ChannelHandlerContext</em> associated with a <em>ChannelHandler</em> never changes, so it&#39;s ok to cache it. It&#39;s created when adding <em>ChannelHandler</em> to pipeline.</li>
+<li>Some other classes have same methods whose names are identical to methods in <em>ChannelHandlerContext</em>. However, the latter will provide <strong>better</strong> performance.</li>
+<li>If write() is invoked on either <em>Channel</em> or <em>ChannelPipeline</em> level, the event will be propagated all the way through the pipeline, otherwise if it&#39;s invoked on the <em>ChannelHandlerContext</em>, the movement will be from one handler to the next.</li>
+<li>To invoke processing starting from a specific handler, you must refer to the <em>ChannelHandlerContext</em> that&#39;s associated with the handler <strong>before</strong> that one.<br><img src="operationsTriggeredViaContext.png" alt="Event flow for operations triggered via ChannelHandlerContext"></li>
+<li>When you share a handler to multiple pipelines, you need to make sure the handler must be thread-safe</li>
+</ul>
+<h2 id="6-4-Exception-Handling"><a href="#6-4-Exception-Handling" class="headerlink" title="6.4 Exception Handling"></a>6.4 Exception Handling</h2><ul>
+<li>The default implementation for exception handling won&#39;t do anything except forwarding the exception to the next handler in the pipeline.</li>
+<li>If it reaches the end of the pipeline, it&#39;s logged as unhandled.</li>
+<li>Every outbound operation returns a <em>ChannelFuture</em>, which is registered by listeners to be notified of success or error when the operation completes.</li>
+<li>As a subclass of <em>ChannelFuture</em>, <em>ChannelPromise</em> also has writable methods that provide for immediate notification: setSuccess() and setFailure()</li>
+</ul>
+<p>There are two ways of adding a listener. </p>
+<ol>
+<li>The most common way is to invoke addListener on the <em>ChannelFuture</em> that is returned by an outbound operation.<br><img src="channelFutureListenerToChannelFuture.png" alt="Adding a ChannelFutureListener to a ChannelFuture"></li>
+<li>The second way is to add a <em>ChannelFutureListener</em> to the <em>ChannelPromise</em> that is passed as an argument to the methods.<br><img src="channelFutureListenerToChannelPromise.png" alt="Adding a ChannelFutureListener to a ChannelPromise"></li>
+</ol>
+<ul>
+<li>If <em>ChannelOutboundHandler</em> itself throws an exception, Netty will notify all the listeners that registered with the ChannelPromise.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Netty/" rel="tag"># Netty</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/06/advanced-programming-in-unix-chapter-3/" rel="prev" title="Advanced Programming in Unix - Chapter 3">
+      <i class="fa fa-chevron-left"></i> Advanced Programming in Unix - Chapter 3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/09/netty-in-action-chapter-7/" rel="next" title="Netty in Action Chapter 7">
+      Netty in Action Chapter 7 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-6-ChannelHandler-and-ChannelPipeline"><span class="nav-number">1.</span> <span class="nav-text">Chapter 6 - ChannelHandler and ChannelPipeline</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-ChannelHandler-family"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 ChannelHandler family</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-Interface-ChannelPipeline"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 Interface ChannelPipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-Interface-ChannelHandlerContext"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 Interface ChannelHandlerContext</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-Exception-Handling"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 Exception Handling</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

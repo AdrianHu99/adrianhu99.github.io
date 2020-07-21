@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="AWS Virtualization with Anthony Liguori">
+<meta name="keywords" content="Sharing,Architecture">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Technology Sharing May 2020">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="AWS Virtualization with Anthony Liguori">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/pyramid.png">
+<meta property="og:updated_time" content="2020-05-31T20:58:38.287Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Technology Sharing May 2020">
+<meta name="twitter:description" content="AWS Virtualization with Anthony Liguori">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/pyramid.png">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Technology Sharing May 2020 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/05/31/technology-sharing-may-2020/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Technology Sharing May 2020
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-31 16:46:00" itemprop="dateCreated datePublished" datetime="2020-05-31T16:46:00-04:00">2020-05-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ol>
+<li><p><a href="https://softwareengineeringdaily.com/2020/05/15/aws-virtualization-with-anthony-liguori/" target="_blank" rel="noopener">AWS Virtualization with Anthony Liguori</a></p>
+<a id="more"></a>
+
+<p>这篇podcast 谈论了AWS 虚拟化技术的演进史，从EC2谈起，到之后的Outpost，Fargate，Serverless。</p>
+<p>最开始EC2用的虚拟化技术是Zen，后来他们开始构建自己的硬件系统，也就是Nitro Project。他们最初的希望是它能够很大程度得简化系统，从而改善性能。</p>
+<p>谈及Lambda的时候，Anthony谈到了他们最重视的是安全，而EC2 instance是他们安全方面非常成熟的产品，也就自然成为了lambda使用的平台。每个lambda function都是一个EC2 instance。</p>
+<p>讨论到底层架构，他们说到Nitro 就是一个bare-metal的系统。Firecracker在其之上运行，跑一些程式，一些在Firecracker的代码允许一些程式去启动和执行。Hypervisor是一个平台，你可以在上面启动不同的虚拟机；VMM（virtual machine monitor）是一个针对那些虚拟机的监控器。那Nitro就是Hypervisor，而Firecracker就是VMM。</p>
+<p>他们针对Fargate和Serverless的优化，简单点来说，就是在启动过程中去除那些陈旧的，对于container不重要的东西，让启动时间减少。</p>
+<p>Anthony提到，quantum computing是下一个可以改变世界的新技术。</p>
+</li>
+<li><p><a href="https://www.mcls.io/blog/encouraging-a-culture-of-written-communication" target="_blank" rel="noopener">Encouraging a Culture of Written Communication</a></p>
+<p>这篇文章提到了书面交流的文化，我认为对于大多数在特殊时期在家上班的人来说，比较受用。</p>
+<p>很多人觉得书面交流需要比较正式，但是那些主要是针对更广大的受众，或者是针对上级的交流。对于组内交流或者是问问题，书面交流不一定非要那么正式，错别字，语病都是可以被允许的。</p>
+<p>书面交流的另一个好处：它容易被搜寻到。但另一个问题是，我们需要有一个平台去存储这些信息和知识，这样人们不会因为太多信息源而迷失方向，书写者也不会因为它而耽误书写的进度。</p>
+<p>但是太过于依赖书面交流也有不好的地方，在有些时候，一个视频电话可能解决问题更快，更方便。不要在这上面墨守成规。</p>
+<p>Thinking out loud。在你对有些事情不确定的情况下，可以把思路写在公用的频道里，让别人也看到，这样别人可以给你反馈。在软件事故发生的时候，这会变得很有用，大家会快速得交流，也就能够很快得对事故有一个一致的理解和解决方案。没有私人对话或者视频会话，这会变得更搞笑。</p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v=vRplv975ce0&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=77" target="_blank" rel="noopener">Soft Skills: Gaining Technical Breadth</a></p>
+<p>这个视频谈及了如何增长技术广度，如图所示，“你知道的技术”被认为是技术深度，“你知道你不知道的技术”被认为是技术广度。作为一个相当架构师的人来说，我们需要增加技术广度，然后增加技术深度。<br><img src="pyramid.png" alt="Tech pyramid"><br>Mark提到三个信息源：InfoQ，Thoughtworks Tech Radar，DZone。</p>
+<p>他每天的习惯是花20分钟浏览收到的订阅邮件，然后如果有感兴趣的内容，会标注下，留到晚上或者周末细读。日积月累后，就会增长技术广度。</p>
+</li>
+<li><p><a href="https://www.infoq.com/presentations/microservices-federated-growth/" target="_blank" rel="noopener">Controlled Chaos: Taming Organic, Federated Growth of Microservices</a></p>
+<p> This talk mentions that microservices architecture is evolving through organic federated growth. The agility that the enterprises crave ends up with an architecture that we can&#39;t control. And in such a distributed architecture, metrics and tracing might not work that well. One interesting thing he mentioned is that building distributed systems may force a new waterfall thinking on devs as there is a long ramp before you can deploy that. Instead, build resilient federations based on DDD, and compensation strategy if anything happens. For operators, rapid detect-react loops are really important, which should be based on golden signals(requests, latency, concurrency, bandwidth), metrics, etc...</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Sharing/" rel="tag"># Sharing</a>
+              <a href="/tags/Architecture/" rel="tag"># Architecture</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/31/di-yi-ge-okr/" rel="prev" title="第一个OKR">
+      <i class="fa fa-chevron-left"></i> 第一个OKR
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/17/di-er-ge-okr/" rel="next" title="第二个OKR">
+      第二个OKR <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

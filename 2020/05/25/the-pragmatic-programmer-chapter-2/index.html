@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Chapter 2 A Pragmatic Approach">
+<meta name="keywords" content="Career">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Pragmatic Programmer-Chapter 2">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/05/25/the-pragmatic-programmer-chapter-2/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="Chapter 2 A Pragmatic Approach">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-05-25T20:46:47.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Pragmatic Programmer-Chapter 2">
+<meta name="twitter:description" content="Chapter 2 A Pragmatic Approach">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/05/25/the-pragmatic-programmer-chapter-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>The Pragmatic Programmer-Chapter 2 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/05/25/the-pragmatic-programmer-chapter-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The Pragmatic Programmer-Chapter 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-25 16:12:35" itemprop="dateCreated datePublished" datetime="2020-05-25T16:12:35-04:00">2020-05-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Chapter-2-A-Pragmatic-Approach"><a href="#Chapter-2-A-Pragmatic-Approach" class="headerlink" title="Chapter 2 A Pragmatic Approach"></a>Chapter 2 A Pragmatic Approach</h1><a id="more"></a>
+<h2 id="Topic-8-The-essence-of-good-design"><a href="#Topic-8-The-essence-of-good-design" class="headerlink" title="Topic 8: The essence of good design"></a>Topic 8: The essence of good design</h2><ul>
+<li>Good design is easier to change than bad design</li>
+<li>If you can&#39;t make sure what form change will take, 1. try to make what you write replaceable; 2. treat this as a way to develop instincts</li>
+</ul>
+<h2 id="Topic-9-DRY"><a href="#Topic-9-DRY" class="headerlink" title="Topic 9: DRY"></a>Topic 9: DRY</h2><ul>
+<li>DRY principle: Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.</li>
+<li>Do you find yourself making a change in multiple places, and in multiple different formats? If so, your code isn&#39;t dry</li>
+<li>Not all code duplication is knowledge duplication</li>
+<li>Comments can be duplicated as well. If the code can say what it does, why we need docs?</li>
+<li>Whenever a module exposes a data structure, you&#39;re coupling all the code that uses that structure to the implementation of that module.</li>
+<li>Foster an environment where it&#39;s easier to find and reuse existing stuff than to write it yourself.</li>
+</ul>
+<h2 id="Topic-10-Orthogonality"><a href="#Topic-10-Orthogonality" class="headerlink" title="Topic 10: Orthogonality"></a>Topic 10: Orthogonality</h2><ul>
+<li><p>Two things are orthogonal if changes in one do not affect any of the others</p>
+</li>
+<li><p>Two major benefits of orthogonal systems: increased productivity and reduced risk</p>
+<ul>
+<li>Changes are localized</li>
+<li>It promotes reuse</li>
+<li>Diseased code is isolated</li>
+<li>System is less fragile</li>
+<li>Better for testing</li>
+<li>Not tightly tied to a particular vendor</li>
+</ul>
+</li>
+<li><p>Ask yourself, if I dramatically change the requirements behind a particular function, how many modules are affected? The answer should be one for orthogonal system</p>
+</li>
+<li><p>How to maintain orthogonality:</p>
+<ul>
+<li>Keep your code decoupled - Law of Demeter, if you need to change an object&#39;s state, get the object to do it for you.</li>
+<li>Avoid global data</li>
+<li>Avoid similar functions - take a look at Strategy Pattern</li>
+</ul>
+</li>
+</ul>
+<h2 id="Topic-11-Reversibility"><a href="#Topic-11-Reversibility" class="headerlink" title="Topic 11: Reversibility"></a>Topic 11: Reversibility</h2><ul>
+<li>You can&#39;t plan for rapid change of architectural volatility. But what you can do is to make it easy to change</li>
+<li>Hide third-party APIs behind your own abstraction layers</li>
+<li>Break code into components</li>
+</ul>
+<h2 id="Topic-12-Tracer-Bullets"><a href="#Topic-12-Tracer-Bullets" class="headerlink" title="Topic 12 Tracer Bullets"></a>Topic 12 Tracer Bullets</h2><ul>
+<li><p>With tracer ability, we are able to track the progress</p>
+</li>
+<li><p>Advantages of trace code</p>
+<ul>
+<li>Users get to see something working early and tell you how close to the target</li>
+<li>Developers build a structure to work in</li>
+<li>An integration platform</li>
+<li>You have something to demonstrate</li>
+<li>You have a better feel for progress</li>
+</ul>
+</li>
+<li><p>Tracer code vs. Prototyping</p>
+<ul>
+<li>Tracer code makes the whole structure, while prototyping focuses on one part of the structure</li>
+<li>Prototyping generates disposable code, while tracer code is lean but complete.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Topic-13-Prototypes-and-Post-it-notes"><a href="#Topic-13-Prototypes-and-Post-it-notes" class="headerlink" title="Topic 13: Prototypes and Post-it notes"></a>Topic 13: Prototypes and Post-it notes</h2><ul>
+<li>How to use prototypes<ul>
+<li>Correctness - may use dummy data</li>
+<li>Completeness - may function in a very limited case</li>
+<li>Robustness - Error checking is likely to be incomplete or missing</li>
+<li>Style - Won&#39;t have much in the way of comments or documentation</li>
+</ul>
+</li>
+</ul>
+<h2 id="Topic-14-Domain-Languages"><a href="#Topic-14-Domain-Languages" class="headerlink" title="Topic 14: Domain Languages"></a>Topic 14: Domain Languages</h2><ul>
+<li>Internal domain language gives you the advantage of power your pipeline, but it limits the choice of the language;</li>
+<li>External domain language needs a parser, but you don&#39;t have any restrictions on what language to use;</li>
+<li>The rule is: Don&#39;t spend more effort than you save</li>
+</ul>
+<h2 id="Topic-15-Estimate"><a href="#Topic-15-Estimate" class="headerlink" title="Topic 15: Estimate"></a>Topic 15: Estimate</h2><ul>
+<li><p>Where do estimates come from?</p>
+<ul>
+<li>Understand what&#39;s being asked - the scope</li>
+<li>Build a model of the system - mental model for the project</li>
+<li>Break it into components</li>
+<li>Give each parameter a value - to work out which parameter have the most impact on the result</li>
+<li>Keep track of the estimations</li>
+</ul>
+</li>
+<li><p>PERT (Programming Evaluation Review Technique) usually has an optimistic, a most likely, and a pessimistic estimate</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Career/" rel="tag"># Career</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/09/the-pragmatic-programmer-chapter-1/" rel="prev" title="The Pragmatic Programmer - Chapter 1">
+      <i class="fa fa-chevron-left"></i> The Pragmatic Programmer - Chapter 1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/31/di-yi-ge-okr/" rel="next" title="第一个OKR">
+      第一个OKR <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-2-A-Pragmatic-Approach"><span class="nav-number">1.</span> <span class="nav-text">Chapter 2 A Pragmatic Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-8-The-essence-of-good-design"><span class="nav-number">1.1.</span> <span class="nav-text">Topic 8: The essence of good design</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-9-DRY"><span class="nav-number">1.2.</span> <span class="nav-text">Topic 9: DRY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-10-Orthogonality"><span class="nav-number">1.3.</span> <span class="nav-text">Topic 10: Orthogonality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-11-Reversibility"><span class="nav-number">1.4.</span> <span class="nav-text">Topic 11: Reversibility</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-12-Tracer-Bullets"><span class="nav-number">1.5.</span> <span class="nav-text">Topic 12 Tracer Bullets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-13-Prototypes-and-Post-it-notes"><span class="nav-number">1.6.</span> <span class="nav-text">Topic 13: Prototypes and Post-it notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-14-Domain-Languages"><span class="nav-number">1.7.</span> <span class="nav-text">Topic 14: Domain Languages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topic-15-Estimate"><span class="nav-number">1.8.</span> <span class="nav-text">Topic 15: Estimate</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

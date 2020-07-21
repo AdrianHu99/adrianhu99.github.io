@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png">
+  <link rel="mask-icon" href="/uploads/favicon.png" color="#222">
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="UNIX System OverviewUNIX Architecturean operating system can be defined as the software that controls the hardware resources of the computer and provides an environment under which programs can run. W">
+<meta name="keywords" content="Operating System">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced Programming in Unix - Chapter 1">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/index.html">
+<meta property="og:site_name" content="Adrian&#39;s blog">
+<meta property="og:description" content="UNIX System OverviewUNIX Architecturean operating system can be defined as the software that controls the hardware resources of the computer and provides an environment under which programs can run. W">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/unix_architecture.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/common_shell.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/systemCallAndLibraryCall.png">
+<meta property="og:updated_time" content="2020-05-08T19:13:42.323Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Advanced Programming in Unix - Chapter 1">
+<meta name="twitter:description" content="UNIX System OverviewUNIX Architecturean operating system can be defined as the software that controls the hardware resources of the computer and provides an environment under which programs can run. W">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/unix_architecture.png">
+
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Advanced Programming in Unix - Chapter 1 | Adrian's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Adrian's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/03/29/advanced-programming-in-unix-chapter-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/favicon.png">
+      <meta itemprop="name" content="adrrrrrrrian">
+      <meta itemprop="description" content="I think that we can make it">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Adrian's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Advanced Programming in Unix - Chapter 1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-29 14:58:45" itemprop="dateCreated datePublished" datetime="2020-03-29T14:58:45-04:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="UNIX-System-Overview"><a href="#UNIX-System-Overview" class="headerlink" title="UNIX System Overview"></a>UNIX System Overview</h1><h2 id="UNIX-Architecture"><a href="#UNIX-Architecture" class="headerlink" title="UNIX Architecture"></a>UNIX Architecture</h2><p>an operating system can be defined as the software that controls the hardware resources of the computer and provides an environment under which programs can run. We call it the kernel.</p>
+<a id="more"></a>
+
+<p><img src="unix_architecture.png" alt="Unix Architecture"></p>
+<p>Interface to the kernel is a layer of software called the system calls.<br>Libraries of common functions are built on top of the system call interface.<br>The shell is a special application that provides an interface for running other applications.</p>
+<h2 id="Logging-In"><a href="#Logging-In" class="headerlink" title="Logging In"></a>Logging In</h2><h3 id="Login-Name"><a href="#Login-Name" class="headerlink" title="Login Name"></a>Login Name</h3><p>sar: x: 205:105:Stephen Rago:/home/sar:/bin/ksh<br>loginName:encryptedPwd:userID:groupID:commentField:homeDirectory:shellProgram</p>
+<p>The system knows which shell to execute based on the last field.</p>
+<h3 id="Shells"><a href="#Shells" class="headerlink" title="Shells"></a>Shells</h3><p>A shell is a command-line interpreter that reads user input and executes commands.</p>
+<p><img src="common_shell.png" alt="Common Shell"></p>
+<h2 id="Files-and-Directories"><a href="#Files-and-Directories" class="headerlink" title="Files and Directories"></a>Files and Directories</h2><h3 id="File-System"><a href="#File-System" class="headerlink" title="File System"></a>File System</h3><p>A directory is a file that contains directory entries. </p>
+<h3 id="Pathname"><a href="#Pathname" class="headerlink" title="Pathname"></a>Pathname</h3><p>A pathname that begins with a slash is called an absolute pathname; otherwise, it&#39;s called a relative pathname. Relative pathnames refer to files relative to the current directory.</p>
+<h2 id="Input-and-Output"><a href="#Input-and-Output" class="headerlink" title="Input and Output"></a>Input and Output</h2><h3 id="Unbuffered-I-O"><a href="#Unbuffered-I-O" class="headerlink" title="Unbuffered I/O"></a>Unbuffered I/O</h3><p>Unbuffered I/O is provided by the function <code>open</code>, <code>read</code>, <code>write</code>, <code>lseek</code> and <code>close</code>    </p>
+<h3 id="Standard-I-O"><a href="#Standard-I-O" class="headerlink" title="Standard I/O"></a>Standard I/O</h3><p>This prevents us from worrying about choosing optimal buffer sizes.<br>The most common function is <code>printf</code>.<br><code>fgets</code> reads an entire line<br><code>getc</code> reads one character at a time<br><code>putc</code> writes one character at a time</p>
+<h2 id="Programs-and-Process-Control"><a href="#Programs-and-Process-Control" class="headerlink" title="Programs and Process Control"></a>Programs and Process Control</h2><h3 id="Process-Control"><a href="#Process-Control" class="headerlink" title="Process Control"></a>Process Control</h3><p>There are three primary functions for process control: <code>fork</code>, <code>exec</code> and <code>waitpid</code></p>
+<h3 id="Threads-and-Thread-IDs"><a href="#Threads-and-Thread-IDs" class="headerlink" title="Threads and Thread IDs"></a>Threads and Thread IDs</h3><p>Thread of control - one set of machine instructions executing at a time.<br>All the threads within a process share the same address space, file descriptors, stacks and process-related attributes.</p>
+<h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><p>When an error occurs in UNIX system functions, a negative value is returned and an integer <code>errno</code> is set to a value that gives additional information.<br><strong>Note</strong>: </p>
+<ol>
+<li>The value of <code>errno</code> is never cleared even if there is no error occurred. Therefore we should make sure it&#39;s only returned when a function indicates that an error occurred. </li>
+<li>The value of <code>errno</code> is never set to 0 by any of the functions.</li>
+</ol>
+<p>Errors could be fatal (non-recoverable) and nonfatal (recoverable)</p>
+<h2 id="User-Identification"><a href="#User-Identification" class="headerlink" title="User Identification"></a>User Identification</h2><p>Starting with 4.2 BSD, most of UNIX systems allow a user to belong to up to 16 additional user groups.</p>
+<h2 id="Time-Values"><a href="#Time-Values" class="headerlink" title="Time Values"></a>Time Values</h2><p>UNIX system maintains three values for a process:<br>    1. Clock time<br>    2. User CPU time<br>    3. System CPU time<br>The user CPU time is the CPU time attributed to user instructions. The system CPU time is the CPU time attributed to the kernel when it executes on behalf of the process.</p>
+<h2 id="System-calls-and-library-functions"><a href="#System-calls-and-library-functions" class="headerlink" title="System calls and library functions"></a>System calls and library functions</h2><p>We should realize, that we can replace the library functions, if desired, whereas the system calls usually cannot be replaced</p>
+<p><img src="systemCallAndLibraryCall.png" alt="System Call and Library Call"><br>System calls usually provide a minimal interface, whereas library functions often provide more elaborate functionality</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Operating-System/" rel="tag"># Operating System</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/28/netty-in-action-chapter-1-1/" rel="prev" title="Netty-in-Action-Chapter 1">
+      <i class="fa fa-chevron-left"></i> Netty-in-Action-Chapter 1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/30/advanced-programming-in-unix-chapter-2/" rel="next" title="Advanced Programming in Unix - Chapter 2">
+      Advanced Programming in Unix - Chapter 2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UNIX-System-Overview"><span class="nav-number">1.</span> <span class="nav-text">UNIX System Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#UNIX-Architecture"><span class="nav-number">1.1.</span> <span class="nav-text">UNIX Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logging-In"><span class="nav-number">1.2.</span> <span class="nav-text">Logging In</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Login-Name"><span class="nav-number">1.2.1.</span> <span class="nav-text">Login Name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shells"><span class="nav-number">1.2.2.</span> <span class="nav-text">Shells</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Files-and-Directories"><span class="nav-number">1.3.</span> <span class="nav-text">Files and Directories</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#File-System"><span class="nav-number">1.3.1.</span> <span class="nav-text">File System</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pathname"><span class="nav-number">1.3.2.</span> <span class="nav-text">Pathname</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input-and-Output"><span class="nav-number">1.4.</span> <span class="nav-text">Input and Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unbuffered-I-O"><span class="nav-number">1.4.1.</span> <span class="nav-text">Unbuffered I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Standard-I-O"><span class="nav-number">1.4.2.</span> <span class="nav-text">Standard I/O</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Programs-and-Process-Control"><span class="nav-number">1.5.</span> <span class="nav-text">Programs and Process Control</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Process-Control"><span class="nav-number">1.5.1.</span> <span class="nav-text">Process Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Threads-and-Thread-IDs"><span class="nav-number">1.5.2.</span> <span class="nav-text">Threads and Thread IDs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Handling"><span class="nav-number">1.6.</span> <span class="nav-text">Error Handling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-Identification"><span class="nav-number">1.7.</span> <span class="nav-text">User Identification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Time-Values"><span class="nav-number">1.8.</span> <span class="nav-text">Time Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-calls-and-library-functions"><span class="nav-number">1.9.</span> <span class="nav-text">System calls and library functions</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="adrrrrrrrian"
+      src="/uploads/favicon.png">
+  <p class="site-author-name" itemprop="name">adrrrrrrrian</p>
+  <div class="site-description" itemprop="description">I think that we can make it</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/adrrrrrrrian" title="GitHub → https://github.com/adrrrrrrrian" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qihu1992@hotmail.com" title="E-Mail → mailto:qihu1992@hotmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">adrrrrrrrian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
