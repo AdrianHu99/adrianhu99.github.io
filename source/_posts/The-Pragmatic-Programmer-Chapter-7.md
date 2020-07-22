@@ -11,7 +11,7 @@ categories: [Tech]
 password:
 ---
 
-# Chapter 7 - While you are coding
+# The Pragmatic Programmer - Chapter 7 While you are coding
 <!--more-->
 ## Listen to your lizard brain
 
