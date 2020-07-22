@@ -6,15 +6,35 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrrrrrrrian.github.io/"/>
-  <updated>2020-07-17T19:52:33.653Z</updated>
+  <updated>2020-07-22T20:59:26.927Z</updated>
   <id>https://adrrrrrrrian.github.io/</id>
   
   <author>
-    <name>adrrrrrrrian</name>
+    <name>Adrian Hu</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Pragmatic Programmer Chapter 8</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/22/the-pragmatic-programmer-chapter-8/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/22/the-pragmatic-programmer-chapter-8/</id>
+    <published>2020-07-22T20:58:18.000Z</published>
+    <updated>2020-07-22T20:59:26.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;The-Pragmatic-Programmer-Chapter-8-Before-the-project&quot;&gt;&lt;a href=&quot;#The-Pragmatic-Programmer-Chapter-8-Before-the-project&quot; class=&quot;headerlink&quot; title=&quot;The Pragmatic Programmer - Chapter 8 Before the project&quot;&gt;&lt;/a&gt;The Pragmatic Programmer - Chapter 8 Before the project&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Career" scheme="https://adrrrrrrrian.github.io/tags/Career/"/>
+    
+  </entry>
   
   <entry>
     <title>July 1st half notes</title>
@@ -65,11 +85,11 @@
     <link href="https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/"/>
     <id>https://adrrrrrrrian.github.io/2020/07/14/the-pragmatic-programmer-chapter-7/</id>
     <published>2020-07-15T03:16:12.000Z</published>
-    <updated>2020-07-15T03:16:43.626Z</updated>
+    <updated>2020-07-22T20:59:06.179Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Chapter-7-While-you-are-coding&quot;&gt;&lt;a href=&quot;#Chapter-7-While-you-are-coding&quot; class=&quot;headerlink&quot; title=&quot;Chapter 7 - While you are coding&quot;&gt;&lt;/a&gt;Chapter 7 - While you are coding&lt;/h1&gt;
+      &lt;h1 id=&quot;The-Pragmatic-Programmer-Chapter-7-While-you-are-coding&quot;&gt;&lt;a href=&quot;#The-Pragmatic-Programmer-Chapter-7-While-you-are-coding&quot; class=&quot;headerlink&quot; title=&quot;The Pragmatic Programmer - Chapter 7 While you are coding&quot;&gt;&lt;/a&gt;The Pragmatic Programmer - Chapter 7 While you are coding&lt;/h1&gt;
     
     </summary>
     
@@ -405,28 +425,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Chapter-8-Bootstrapping&quot;&gt;&lt;a href=&quot;#Chapter-8-Bootstrapping&quot; class=&quot;headerlink&quot; title=&quot;Chapter 8 - Bootstrapping&quot;&gt;&lt;/a&gt;Chapter 8 - Bootstrapping&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
-    
-    
-      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
-    
-      <category term="Netty" scheme="https://adrrrrrrrian.github.io/tags/Netty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Netty in Action Chapter 7</title>
-    <link href="https://adrrrrrrrian.github.io/2020/04/09/netty-in-action-chapter-7/"/>
-    <id>https://adrrrrrrrian.github.io/2020/04/09/netty-in-action-chapter-7/</id>
-    <published>2020-04-09T13:04:33.000Z</published>
-    <updated>2020-05-05T15:12:27.380Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Chapter-7-EventLoop&quot;&gt;&lt;a href=&quot;#Chapter-7-EventLoop&quot; class=&quot;headerlink&quot; title=&quot;Chapter 7 - EventLoop&quot;&gt;&lt;/a&gt;Chapter 7 - EventLoop&lt;/h1&gt;
     
     </summary>
     
