@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>第五个OKR</title>
+      <link href="/2020/07/31/di-wu-ge-okr/"/>
+      <url>/2020/07/31/di-wu-ge-okr/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第五个OKR"><a href="#第五个OKR" class="headerlink" title="第五个OKR"></a>第五个OKR</h1><p>这次是有史以来完成度最高的OKR。</p><a id="more"></a><table><thead><tr><th align="center"></th><th align="center">第四个OKR</th><th align="center">第五个OKR</th></tr></thead><tbody><tr><td align="center">总完成率* 总任务量</td><td align="center">26.87</td><td align="center">31.69</td></tr><tr><td align="center">weight3完成量</td><td align="center">三个100%，一个一半，一个刚开始</td><td align="center">四个100%，一个91%</td></tr><tr><td align="center">weight2完成量</td><td align="center">三个100%，四个快结束</td><td align="center">五个100%，一个75%，一个一半</td></tr><tr><td align="center">weight1完成量</td><td align="center">两个100%，一个快结束，一个刚开始</td><td align="center">四个100%</td></tr></tbody></table><p>总结起来，为什么这次完成度这么高呢？我觉得和之前的积累是有关系的，从近两个月以来，我开始有积累自己的学习笔记，已经到了能够很轻松地完成OKR的任务量的程度，甚至会超，那么超出来的我会留到下一个OKR。有一个好的开始，似乎也让我更有动力。</p><p>周末是我更能够focus的时间段，我在这个OKR开始尝试使用番茄时钟，并且有不错的成果。为什么呢？我有时候会分心，没法非常集中注意力，这就导致我坐不住，过一会刷个手机，再过一会刷个视频。番茄时钟起到一个force我去坐满25分钟的作用。</p><p>我priority排的最高的有些是阅读一些大部头，比如APUE，TCP/IP。说实话，阅读起来很痛苦，有时看完不知道到底看了什么，能用到哪里，吸收得很不好。后来我找到了一些视频，边看书边看视频讲解，效果会好很多，但同时也意味着花的时间更多了。之前看的帖子，有个人说到，这些书，最好是闲的时候看，我现在很认同。因为目前工作中有新的挑战，需要去学习一些知识，它们更紧迫而且对我目前更有价值。</p><p>所以在新的OKR中，我删除了TCP/IP，留下APUE，因为它相对好更好理解，而且我还能学习C语言。希望能加入一些实践的或者与工作结合的task（这次我加了并发和Netty的学习），而不光是理论的学习。而且我对于这些实践上面的东西做起来会更有动力。</p><p>我还在探索怎么能让自己的时间利用得再好一点，在价值非常低的东西上再花更少一点的时间，我这里说的价值低，不代表所有的娱乐，我认为那些能真正让我放松的东西，哪怕是玩游戏，看综艺，都是很好的放松，是价值很高的事情。而那些劣质综艺，或者无意义的浪费时间，熬夜，才是真正价值很低的事情。</p><p>再接再厉。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Efficiency </tag>
+            
+            <tag> OKR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Software Architecture Monday notes - 01</title>
       <link href="/2020/07/31/software-architecture-monday-notes-01/"/>
       <url>/2020/07/31/software-architecture-monday-notes-01/</url>

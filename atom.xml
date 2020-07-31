@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrrrrrrrian.github.io/"/>
-  <updated>2020-07-31T13:13:28.376Z</updated>
+  <updated>2020-07-31T15:35:21.193Z</updated>
   <id>https://adrrrrrrrian.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第五个OKR</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/31/di-wu-ge-okr/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/31/di-wu-ge-okr/</id>
+    <published>2020-07-31T15:13:51.000Z</published>
+    <updated>2020-07-31T15:35:21.193Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第五个OKR&quot;&gt;&lt;a href=&quot;#第五个OKR&quot; class=&quot;headerlink&quot; title=&quot;第五个OKR&quot;&gt;&lt;/a&gt;第五个OKR&lt;/h1&gt;&lt;p&gt;这次是有史以来完成度最高的OKR。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+      <category term="OKR" scheme="https://adrrrrrrrian.github.io/tags/OKR/"/>
+    
+  </entry>
   
   <entry>
     <title>Software Architecture Monday notes - 01</title>
@@ -412,28 +434,6 @@
     
     
       <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Netty in Action Chapter 9</title>
-    <link href="https://adrrrrrrrian.github.io/2020/04/17/netty-in-action-chapter-9/"/>
-    <id>https://adrrrrrrrian.github.io/2020/04/17/netty-in-action-chapter-9/</id>
-    <published>2020-04-17T12:23:59.000Z</published>
-    <updated>2020-05-05T15:12:40.500Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Chapter-9-Unit-test&quot;&gt;&lt;a href=&quot;#Chapter-9-Unit-test&quot; class=&quot;headerlink&quot; title=&quot;Chapter 9 - Unit test&quot;&gt;&lt;/a&gt;Chapter 9 - Unit test&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
-    
-    
-      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
-    
-      <category term="Netty" scheme="https://adrrrrrrrian.github.io/tags/Netty/"/>
     
   </entry>
   
