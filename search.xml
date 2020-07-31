@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Software Architecture Monday notes - 01</title>
+      <link href="/2020/07/31/software-architecture-monday-notes-01/"/>
+      <url>/2020/07/31/software-architecture-monday-notes-01/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Architectural-abstraction"><a href="#Architectural-abstraction" class="headerlink" title="Architectural abstraction"></a>Architectural abstraction</h1><a id="more"></a><p><a href="https://www.youtube.com/watch?v=2qpdjKWNwi0&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=60" target="_blank" rel="noopener">link</a></p><ul><li>Location transparency</li><li>Name transparency</li><li>Implementation transparency</li><li>Access decoupling</li><li>Contract decoupling</li></ul><p>Example 1: Messaging</p><p>It has first three but not the last two, as it has to use the messaging protocol, also it has to follow the contract.</p><p>Example 2: Adaptor</p><p>It has all five because the adaptor can handle different protocol and do the transformation, for contract the adaptor can also massage the msg to adapt to the contract.</p><p>Example 3: REST</p><p>For location transparency, it depends on how the design is. If API gateway is used, then yes, if no then no. </p><p>For the last two, no because we are stick to REST and we have to follow the contract.</p><p>Example 4: Messaging bus</p><p>Yes to all.</p><h1 id="Circuit-breaker-pattern"><a href="#Circuit-breaker-pattern" class="headerlink" title="Circuit breaker pattern"></a>Circuit breaker pattern</h1><p><a href="https://www.youtube.com/watch?v=Cyh4t9SMbJ0&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=58" target="_blank" rel="noopener">link</a></p><ul><li>Simple heartbeat - just for availability</li><li>Synthetic transactions - input with fake data, can&#39;t cover all code paths</li><li>Real-user monitoring - monitor real data, once the latency goes up, open the breaker and implement rate limiting. Once the latency goes down, close the breaker</li></ul><h1 id="Component-coupling"><a href="#Component-coupling" class="headerlink" title="Component coupling"></a>Component coupling</h1><p><a href="https://www.youtube.com/watch?v=lUrgx6UIsWk&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=57" target="_blank" rel="noopener">link</a></p><h3 id="Pathological-coupling"><a href="#Pathological-coupling" class="headerlink" title="Pathological coupling"></a>Pathological coupling</h3><p>One component relies on the inner workings of another component</p><h3 id="External-coupling"><a href="#External-coupling" class="headerlink" title="External coupling"></a>External coupling</h3><p>Multiple components share an externally imposed protocol or data format (Example, three components rely on a REST API from another component)</p><h3 id="Control-coupling"><a href="#Control-coupling" class="headerlink" title="Control coupling"></a>Control coupling</h3><p>One component passes info to another component on what to do</p><h3 id="Data-coupling"><a href="#Data-coupling" class="headerlink" title="Data coupling"></a>Data coupling</h3><p>The degree to which components are bound to a shared data context</p><h1 id="Presenting-architecture"><a href="#Presenting-architecture" class="headerlink" title="Presenting architecture"></a>Presenting architecture</h1><p><a href="https://www.youtube.com/watch?v=pJc0l2DASpo&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=55" target="_blank" rel="noopener">link</a></p><h3 id="expansion-joints"><a href="#expansion-joints" class="headerlink" title="expansion joints"></a>expansion joints</h3><p>Have everything in a single slide, and we can expand and contract based on the audience (manager, developer)</p><h3 id="accordion-slides"><a href="#accordion-slides" class="headerlink" title="accordion slides"></a>accordion slides</h3><p>Don&#39;t list all the bullet points which force you to do when you don&#39;t have enough time. Instead you have a planned time ahead and if you only can spend half of the planned time at this page, you can change a little bit, do a summary for example. If you have all bullet points listed and you don&#39;t have time to read them all, this will give audiences a feeling that you are skipping information.</p><h3 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h3><p><img src="image-20200731084623867.png" alt></p><p>Instead of the screenshot above, which is overwhelming, instead you can do animation to illustrate the flow of a block in the design, which will be easier to understand.</p><h3 id="dimension-and-focus"><a href="#dimension-and-focus" class="headerlink" title="dimension and focus"></a>dimension and focus</h3><p><img src="image-20200731084813567.png" alt></p><p>By screenshot above, audiences will know they need to focus on api layer now.</p><h3 id="build-outs"><a href="#build-outs" class="headerlink" title="build outs"></a>build outs</h3><p>Instead of showing all the architecture, showing them piece by piece so you will have the focus from audiences. For example: client request -&gt; api layer -&gt; customer services -&gt; order services -&gt; admin services.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Sharing </tag>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>The Pragmatic Programmer Chapter 8</title>
       <link href="/2020/07/22/the-pragmatic-programmer-chapter-8/"/>
       <url>/2020/07/22/the-pragmatic-programmer-chapter-8/</url>

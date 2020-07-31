@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrrrrrrrian.github.io/"/>
-  <updated>2020-07-22T20:59:26.927Z</updated>
+  <updated>2020-07-31T13:13:28.376Z</updated>
   <id>https://adrrrrrrrian.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Software Architecture Monday notes - 01</title>
+    <link href="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/"/>
+    <id>https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/</id>
+    <published>2020-07-31T13:06:12.000Z</published>
+    <updated>2020-07-31T13:13:28.376Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Architectural-abstraction&quot;&gt;&lt;a href=&quot;#Architectural-abstraction&quot; class=&quot;headerlink&quot; title=&quot;Architectural abstraction&quot;&gt;&lt;/a&gt;Architectural abstraction&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
+    
+    
+      <category term="Sharing" scheme="https://adrrrrrrrian.github.io/tags/Sharing/"/>
+    
+      <category term="Architecture" scheme="https://adrrrrrrrian.github.io/tags/Architecture/"/>
+    
+  </entry>
   
   <entry>
     <title>The Pragmatic Programmer Chapter 8</title>
@@ -403,28 +425,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Chapter-9-Unit-test&quot;&gt;&lt;a href=&quot;#Chapter-9-Unit-test&quot; class=&quot;headerlink&quot; title=&quot;Chapter 9 - Unit test&quot;&gt;&lt;/a&gt;Chapter 9 - Unit test&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
-    
-    
-      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
-    
-      <category term="Netty" scheme="https://adrrrrrrrian.github.io/tags/Netty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Netty in Action Chapter 8</title>
-    <link href="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/"/>
-    <id>https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/</id>
-    <published>2020-04-14T18:54:16.000Z</published>
-    <updated>2020-05-05T15:12:36.688Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Chapter-8-Bootstrapping&quot;&gt;&lt;a href=&quot;#Chapter-8-Bootstrapping&quot; class=&quot;headerlink&quot; title=&quot;Chapter 8 - Bootstrapping&quot;&gt;&lt;/a&gt;Chapter 8 - Bootstrapping&lt;/h1&gt;
     
     </summary>
     

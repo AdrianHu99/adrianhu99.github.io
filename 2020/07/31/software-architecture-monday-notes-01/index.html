@@ -22,23 +22,23 @@
     var CONFIG = {"hostname":"adrrrrrrrian.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"b2t":false,"scrollpercent":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Chapter 8 - Bootstrapping">
-<meta name="keywords" content="Java,Netty">
+  <meta name="description" content="Architectural abstraction">
+<meta name="keywords" content="Sharing,Architecture">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Netty in Action Chapter 8">
-<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/index.html">
+<meta property="og:title" content="Software Architecture Monday notes - 01">
+<meta property="og:url" content="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/index.html">
 <meta property="og:site_name" content="Adrian&#39;s blog">
-<meta property="og:description" content="Chapter 8 - Bootstrapping">
+<meta property="og:description" content="Architectural abstraction">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/bootstrapping_process.png">
-<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/eventLoop_shared_among_channels.png">
-<meta property="og:updated_time" content="2020-05-05T15:12:36.688Z">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/image-20200731084623867.png">
+<meta property="og:image" content="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/image-20200731084813567.png">
+<meta property="og:updated_time" content="2020-07-31T13:13:28.376Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Netty in Action Chapter 8">
-<meta name="twitter:description" content="Chapter 8 - Bootstrapping">
-<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/bootstrapping_process.png">
+<meta name="twitter:title" content="Software Architecture Monday notes - 01">
+<meta name="twitter:description" content="Architectural abstraction">
+<meta name="twitter:image" content="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/image-20200731084623867.png">
 
-<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/">
+<link rel="canonical" href="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>Netty in Action Chapter 8 | Adrian's blog</title>
+  <title>Software Architecture Monday notes - 01 | Adrian's blog</title>
   
 
 
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/04/14/netty-in-action-chapter-8/">
+    <link itemprop="mainEntityOfPage" href="https://adrrrrrrrian.github.io/2020/07/31/software-architecture-monday-notes-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/favicon.png">
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Netty in Action Chapter 8
+          Software Architecture Monday notes - 01
         </h1>
 
         <div class="post-meta">
@@ -190,7 +190,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-04-14 14:54:16" itemprop="dateCreated datePublished" datetime="2020-04-14T14:54:16-04:00">2020-04-14</time>
+              <time title="Created: 2020-07-31 09:06:12" itemprop="dateCreated datePublished" datetime="2020-07-31T09:06:12-04:00">2020-07-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -213,10 +213,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Chapter-8-Bootstrapping"><a href="#Chapter-8-Bootstrapping" class="headerlink" title="Chapter 8 - Bootstrapping"></a>Chapter 8 - Bootstrapping</h1><a id="more"></a>
-<p>In 8.1, the bootstrapping steps common to both server and client are handled by AbstractBootstrap, steps specific to clients/servers are handled by Bootstrap or ServerBootstrap.</p>
-<p>In 8.2, <em>Bootstrap</em> class is responsible to create Channels for clients and for applications using connectionless protocols.<br><img src="bootstrapping_process.png" alt="Bootstrapping process"><br>We must make sure to not mix OioEventLoopGroup with NioSocketChannel, it will throw exceptions.</p>
-<p>In 8.3, <em>ServerBootstrap</em> creates <em>ServerChannel</em> to create Channels which represents accepted connections.<br>In 8.4, we are able to bootstrap clients from a Channel, in case we need to act as a client to a third system while processing a client request. And one general guideline from Netty is to reuse EventLoops wherever possible to reduce the cost of thread creation.<br><img src="eventLoop_shared_among_channels.png" alt="EventLoop shared among Channels"><br>In 8.5, we know that we can add more than one ChannelHandlers during a bootstrap by adding them in the pipeline attached to the bootstrap.<br>In 8.6, we are able to use ChannelOptions to apply configurations for all Channels automatically, it includes low-level properties and buffer settings.<br>Netty also offers <em>AttributeMaps</em> to associate data item with both client and server Channels.<br>In 8.8, when we need to shut down the application, we will need to shut down the <em>EventLoopGroup</em>, which is a matter of calling <em>EventLoopGroup.shutdownGracefully()</em>, we can also call <em>Channel.close()</em>.</p>
+        <h1 id="Architectural-abstraction"><a href="#Architectural-abstraction" class="headerlink" title="Architectural abstraction"></a>Architectural abstraction</h1><a id="more"></a>
+<p><a href="https://www.youtube.com/watch?v=2qpdjKWNwi0&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=60" target="_blank" rel="noopener">link</a></p>
+<ul>
+<li>Location transparency</li>
+<li>Name transparency</li>
+<li>Implementation transparency</li>
+<li>Access decoupling</li>
+<li>Contract decoupling</li>
+</ul>
+<p>Example 1: Messaging</p>
+<p>It has first three but not the last two, as it has to use the messaging protocol, also it has to follow the contract.</p>
+<p>Example 2: Adaptor</p>
+<p>It has all five because the adaptor can handle different protocol and do the transformation, for contract the adaptor can also massage the msg to adapt to the contract.</p>
+<p>Example 3: REST</p>
+<p>For location transparency, it depends on how the design is. If API gateway is used, then yes, if no then no. </p>
+<p>For the last two, no because we are stick to REST and we have to follow the contract.</p>
+<p>Example 4: Messaging bus</p>
+<p>Yes to all.</p>
+<h1 id="Circuit-breaker-pattern"><a href="#Circuit-breaker-pattern" class="headerlink" title="Circuit breaker pattern"></a>Circuit breaker pattern</h1><p><a href="https://www.youtube.com/watch?v=Cyh4t9SMbJ0&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=58" target="_blank" rel="noopener">link</a></p>
+<ul>
+<li>Simple heartbeat - just for availability</li>
+<li>Synthetic transactions - input with fake data, can&#39;t cover all code paths</li>
+<li>Real-user monitoring - monitor real data, once the latency goes up, open the breaker and implement rate limiting. Once the latency goes down, close the breaker</li>
+</ul>
+<h1 id="Component-coupling"><a href="#Component-coupling" class="headerlink" title="Component coupling"></a>Component coupling</h1><p><a href="https://www.youtube.com/watch?v=lUrgx6UIsWk&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=57" target="_blank" rel="noopener">link</a></p>
+<h3 id="Pathological-coupling"><a href="#Pathological-coupling" class="headerlink" title="Pathological coupling"></a>Pathological coupling</h3><p>One component relies on the inner workings of another component</p>
+<h3 id="External-coupling"><a href="#External-coupling" class="headerlink" title="External coupling"></a>External coupling</h3><p>Multiple components share an externally imposed protocol or data format (Example, three components rely on a REST API from another component)</p>
+<h3 id="Control-coupling"><a href="#Control-coupling" class="headerlink" title="Control coupling"></a>Control coupling</h3><p>One component passes info to another component on what to do</p>
+<h3 id="Data-coupling"><a href="#Data-coupling" class="headerlink" title="Data coupling"></a>Data coupling</h3><p>The degree to which components are bound to a shared data context</p>
+<h1 id="Presenting-architecture"><a href="#Presenting-architecture" class="headerlink" title="Presenting architecture"></a>Presenting architecture</h1><p><a href="https://www.youtube.com/watch?v=pJc0l2DASpo&list=PLdsOZAx8I5umhnn5LLTNJbFgwA3xbycar&index=55" target="_blank" rel="noopener">link</a></p>
+<h3 id="expansion-joints"><a href="#expansion-joints" class="headerlink" title="expansion joints"></a>expansion joints</h3><p>Have everything in a single slide, and we can expand and contract based on the audience (manager, developer)</p>
+<h3 id="accordion-slides"><a href="#accordion-slides" class="headerlink" title="accordion slides"></a>accordion slides</h3><p>Don&#39;t list all the bullet points which force you to do when you don&#39;t have enough time. Instead you have a planned time ahead and if you only can spend half of the planned time at this page, you can change a little bit, do a summary for example. If you have all bullet points listed and you don&#39;t have time to read them all, this will give audiences a feeling that you are skipping information.</p>
+<h3 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h3><p><img src="image-20200731084623867.png" alt></p>
+<p>Instead of the screenshot above, which is overwhelming, instead you can do animation to illustrate the flow of a block in the design, which will be easier to understand.</p>
+<h3 id="dimension-and-focus"><a href="#dimension-and-focus" class="headerlink" title="dimension and focus"></a>dimension and focus</h3><p><img src="image-20200731084813567.png" alt></p>
+<p>By screenshot above, audiences will know they need to focus on api layer now.</p>
+<h3 id="build-outs"><a href="#build-outs" class="headerlink" title="build outs"></a>build outs</h3><p>Instead of showing all the architecture, showing them piece by piece so you will have the focus from audiences. For example: client request -&gt; api layer -&gt; customer services -&gt; order services -&gt; admin services.</p>
 
     </div>
 
@@ -226,8 +259,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/Netty/" rel="tag"># Netty</a>
+              <a href="/tags/Sharing/" rel="tag"># Sharing</a>
+              <a href="/tags/Architecture/" rel="tag"># Architecture</a>
           </div>
 
         
@@ -236,13 +269,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/09/netty-in-action-chapter-7/" rel="prev" title="Netty in Action Chapter 7">
-      <i class="fa fa-chevron-left"></i> Netty in Action Chapter 7
+    <a href="/2020/07/22/the-pragmatic-programmer-chapter-8/" rel="prev" title="The Pragmatic Programmer Chapter 8">
+      <i class="fa fa-chevron-left"></i> The Pragmatic Programmer Chapter 8
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/04/17/netty-in-action-chapter-9/" rel="next" title="Netty in Action Chapter 9">
-      Netty in Action Chapter 9 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -301,7 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-8-Bootstrapping"><span class="nav-number">1.</span> <span class="nav-text">Chapter 8 - Bootstrapping</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Architectural-abstraction"><span class="nav-number">1.</span> <span class="nav-text">Architectural abstraction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Circuit-breaker-pattern"><span class="nav-number">2.</span> <span class="nav-text">Circuit breaker pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Component-coupling"><span class="nav-number">3.</span> <span class="nav-text">Component coupling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pathological-coupling"><span class="nav-number">3.0.1.</span> <span class="nav-text">Pathological coupling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#External-coupling"><span class="nav-number">3.0.2.</span> <span class="nav-text">External coupling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Control-coupling"><span class="nav-number">3.0.3.</span> <span class="nav-text">Control coupling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-coupling"><span class="nav-number">3.0.4.</span> <span class="nav-text">Data coupling</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Presenting-architecture"><span class="nav-number">4.</span> <span class="nav-text">Presenting architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#expansion-joints"><span class="nav-number">4.0.1.</span> <span class="nav-text">expansion joints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accordion-slides"><span class="nav-number">4.0.2.</span> <span class="nav-text">accordion slides</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation"><span class="nav-number">4.0.3.</span> <span class="nav-text">animation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dimension-and-focus"><span class="nav-number">4.0.4.</span> <span class="nav-text">dimension and focus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#build-outs"><span class="nav-number">4.0.5.</span> <span class="nav-text">build outs</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
