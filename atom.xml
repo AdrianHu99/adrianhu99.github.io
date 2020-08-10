@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://adrrrrrrrian.github.io/"/>
-  <updated>2020-07-31T15:35:21.193Z</updated>
+  <updated>2020-08-10T19:32:05.201Z</updated>
   <id>https://adrrrrrrrian.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>干扰素及解压</title>
+    <link href="https://adrrrrrrrian.github.io/2020/08/10/gan-rao-su-ji-jie-ya/"/>
+    <id>https://adrrrrrrrian.github.io/2020/08/10/gan-rao-su-ji-jie-ya/</id>
+    <published>2020-08-10T19:28:29.000Z</published>
+    <updated>2020-08-10T19:32:05.201Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在上一个OKR圆满收尾之后，我想着在新的OKR中再接再厉。但是已经过了一周了，我并没有太多进展，取而代之的是很深的无意义感和动力不足。想来也是，我已经连续工作了五个OKR，没有怎么休息。上一个周末，我完全没有学习，刻意去想做什么做什么，听音乐玩游戏看综艺，同时也在思考我应该在之后如何调节自己。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="https://adrrrrrrrian.github.io/categories/Life/"/>
+    
+    
+      <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
+    
+  </entry>
   
   <entry>
     <title>第五个OKR</title>
@@ -414,26 +434,6 @@
     
     
       <category term="Efficiency" scheme="https://adrrrrrrrian.github.io/tags/Efficiency/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java Exception Handling Best Practices</title>
-    <link href="https://adrrrrrrrian.github.io/2020/04/21/java-exception-handling-best-practices/"/>
-    <id>https://adrrrrrrrian.github.io/2020/04/21/java-exception-handling-best-practices/</id>
-    <published>2020-04-21T10:40:45.000Z</published>
-    <updated>2020-05-05T15:11:31.853Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Do-NOT-just-catch-Exception-or-Throwable-which-will-also-catch-RuntimeException&quot;&gt;&lt;a href=&quot;#Do-NOT-just-catch-Exception-or-Throwable-which-will-also-catch-RuntimeException&quot; class=&quot;headerlink&quot; title=&quot;Do NOT just catch Exception or Throwable, which will also catch RuntimeException&quot;&gt;&lt;/a&gt;Do &lt;strong&gt;NOT&lt;/strong&gt; just catch Exception or Throwable, which will also catch RuntimeException&lt;/h4&gt;
-    
-    </summary>
-    
-      <category term="Tech" scheme="https://adrrrrrrrian.github.io/categories/Tech/"/>
-    
-    
-      <category term="Java" scheme="https://adrrrrrrrian.github.io/tags/Java/"/>
     
   </entry>
   
